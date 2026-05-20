@@ -177,15 +177,147 @@
   .history-lost .history-outcome { color: var(--avoid); }
   .history-empty { font-family: var(--body); font-style: italic; font-size: 0.95rem; color: var(--text-mute); padding: 32px 24px; text-align: center; border: 1px dashed var(--border-soft); background: var(--surface-up); }
 
+  /* ── Tablet + large-phone breakpoint ────────────────────────── */
   @media (max-width: 760px) {
+    /* Page-wide padding tightening */
+    .pnl-inner, .picks-section, .summary-strip, .games,
+    .history-section, .charts-section, footer {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    /* Masthead: shorter, smaller fonts */
+    .masthead { padding: 36px 16px 32px; }
+    .masthead-eyebrow { margin-bottom: 14px; font-size: 0.62rem; letter-spacing: 0.2em; }
+    .masthead h1 { font-size: clamp(1.4rem, 6.5vw, 2.2rem); margin-bottom: 14px; }
+    .masthead-date { font-size: 1rem; margin-bottom: 20px; }
+    .masthead-dek { font-size: 0.9rem; padding-left: 14px; }
+
+    /* Topbar: stack brand above meta */
+    .topbar { padding: 10px 0; }
+    .topbar-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      padding: 0 16px;
+    }
+    .brand { font-size: 0.95rem; }
+    .meta-bar { font-size: 0.62rem; line-height: 1.4; }
+
+    /* P&L strip: 2-col financials, 3-col tiers, smaller values */
+    .pnl-strip { padding: 10px 0; }
     .pnl-row.row-financial { grid-template-columns: repeat(2, 1fr); }
     .pnl-row.row-tiers { grid-template-columns: repeat(3, 1fr); }
+    .pnl-cell { padding: 8px 12px; }
+    .pnl-label { font-size: 0.56rem; letter-spacing: 0.16em; margin-bottom: 4px; }
+    .pnl-value { font-size: 1.25rem; }
+    .pnl-record-rate { font-size: 0.62rem; margin-left: 4px; display: inline-block; }
+
+    /* Summary grid */
     .summary-grid { grid-template-columns: repeat(2, 1fr); }
-    .card-header { grid-template-columns: 1fr; }
-    .bet-callout { text-align: left; padding-left: 0; padding-top: 20px; border-left: none; border-top: 1px solid var(--border-soft); margin-top: 16px; }
-    .card-body { grid-template-columns: 1fr; }
-    .pick-item { flex-direction: column; align-items: flex-start; gap: 4px; }
-    .history-bet { flex-direction: column; gap: 2px; }
+    .summary-cell { padding: 16px 16px; }
+    .summary-value { font-size: 1.7rem; }
+
+    /* Picks */
+    .pick-item { flex-direction: column; align-items: flex-start; gap: 4px; padding: 12px 16px; }
+    .pick-matchup { font-size: 1rem; }
+    .pick-spread { font-size: 0.78rem; }
+    .pick-text { font-size: 0.88rem; }
+
+    /* Section labels: stack title + count vertically */
+    .section-label { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .section-label-count { font-size: 0.85rem; }
+
+    /* Game cards: shrink padding + bet amount */
+    .card-header {
+      grid-template-columns: 1fr;
+      padding: 22px 18px 18px;
+      gap: 14px;
+    }
+    .matchup-line { font-size: 0.66rem; margin-bottom: 8px; }
+    .matchup { font-size: 1.45rem; }
+    .game-time { font-size: 0.72rem; }
+    .bet-callout {
+      text-align: left;
+      padding-left: 0;
+      padding-top: 16px;
+      border-left: none;
+      border-top: 1px solid var(--border-soft);
+      margin-top: 12px;
+    }
+    .bet-amount { font-size: 2.2rem; }
+    .direction-row { padding: 14px 18px; gap: 12px; }
+    .direction-tag { font-size: 0.65rem; padding: 4px 8px; }
+    .direction-text { font-size: 0.92rem; }
+    .card-body {
+      grid-template-columns: 1fr;
+      padding: 20px 18px 24px;
+      gap: 24px;
+    }
+    .panel-title { font-size: 0.6rem; }
+    .prob-table { font-size: 0.8rem; }
+    .prob-table td { padding: 7px 0; }
+    .prob-table td.team { font-size: 0.88rem; }
+    .meta-row { font-size: 0.72rem; padding: 6px 0; }
+    .meta-row span:first-child { font-size: 0.62rem; }
+    .buy-line { font-size: 0.76rem; padding: 10px 12px; }
+    .driver-name { font-size: 0.86rem; }
+    .driver-share { font-size: 0.72rem; }
+    .driver { padding: 7px 0; gap: 8px; }
+    .attractiveness { padding: 16px 18px; gap: 16px; }
+    .attr-score { font-size: 2rem; }
+    .attr-tags { font-size: 0.72rem; }
+    .analysis-bullet { font-size: 0.95rem; padding-left: 24px; }
+    .tldr { font-size: 1rem; padding: 14px 16px; }
+
+    /* Historical Results: stack matchup info vertically */
+    .history-item { padding: 12px 16px; }
+    .history-bet { flex-direction: column; gap: 3px; }
+    .history-matchup { font-size: 1rem; }
+    .history-outcome { font-size: 0.78rem; padding-left: 14px; }
+
+    /* Charts: tighter container + bigger SVG text (overrides desktop) */
+    .chart-block { padding: 16px 14px; }
+    .chart-title { font-size: 0.65rem; margin-bottom: 12px; padding-bottom: 10px; }
+    .chart-svg text { font-size: 22px; }
+
+    /* Footer */
+    footer { padding: 32px 16px 50px; font-size: 0.72rem; }
+  }
+
+  /* ── Small-phone breakpoint (iPhone SE / portrait) ────────── */
+  @media (max-width: 480px) {
+    /* P&L strip: full single-column, label-value side-by-side rows */
+    .pnl-row.row-financial,
+    .pnl-row.row-tiers { grid-template-columns: 1fr; }
+    .pnl-cell {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 10px 14px;
+    }
+    .pnl-label { margin-bottom: 0; }
+    .pnl-value { font-size: 1.15rem; }
+
+    /* Summary grid: also single column with label/value rows */
+    .summary-grid { grid-template-columns: 1fr; }
+    .summary-cell {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 14px 16px;
+    }
+    .summary-label { margin-bottom: 0; }
+    .summary-value { font-size: 1.5rem; }
+    .summary-sub { display: none; }  /* hide subtext on tightest screens */
+
+    /* Even smaller headings */
+    .masthead h1 { font-size: clamp(1.25rem, 7vw, 1.8rem); }
+    .matchup { font-size: 1.25rem; }
+    .bet-amount { font-size: 1.8rem; }
+
+    /* Charts: even larger SVG text */
+    .chart-svg text { font-size: 28px; }
   }
 </style>
 </head>
@@ -211,7 +343,7 @@
   <div class="topbar-inner">
     <div class="brand"><span class="brand-dot"></span>HIDDEN&nbsp;LINES</div>
     <div class="meta-bar">
-      <strong>v4_2026-05-19</strong> · 130 features · stacked ensemble · updated <strong>6:21 PM ET</strong>
+      <strong>v4_2026-05-19</strong> · 130 features · stacked ensemble · updated <strong>6:35 PM ET</strong>
     </div>
   </div>
 </div>
@@ -233,7 +365,7 @@
         <li class="pick-item pick-contrarian">
           <span class="pick-matchup">SAS @ OKC</span>
           <span class="pick-spread">(OKC -3.5)</span>
-          <span class="pick-text">$1.60* recommended wager on San Antonio Spurs (low confidence, haircut)</span>
+          <span class="pick-text">$1.70* recommended wager on San Antonio Spurs (low confidence, haircut)</span>
         </li></ul>
 </div>
 
@@ -242,7 +374,7 @@
     <div class="summary-cell"><div class="summary-label">Games on Slate</div><div class="summary-value">1</div><div class="summary-sub">today</div></div>
     <div class="summary-cell"><div class="summary-label">Actionable Bets</div><div class="summary-value favorite">1</div><div class="summary-sub">non-zero stakes</div></div>
     <div class="summary-cell"><div class="summary-label">Passes / Avoid</div><div class="summary-value pass">0</div><div class="summary-sub">outside top 5 or AVOID</div></div>
-    <div class="summary-cell"><div class="summary-label">Total $ Recommended</div><div class="summary-value accent">$1.60</div><div class="summary-sub">across actionable bets</div></div>
+    <div class="summary-cell"><div class="summary-label">Total $ Recommended</div><div class="summary-value accent">$1.70</div><div class="summary-sub">across actionable bets</div></div>
   </div>
 </div>
 
@@ -258,7 +390,7 @@
       </div>
       <div class="bet-callout">
         <div class="bet-label">Suggested Bet</div>
-        <div class="bet-amount">$1.60*</div>
+        <div class="bet-amount">$1.70*</div>
         <div class="bet-formula">haircut: attractiveness/2 (low conf)</div>
       </div>
     </div>
@@ -270,17 +402,17 @@
       <div>
         <div class="panel-title">Model vs Market</div>
         <table class="prob-table">
-          <tr><td class="team">Oklahoma City Thunder</td><td class="num">59.3%</td><td class="num">68.5%</td><td class="delta delta-neg">-9.2</td></tr>
-          <tr><td class="team">San Antonio Spurs</td><td class="num">40.7%</td><td class="num">31.5%</td><td class="delta delta-pos">+9.2</td></tr></table>
+          <tr><td class="team">Oklahoma City Thunder</td><td class="num">59.3%</td><td class="num">69.5%</td><td class="delta delta-neg">-10.2</td></tr>
+          <tr><td class="team">San Antonio Spurs</td><td class="num">40.7%</td><td class="num">30.5%</td><td class="delta delta-pos">+10.2</td></tr></table>
         <div class="meta-rows">
           <div class="meta-row"><span>Projected Margin</span><strong>OKC -3.5</strong></div>
-          <div class="meta-row"><span>Expected Value</span><strong>$+0.092 / $1</strong></div>
-          <div class="meta-row"><span>Kelly Stake</span><strong>3.4% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$2,278,402</strong></div>
+          <div class="meta-row"><span>Expected Value</span><strong>$+0.102 / $1</strong></div>
+          <div class="meta-row"><span>Kelly Stake</span><strong>3.7% of bankroll</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$2,609,310</strong></div>
         </div>
         
         <div class="buy-line">
-          <strong>→ Buy San Antonio Spurs (AWAY)</strong> at 0.315 · Kelly 3.4% · EV $+0.092/$1
+          <strong>→ Buy San Antonio Spurs (AWAY)</strong> at 0.305 · Kelly 3.7% · EV $+0.102/$1
         </div>
       </div>
       <div>
@@ -297,7 +429,7 @@
         </div>
       </div>
       <div class="attractiveness">
-        <div><span class="attr-score">5.2</span><span class="attr-score-suffix"> / 10</span></div>
+        <div><span class="attr-score">5.5</span><span class="attr-score-suffix"> / 10</span></div>
         <div>
           <div class="attr-label">Attractiveness · MEDIUM tier</div>
           <div class="attr-tags"><span class="tag">strong edge</span><span class="tag">deep market</span><span class="tag">no signal confirmation</span><span class="tag">calibrated bin (±3pp)</span><span class="tag">haircut bet (low conf)</span></div>
@@ -305,8 +437,8 @@
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Spurs 40.7% vs Polymarket&#x27;s 31.5% — a 9.2pp gap that&#x27;s large enough to be meaningful, not noise.</li><li class="analysis-bullet">OKC&#x27;s ELO advantage (1822 vs 1787) and superior offensive rating drive the market&#x27;s confidence in the Thunder.</li><li class="analysis-bullet">Spurs&#x27; net rating differential and point differential trends push the model toward San Antonio outperforming expectations.</li><li class="analysis-bullet">EV of $0.09 per dollar with ¼ Kelly at 3.4% signals real but measured value — contrarian, not a slam dunk.</li><li class="analysis-bullet">73% of order book money on OKC and falling Spurs price means you&#x27;re fading sharp market flow — proceed eyes open.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet $5.20 on San Antonio Spurs because the model sees them 9.2pp more likely to win than Polymarket prices reflect.</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Spurs 40.7% vs Polymarket&#x27;s 30.5% — a 10.2pp gap that signals real mispricing, not noise.</li><li class="analysis-bullet">OKC&#x27;s ELO advantage and superior offensive/defensive ratings are real, but Spurs&#x27; net rating differential tells a different story on the road.</li><li class="analysis-bullet">EV of $0.10 per dollar and ¼ Kelly stake of 3.7% confirm a legitimate but measured edge worth taking.</li><li class="analysis-bullet">Market structure is a caution flag — money flow and price drift both lean OKC, meaning smart money isn&#x27;t backing this contrarian play.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet $5.52 on San Antonio Spurs because the market is overestimating OKC by 10.2pp and the model&#x27;s EV supports a contrarian small-stake play.</div>
       </div>
     </div>
   </article>
@@ -336,33 +468,33 @@
     <div class="chart-title">Cumulative Net P&amp;L by Date</div>
     <svg viewBox="0 0 960 280" xmlns="http://www.w3.org/2000/svg" class="chart-svg">
 <line x1="70" y1="30.0" x2="930" y2="30.0" stroke="#1f2530" stroke-width="1"/>
-<text x="62" y="34.0" text-anchor="end" font-family="ui-monospace, monospace" font-size="11" fill="#5c5851">+$2.83</text>
+<text x="62" y="34.0" text-anchor="end" font-family="ui-monospace, monospace" font-size="13" fill="#5c5851">+$2.83</text>
 <line x1="70" y1="70.0" x2="930" y2="70.0" stroke="#1f2530" stroke-width="1"/>
-<text x="62" y="74.0" text-anchor="end" font-family="ui-monospace, monospace" font-size="11" fill="#5c5851">+$2.16</text>
+<text x="62" y="74.0" text-anchor="end" font-family="ui-monospace, monospace" font-size="13" fill="#5c5851">+$2.16</text>
 <line x1="70" y1="110.0" x2="930" y2="110.0" stroke="#1f2530" stroke-width="1"/>
-<text x="62" y="114.0" text-anchor="end" font-family="ui-monospace, monospace" font-size="11" fill="#5c5851">+$1.50</text>
+<text x="62" y="114.0" text-anchor="end" font-family="ui-monospace, monospace" font-size="13" fill="#5c5851">+$1.50</text>
 <line x1="70" y1="150.0" x2="930" y2="150.0" stroke="#1f2530" stroke-width="1"/>
-<text x="62" y="154.0" text-anchor="end" font-family="ui-monospace, monospace" font-size="11" fill="#5c5851">+$0.83</text>
+<text x="62" y="154.0" text-anchor="end" font-family="ui-monospace, monospace" font-size="13" fill="#5c5851">+$0.83</text>
 <line x1="70" y1="190.0" x2="930" y2="190.0" stroke="#1f2530" stroke-width="1"/>
-<text x="62" y="194.0" text-anchor="end" font-family="ui-monospace, monospace" font-size="11" fill="#5c5851">+$0.17</text>
+<text x="62" y="194.0" text-anchor="end" font-family="ui-monospace, monospace" font-size="13" fill="#5c5851">+$0.17</text>
 <line x1="70" y1="230.0" x2="930" y2="230.0" stroke="#1f2530" stroke-width="1"/>
-<text x="62" y="234.0" text-anchor="end" font-family="ui-monospace, monospace" font-size="11" fill="#5c5851">-$0.50</text>
+<text x="62" y="234.0" text-anchor="end" font-family="ui-monospace, monospace" font-size="13" fill="#5c5851">-$0.50</text>
 <line x1="70" y1="200.0" x2="930" y2="200.0" stroke="#5c5851" stroke-width="1" stroke-dasharray="4,4"/>
 <circle cx="500.0" cy="60.0" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
-<text x="500.0" y="46.0" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="13" fill="#e6e1d6" font-weight="500">+$2.33</text>
-<text x="500.0" y="250" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#5c5851">05-19</text>
+<text x="500.0" y="46.0" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">+$2.33</text>
+<text x="500.0" y="250" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5c5851">05-19</text>
 </svg>
   </div>
   <div class="chart-block">
     <div class="chart-title">Daily Wins vs Losses</div>
     <svg viewBox="0 0 960 280" xmlns="http://www.w3.org/2000/svg" class="chart-svg">
 <line x1="70" y1="230.0" x2="930" y2="230.0" stroke="#1f2530" stroke-width="1"/>
-<text x="62" y="234.0" text-anchor="end" font-family="ui-monospace, monospace" font-size="11" fill="#5c5851">0</text>
+<text x="62" y="234.0" text-anchor="end" font-family="ui-monospace, monospace" font-size="13" fill="#5c5851">0</text>
 <line x1="70" y1="30.0" x2="930" y2="30.0" stroke="#1f2530" stroke-width="1"/>
-<text x="62" y="34.0" text-anchor="end" font-family="ui-monospace, monospace" font-size="11" fill="#5c5851">1</text>
+<text x="62" y="34.0" text-anchor="end" font-family="ui-monospace, monospace" font-size="13" fill="#5c5851">1</text>
 <rect x="457.0" y="30.0" width="40.0" height="200.0" fill="#5fa777"/>
-<text x="477.0" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#5fa777">1</text>
-<text x="500.0" y="250" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#5c5851">05-19</text>
+<text x="477.0" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<text x="500.0" y="250" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5c5851">05-19</text>
 <line x1="70" y1="230" x2="930" y2="230" stroke="#2a3140" stroke-width="1"/>
 </svg>
   </div>
