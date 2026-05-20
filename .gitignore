@@ -1,0 +1,5 @@
+# Files that should never go to GitHub
+cron.log
+update_site.sh
+*.log
+*.sh
