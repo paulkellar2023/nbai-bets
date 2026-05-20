@@ -13,19 +13,25 @@
     --border: #2a3140; --border-soft: #1f2530;
     --text: #e6e1d6; --text-dim: #8b8578; --text-mute: #5c5851;
     --accent: #f5b942; --accent-soft: #f5b94215;
-    --favorite: #5fa777; --favorite-bg: #5fa77715;
+    --favorite: #5fa777; --favorite-bg: #5fa77715; --favorite-tint: #5fa7770d;
     --contrarian: #d4a444; --contrarian-bg: #d4a44415;
     --pass: #8b8578; --pass-bg: #8b857815;
-    --avoid: #c25450; --avoid-bg: #c2545015;
+    --avoid: #c25450; --avoid-bg: #c2545015; --avoid-tint: #c254500d;
     --edge-pos: #5fa777; --edge-neg: #c25450;
     --display: 'Fraunces', Georgia, serif;
     --body: 'Newsreader', Georgia, serif;
     --mono: 'JetBrains Mono', ui-monospace, monospace;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: var(--body); font-weight: 400; line-height: 1.6; min-height: 100vh; -webkit-font-smoothing: antialiased; background-image: radial-gradient(at 20% 0%, #1c222d 0%, transparent 50%), radial-gradient(at 80% 100%, #1a1f28 0%, transparent 50%); background-attachment: fixed; }
+  body {
+    background: var(--bg); color: var(--text); font-family: var(--body);
+    font-weight: 400; line-height: 1.6; min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    background-image: radial-gradient(at 20% 0%, #1c222d 0%, transparent 50%), radial-gradient(at 80% 100%, #1a1f28 0%, transparent 50%);
+    background-attachment: fixed;
+  }
 
-  /* P&L STRIP — now two rows: 4 financial + 3 tier records */
+  /* ── P&L STRIP ───────────────────────────────────── */
   .pnl-strip { background: var(--surface); border-bottom: 1px solid var(--border); padding: 12px 0; }
   .pnl-inner { max-width: 1080px; margin: 0 auto; padding: 0 32px; display: flex; flex-direction: column; gap: 1px; }
   .pnl-row { display: grid; gap: 1px; background: var(--border-soft); }
@@ -51,7 +57,7 @@
   .meta-bar { font-family: var(--mono); font-size: 0.72rem; color: var(--text-mute); letter-spacing: 0.08em; text-transform: uppercase; }
   .meta-bar strong { color: var(--text-dim); font-weight: 500; }
 
-  /* MASTHEAD — heading now centered, fluid sizing, less vertical space */
+  /* ── MASTHEAD ────────────────────────────────────── */
   .masthead { max-width: 1080px; margin: 0 auto; padding: 56px 32px 48px; text-align: center; }
   .masthead-eyebrow { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.24em; color: var(--accent); text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; justify-content: center; }
   .eyebrow-line { flex: 1; max-width: 80px; height: 1px; background: var(--accent); opacity: 0.4; }
@@ -84,15 +90,13 @@
   .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
   .summary-cell { background: var(--surface); padding: 22px 24px; }
   .summary-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.18em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 10px; }
-  .summary-value { font-family: var(--display); font-weight: 400; font-size: 2.2rem; line-height: 1; color: var(--text); }
+  .summary-value { font-family: var(--display); font-weight: 400; font-size: 2.2rem; line-height: 1; color: var(--text); font-variation-settings: "opsz" 144; }
   .summary-value.accent { color: var(--accent); }
   .summary-value.favorite { color: var(--favorite); }
   .summary-value.pass { color: var(--pass); }
   .summary-sub { font-family: var(--mono); font-size: 0.7rem; color: var(--text-mute); margin-top: 6px; }
 
-  /* (tier-strip section is REMOVED — data now in top P&L row 2) */
-
-  .games { max-width: 1080px; margin: 0 auto; padding: 0 32px 100px; }
+  .games { max-width: 1080px; margin: 0 auto; padding: 0 32px 60px; }
   .section-label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.22em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border-soft); display: flex; justify-content: space-between; align-items: baseline; }
   .section-label-count { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 0.95rem; color: var(--text-dim); letter-spacing: 0; text-transform: none; }
 
@@ -100,23 +104,18 @@
   .card.favorite { border-left-color: var(--favorite); }
   .card.contrarian { border-left-color: var(--contrarian); }
   .card.pass { border-left-color: var(--pass); }
-  .card.avoid { border-left-color: var(--avoid); }
   .card-header { padding: 28px 36px 22px; border-bottom: 1px solid var(--border-soft); display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: start; }
   .matchup-line { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 12px; }
-  .matchup { font-family: var(--display); font-weight: 400; font-size: 1.85rem; line-height: 1.15; letter-spacing: -0.015em; color: var(--text); margin-bottom: 8px; }
+  .matchup { font-family: var(--display); font-weight: 400; font-size: 1.85rem; line-height: 1.15; letter-spacing: -0.015em; color: var(--text); margin-bottom: 8px; font-variation-settings: "opsz" 144; }
   .matchup em { font-style: italic; font-weight: 400; color: var(--text-dim); }
   .game-time { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
   .bet-callout { text-align: right; padding-left: 32px; border-left: 1px solid var(--border-soft); }
   .bet-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.22em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 8px; }
   .bet-amount { font-family: var(--display); font-weight: 400; font-size: 3rem; line-height: 1; letter-spacing: -0.04em; color: var(--accent); font-variation-settings: "opsz" 144; }
-  .card.pass .bet-amount, .card.avoid .bet-amount { color: var(--text-mute); }
   .bet-formula { font-family: var(--mono); font-size: 0.7rem; color: var(--text-mute); margin-top: 6px; }
   .direction-row { padding: 18px 36px; background: var(--surface-up); border-bottom: 1px solid var(--border-soft); display: flex; align-items: center; gap: 16px; }
   .direction-tag { font-family: var(--mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; padding: 5px 10px; text-transform: uppercase; white-space: nowrap; }
   .tag-favorite { color: var(--favorite); background: var(--favorite-bg); border: 1px solid var(--favorite); }
-  .tag-contrarian { color: var(--contrarian); background: var(--contrarian-bg); border: 1px solid var(--contrarian); }
-  .tag-pass { color: var(--pass); background: var(--pass-bg); border: 1px solid var(--pass); }
-  .tag-avoid { color: var(--avoid); background: var(--avoid-bg); border: 1px solid var(--avoid); }
   .direction-text { font-family: var(--body); font-size: 1rem; color: var(--text); flex: 1; }
   .card-body { padding: 28px 36px 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
   .panel-title { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.22em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border-soft); }
@@ -126,20 +125,22 @@
   .prob-table td { padding: 8px 0; color: var(--text); }
   .prob-table td.team { color: var(--text-dim); font-family: var(--body); font-size: 0.95rem; }
   .prob-table td.num, .prob-table td.delta { text-align: right; }
-  .delta-pos { color: var(--edge-pos) !important; } .delta-neg { color: var(--edge-neg) !important; }
+  .delta-pos { color: var(--edge-pos) !important; }
+  .delta-neg { color: var(--edge-neg) !important; }
   .meta-rows { margin-top: 18px; }
   .meta-row { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); padding: 7px 0; border-top: 1px solid var(--border-soft); display: flex; justify-content: space-between; }
   .meta-row span:first-child { text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-mute); font-size: 0.7rem; }
   .meta-row strong { color: var(--text); font-weight: 500; }
   .buy-line { margin-top: 18px; padding: 12px 14px; background: var(--accent-soft); border: 1px solid var(--accent); font-family: var(--mono); font-size: 0.82rem; color: var(--accent); }
-  .driver-block { margin-bottom: 22px; } .driver-block:last-child { margin-bottom: 0; }
+  .driver-block { margin-bottom: 22px; }
   .driver-team { font-family: var(--display); font-style: italic; font-size: 0.95rem; color: var(--text-dim); margin-bottom: 10px; }
   .driver-list { list-style: none; }
   .driver { padding: 8px 0; border-bottom: 1px dashed var(--border-soft); display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; }
-  .driver-name { font-family: var(--body); font-size: 0.92rem; color: var(--text); }
+  .driver:last-child { border-bottom: none; }
+  .driver-name { font-family: var(--body); font-size: 0.92rem; color: var(--text); line-height: 1.3; }
   .driver-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-mute); white-space: nowrap; }
   .attractiveness { grid-column: 1 / -1; margin-top: 8px; padding: 20px 24px; background: var(--surface-up); border: 1px solid var(--border-soft); display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; }
-  .attr-score { font-family: var(--display); font-weight: 400; font-size: 2.4rem; line-height: 1; color: var(--text); }
+  .attr-score { font-family: var(--display); font-weight: 400; font-size: 2.4rem; line-height: 1; color: var(--text); letter-spacing: -0.02em; font-variation-settings: "opsz" 144; }
   .attr-score-suffix { font-family: var(--mono); font-size: 0.85rem; color: var(--text-mute); }
   .attr-label { font-family: var(--mono); font-size: 0.7rem; color: var(--text-mute); letter-spacing: 0.2em; text-transform: uppercase; }
   .attr-tags { font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); line-height: 1.5; margin-top: 6px; }
@@ -150,9 +151,76 @@
   .analysis-bullet::before { content: ''; position: absolute; left: 6px; top: 18px; width: 14px; height: 1px; background: var(--accent); }
   .tldr { margin-top: 8px; padding: 18px 22px; background: var(--bg); border-left: 3px solid var(--accent); font-family: var(--display); font-style: italic; font-size: 1.12rem; line-height: 1.5; color: var(--text); }
   .tldr-label { font-family: var(--mono); font-style: normal; font-size: 0.65rem; color: var(--accent); letter-spacing: 0.24em; text-transform: uppercase; margin-bottom: 6px; }
-  footer { border-top: 1px solid var(--border-soft); margin-top: 80px; padding: 40px 32px 60px; max-width: 1080px; margin-left: auto; margin-right: auto; font-family: var(--mono); font-size: 0.78rem; color: var(--text-mute); line-height: 1.7; }
+
+  /* ── HISTORICAL RESULTS section (NEW) ──────────── */
+  .history-section { max-width: 1080px; margin: 0 auto; padding: 0 32px 60px; }
+  .history-day { margin-bottom: 32px; }
+  .history-date {
+    font-family: var(--display); font-style: italic; font-weight: 400;
+    font-size: 1.3rem; color: var(--text-dim); margin-bottom: 14px;
+    padding-bottom: 10px; border-bottom: 1px dashed var(--border-soft);
+  }
+  .history-list { list-style: none; }
+  .history-item {
+    padding: 16px 20px; margin-bottom: 8px;
+    border: 1px solid var(--border-soft);
+    border-left: 3px solid var(--border);
+    background: var(--surface);
+  }
+  .history-item.history-won {
+    border-left-color: var(--favorite);
+    background: var(--favorite-tint);
+  }
+  .history-item.history-lost {
+    border-left-color: var(--avoid);
+    background: var(--avoid-tint);
+  }
+  .history-bet {
+    display: flex; gap: 12px; align-items: baseline;
+    flex-wrap: wrap; margin-bottom: 8px;
+  }
+  .history-matchup {
+    font-family: var(--display); font-weight: 500;
+    font-size: 1.05rem; color: var(--text);
+  }
+  .history-spread {
+    font-family: var(--mono); font-size: 0.82rem;
+    color: var(--text-dim);
+  }
+  .history-amount {
+    font-family: var(--body); font-size: 0.95rem;
+    color: var(--text-dim);
+  }
+  .history-tier {
+    font-family: var(--mono); font-size: 0.72rem;
+    color: var(--text-mute); letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .history-outcome {
+    font-family: var(--mono); font-size: 0.85rem;
+    color: var(--text); padding-left: 18px;
+    position: relative; letter-spacing: 0.02em;
+  }
+  .history-outcome::before {
+    content: ''; position: absolute;
+    left: 0; top: 10px;
+    width: 10px; height: 1px;
+    background: var(--text-mute);
+  }
+  .history-won .history-outcome { color: var(--favorite); }
+  .history-lost .history-outcome { color: var(--avoid); }
+  .history-empty {
+    font-family: var(--body); font-style: italic;
+    font-size: 0.95rem; color: var(--text-mute);
+    padding: 32px 24px; text-align: center;
+    border: 1px dashed var(--border-soft);
+    background: var(--surface-up);
+  }
+
+  footer { border-top: 1px solid var(--border-soft); margin-top: 40px; padding: 40px 32px 60px; max-width: 1080px; margin-left: auto; margin-right: auto; font-family: var(--mono); font-size: 0.78rem; color: var(--text-mute); line-height: 1.7; }
   footer p { margin-bottom: 8px; }
   footer strong { color: var(--text-dim); font-weight: 500; }
+
   @media (max-width: 760px) {
     .pnl-row.row-financial { grid-template-columns: repeat(2, 1fr); }
     .pnl-row.row-tiers { grid-template-columns: repeat(3, 1fr); }
@@ -161,6 +229,7 @@
     .bet-callout { text-align: left; padding-left: 0; padding-top: 20px; border-left: none; border-top: 1px solid var(--border-soft); margin-top: 16px; }
     .card-body { grid-template-columns: 1fr; }
     .pick-item { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .history-bet { flex-direction: column; gap: 2px; }
   }
 </style>
 </head>
@@ -171,13 +240,13 @@
     <div class="pnl-row row-financial">
       <div class="pnl-cell"><div class="pnl-label">Bankroll</div><div class="pnl-value accent">$10.00</div></div>
       <div class="pnl-cell"><div class="pnl-label">Record</div><div class="pnl-value">0-0<span class="pnl-record-rate">—</span></div></div>
-      <div class="pnl-cell"><div class="pnl-label">Net P&amp;L</div><div class="pnl-value pos">+$0.00</div></div>
+      <div class="pnl-cell"><div class="pnl-label">Net P&amp;L</div><div class="pnl-value">$0.00</div></div>
       <div class="pnl-cell"><div class="pnl-label">Started</div><div class="pnl-value">$10.00</div></div>
     </div>
     <div class="pnl-row row-tiers">
-      <div class="pnl-cell tier-cell tier-high"><div class="pnl-label">High Conf · 6.7+</div><div class="pnl-value">0-0<span class="pnl-record-rate">+$0.00</span></div></div>
-      <div class="pnl-cell tier-cell tier-medium"><div class="pnl-label">Medium · 3.4–6.6</div><div class="pnl-value">0-0<span class="pnl-record-rate">+$0.00</span></div></div>
-      <div class="pnl-cell tier-cell tier-low"><div class="pnl-label">Low · 0–3.3</div><div class="pnl-value">0-0<span class="pnl-record-rate">+$0.00</span></div></div>
+      <div class="pnl-cell tier-cell tier-high"><div class="pnl-label">High Conf · 6.7+</div><div class="pnl-value">0-0<span class="pnl-record-rate">$0.00</span></div></div>
+      <div class="pnl-cell tier-cell tier-medium"><div class="pnl-label">Medium · 3.4–6.6</div><div class="pnl-value">0-0<span class="pnl-record-rate">$0.00</span></div></div>
+      <div class="pnl-cell tier-cell tier-low"><div class="pnl-label">Low · 0–3.3</div><div class="pnl-value">0-0<span class="pnl-record-rate">$0.00</span></div></div>
     </div>
   </div>
 </div>
@@ -186,7 +255,7 @@
   <div class="topbar-inner">
     <div class="brand"><span class="brand-dot"></span>HIDDEN&nbsp;LINES</div>
     <div class="meta-bar">
-      <strong>v4_2026-05-19</strong> · 130 features · stacked ensemble · updated <strong>11:14 PM ET</strong>
+      <strong>v4_2026-05-19</strong> · 130 features · stacked ensemble · updated <strong>3:00 PM ET</strong>
     </div>
   </div>
 </div>
@@ -205,88 +274,131 @@
 <div class="picks-section">
   <div class="picks-title">Today's Picks · 1 game</div>
   <ul class="picks-list">
-        <li class="pick-item pick-pass">
-          <span class="pick-matchup">CLE @ NYK</span>
-          <span class="pick-spread">(NYK -6.0)</span>
-          <span class="pick-text">No actionable bet</span>
-        </li></ul>
+    <li class="pick-item pick-favorite">
+      <span class="pick-matchup">CLE @ NYK</span>
+      <span class="pick-spread">(NYK -6.0)</span>
+      <span class="pick-text">$5.30 recommended wager on New York Knicks</span>
+    </li>
+  </ul>
 </div>
 
 <div class="summary-strip">
   <div class="summary-grid">
     <div class="summary-cell"><div class="summary-label">Games on Slate</div><div class="summary-value">1</div><div class="summary-sub">today</div></div>
-    <div class="summary-cell"><div class="summary-label">Actionable Bets</div><div class="summary-value favorite">0</div><div class="summary-sub">non-zero stakes</div></div>
-    <div class="summary-cell"><div class="summary-label">Passes / Avoid</div><div class="summary-value pass">1</div><div class="summary-sub">outside top 5 or AVOID</div></div>
-    <div class="summary-cell"><div class="summary-label">Total $ Recommended</div><div class="summary-value accent">$0.00</div><div class="summary-sub">across actionable bets</div></div>
+    <div class="summary-cell"><div class="summary-label">Actionable Bets</div><div class="summary-value favorite">1</div><div class="summary-sub">non-zero stakes</div></div>
+    <div class="summary-cell"><div class="summary-label">Passes / Avoid</div><div class="summary-value pass">0</div><div class="summary-sub">outside top 5 or AVOID</div></div>
+    <div class="summary-cell"><div class="summary-label">Total $ Recommended</div><div class="summary-value accent">$5.30</div><div class="summary-sub">across actionable bets</div></div>
   </div>
 </div>
 
 <div class="games">
-  <div class="section-label">Tonight's Edge Report<span class="section-label-count">1 game · ranked by confidence</span></div>
-  
-  <article class="card pass">
+  <div class="section-label">
+    Tonight's Edge Report
+    <span class="section-label-count">1 game · ranked by confidence</span>
+  </div>
+
+  <article class="card favorite">
     <div class="card-header">
       <div>
-        <div class="matchup-line">Spread NYK -6.0</div>
+        <div class="matchup-line">Spread NYK -6.0 · Tipoff 8:00 PM ET</div>
         <div class="matchup">Cleveland Cavaliers <em>at</em> New York Knicks</div>
         <div class="game-time">CLE @ NYK · 2026-05-19</div>
       </div>
       <div class="bet-callout">
         <div class="bet-label">Suggested Bet</div>
-        <div class="bet-amount">$0.00</div>
-        <div class="bet-formula">no actionable bet</div>
+        <div class="bet-amount">$5.30</div>
+        <div class="bet-formula">attractiveness × $1/pt</div>
       </div>
     </div>
+
     <div class="direction-row">
-      <div class="direction-tag tag-pass">—</div>
-      <div class="direction-text"><strong>No market</strong> — Polymarket has no matching contract.</div>
+      <div class="direction-tag tag-favorite">Favorite Play</div>
+      <div class="direction-text">
+        <strong>Ride the market</strong> — bet New York Knicks (HOME), the agreed favorite.
+      </div>
     </div>
+
     <div class="card-body">
       <div>
         <div class="panel-title">Model vs Market</div>
         <table class="prob-table">
-          <tr><td class="team">New York Knicks</td><td class="num">74.2%</td><td class="num">—</td><td class="delta">—</td></tr>
-          <tr><td class="team">Cleveland Cavaliers</td><td class="num">25.8%</td><td class="num">—</td><td class="delta">—</td></tr></table>
+          <tr><td class="team">New York Knicks</td><td class="num">74.2%</td><td class="num">69.5%</td><td class="delta delta-pos">+4.7</td></tr>
+          <tr><td class="team">Cleveland Cavaliers</td><td class="num">25.8%</td><td class="num">30.5%</td><td class="delta delta-neg">−4.7</td></tr>
+        </table>
         <div class="meta-rows">
           <div class="meta-row"><span>Projected Margin</span><strong>NYK -6.0</strong></div>
-          <div class="meta-row"><span>Expected Value</span><strong>—</strong></div>
-          <div class="meta-row"><span>Kelly Stake</span><strong>—</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>—</strong></div>
+          <div class="meta-row"><span>Expected Value</span><strong>+$0.047 / $1</strong></div>
+          <div class="meta-row"><span>Kelly Stake</span><strong>3.9% of bankroll</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$1.24M</strong></div>
         </div>
-        
+        <div class="buy-line"><strong>→ Buy NYK (HOME)</strong> at 0.695 · Kelly 3.9% · EV $+0.047/$1</div>
       </div>
+
       <div>
         <div class="panel-title">Top SHAP Drivers</div>
-        
         <div class="driver-block">
-          <div class="driver-team">Pushing toward New York Knicks</div>
-          <ul class="driver-list"><li class="driver"><span class="driver-name">home vs away gap in opponents&#x27; net rating faced</span><span class="driver-share">22%</span></li><li class="driver"><span class="driver-name">home vs away gap in point differential</span><span class="driver-share">18%</span></li><li class="driver"><span class="driver-name">ELO rating gap (home minus away)</span><span class="driver-share">16%</span></li></ul>
+          <div class="driver-team">Pushing toward New York</div>
+          <ul class="driver-list">
+            <li class="driver"><span class="driver-name">Home vs away gap in opponents' net rating faced</span><span class="driver-share">22%</span></li>
+            <li class="driver"><span class="driver-name">Home vs away gap in point differential</span><span class="driver-share">18%</span></li>
+            <li class="driver"><span class="driver-name">ELO rating gap (home minus away)</span><span class="driver-share">16%</span></li>
+          </ul>
         </div>
-        
         <div class="driver-block">
-          <div class="driver-team">Pushing toward Cleveland Cavaliers</div>
-          <ul class="driver-list"><li class="driver"><span class="driver-name">away team&#x27;s ELO rating</span><span class="driver-share">37%</span></li><li class="driver"><span class="driver-name">away team&#x27;s available player production %</span><span class="driver-share">17%</span></li><li class="driver"><span class="driver-name">away team&#x27;s available offensive production %</span><span class="driver-share">15%</span></li></ul>
+          <div class="driver-team">Pushing toward Cleveland</div>
+          <ul class="driver-list">
+            <li class="driver"><span class="driver-name">Away team's ELO rating</span><span class="driver-share">37%</span></li>
+            <li class="driver"><span class="driver-name">Away team's available player production %</span><span class="driver-share">17%</span></li>
+            <li class="driver"><span class="driver-name">Away team's available offensive production %</span><span class="driver-share">15%</span></li>
+          </ul>
         </div>
       </div>
+
       <div class="attractiveness">
-        <div><span class="attr-score">3.0</span><span class="attr-score-suffix"> / 10</span></div>
+        <div><span class="attr-score">5.3</span><span class="attr-score-suffix"> / 10</span></div>
         <div>
-          <div class="attr-label">Attractiveness · LOW tier</div>
-          <div class="attr-tags"></div>
+          <div class="attr-label">Attractiveness · MEDIUM tier</div>
+          <div class="attr-tags">
+            <span class="tag">moderate edge</span>
+            <span class="tag">deep market</span>
+            <span class="tag">partial confirmation</span>
+            <span class="tag">calibrated bin (±3pp)</span>
+          </div>
         </div>
       </div>
+
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">No Polymarket market matched for Cleveland Cavaliers @ New York Knicks. Model probability only: home 74%.</li></ul>
-        
+        <ul class="analysis-bullets">
+          <li class="analysis-bullet">Model prices NYK at 74.2% vs Polymarket's 69.5% — a 4.7pp gap that clears calibration noise and signals real edge.</li>
+          <li class="analysis-bullet">Knicks hold a 96-point ELO advantage and outperform Cleveland by 16 net rating points, two dominant structural signals.</li>
+          <li class="analysis-bullet">Opponent net rating differential of −16.6 confirms Cleveland's defense has been shredded by elite offenses all series.</li>
+          <li class="analysis-bullet">EV of $0.0475 per dollar and ¼ Kelly at 3.9% bankroll signal a legitimate but measured bet, not a max play.</li>
+          <li class="analysis-bullet">Money flow leans NYK and liquidity tops $1.2M, confirming the edge isn't a thin-market mirage.</li>
+        </ul>
+        <div class="tldr">
+          <div class="tldr-label">TL;DR</div>
+          Bet New York Knicks — model, ELO, net ratings, and market flow all align, with a clean 4.7pp edge at fair sizing.
+        </div>
       </div>
     </div>
   </article>
 </div>
 
+<!-- ── HISTORICAL RESULTS section (NEW — empty on day 1) ── -->
+<div class="history-section">
+  <div class="section-label">
+    Historical Results
+    <span class="section-label-count">past bets vs actual outcomes</span>
+  </div>
+  <div class="history-empty">
+    No historical bets yet. Check back tomorrow once tonight's CLE @ NYK game is resolved.
+  </div>
+</div>
+
 <footer>
-  <p><strong>Methodology.</strong> Five-model stacked ensemble (Random Forest, XGBoost, Logistic Regression, SVM, Extra Trees). Bin-specific calibration error: ±3pp (middle), ±4pp (mid-tails), ±7pp (probability tails &lt; 0.30 or &gt; 0.85).</p>
-  <p><strong>Sizing.</strong> Top 5 bets per day get dollar recommendations indexed to attractiveness. Bets with attractiveness ≤ 3.3 are haircut to half (marked *). Polymarket payout: net profit = bet_amount × (1/price − 1) on win, −bet_amount on loss.</p>
+  <p><strong>Methodology.</strong> Five-model stacked ensemble (Random Forest, XGBoost, Logistic Regression, SVM, Extra Trees) trained on 8 NBA seasons. Bin-specific calibration error: ±3pp (middle), ±4pp (mid-tails), ±7pp (probability tails &lt; 0.30 or &gt; 0.85).</p>
+  <p><strong>Sizing.</strong> Top 5 bets per day get dollar recommendations indexed to attractiveness. Bets with attractiveness ≤ 3.3 are haircut to half (marked *). Polymarket payout: net profit = bet_amount × (1/price − 1) on win, −bet_amount on loss. Bankroll starts at $10.00 on day 1 (May 19, 2026).</p>
   <p><strong>Disclaimer.</strong> Personal research project. Predictions are not financial advice.</p>
 </footer>
 
