@@ -23,44 +23,27 @@
     --mono: 'JetBrains Mono', ui-monospace, monospace;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg); color: var(--text); font-family: var(--body);
-    font-weight: 400; line-height: 1.6; min-height: 100vh;
-    -webkit-font-smoothing: antialiased;
-    background-image: radial-gradient(at 20% 0%, #1c222d 0%, transparent 50%), radial-gradient(at 80% 100%, #1a1f28 0%, transparent 50%);
-    background-attachment: fixed;
-  }
-  .pnl-strip {
-    background: var(--surface); border-bottom: 1px solid var(--border);
-    padding: 14px 0;
-  }
-  .pnl-inner {
-    max-width: 1080px; margin: 0 auto; padding: 0 32px;
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
-    background: var(--border-soft);
-  }
-  .pnl-cell {
-    background: var(--surface); padding: 8px 16px;
-    text-align: left;
-  }
-  .pnl-label {
-    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em;
-    color: var(--text-mute); text-transform: uppercase; margin-bottom: 4px;
-  }
-  .pnl-value {
-    font-family: var(--display); font-weight: 400; font-size: 1.5rem;
-    line-height: 1; color: var(--text); letter-spacing: -0.015em;
-    font-variation-settings: "opsz" 144;
-  }
+  body { background: var(--bg); color: var(--text); font-family: var(--body); font-weight: 400; line-height: 1.6; min-height: 100vh; -webkit-font-smoothing: antialiased; background-image: radial-gradient(at 20% 0%, #1c222d 0%, transparent 50%), radial-gradient(at 80% 100%, #1a1f28 0%, transparent 50%); background-attachment: fixed; }
+
+  /* P&L STRIP — now two rows: 4 financial + 3 tier records */
+  .pnl-strip { background: var(--surface); border-bottom: 1px solid var(--border); padding: 12px 0; }
+  .pnl-inner { max-width: 1080px; margin: 0 auto; padding: 0 32px; display: flex; flex-direction: column; gap: 1px; }
+  .pnl-row { display: grid; gap: 1px; background: var(--border-soft); }
+  .pnl-row.row-financial { grid-template-columns: repeat(4, 1fr); }
+  .pnl-row.row-tiers     { grid-template-columns: repeat(3, 1fr); }
+  .pnl-cell { background: var(--surface); padding: 10px 18px; }
+  .pnl-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 6px; }
+  .pnl-value { font-family: var(--display); font-weight: 400; font-size: 1.6rem; line-height: 1; color: var(--text); letter-spacing: -0.015em; font-variation-settings: "opsz" 144; }
   .pnl-value.pos { color: var(--favorite); }
   .pnl-value.neg { color: var(--avoid); }
   .pnl-value.accent { color: var(--accent); }
+  .pnl-record-rate { font-size: 0.7rem; color: var(--text-mute); font-family: var(--mono); margin-left: 6px; }
+  .pnl-cell.tier-cell { border-left: 2px solid var(--border-soft); }
+  .pnl-cell.tier-high { border-left-color: var(--favorite); }
+  .pnl-cell.tier-medium { border-left-color: var(--accent); }
+  .pnl-cell.tier-low { border-left-color: var(--pass); }
 
-  .topbar {
-    border-bottom: 1px solid var(--border); padding: 14px 0;
-    backdrop-filter: blur(10px); background: rgba(10,14,20,0.85);
-    position: sticky; top: 0; z-index: 100;
-  }
+  .topbar { border-bottom: 1px solid var(--border); padding: 14px 0; backdrop-filter: blur(10px); background: rgba(10,14,20,0.85); position: sticky; top: 0; z-index: 100; }
   .topbar-inner { max-width: 1080px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
   .brand { font-family: var(--display); font-weight: 900; font-size: 1.05rem; letter-spacing: 0.16em; color: var(--text); }
   .brand-dot { display: inline-block; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; margin-right: 10px; vertical-align: middle; animation: pulse 2.5s ease-in-out infinite; }
@@ -68,18 +51,27 @@
   .meta-bar { font-family: var(--mono); font-size: 0.72rem; color: var(--text-mute); letter-spacing: 0.08em; text-transform: uppercase; }
   .meta-bar strong { color: var(--text-dim); font-weight: 500; }
 
-  .masthead { max-width: 1080px; margin: 0 auto; padding: 80px 32px 60px; }
-  .masthead-eyebrow { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.24em; color: var(--accent); text-transform: uppercase; margin-bottom: 28px; display: flex; align-items: center; gap: 14px; }
+  /* MASTHEAD — heading now centered, fluid sizing, less vertical space */
+  .masthead { max-width: 1080px; margin: 0 auto; padding: 56px 32px 48px; text-align: center; }
+  .masthead-eyebrow { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.24em; color: var(--accent); text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; justify-content: center; }
   .eyebrow-line { flex: 1; max-width: 80px; height: 1px; background: var(--accent); opacity: 0.4; }
-  .masthead h1 { font-family: var(--display); font-weight: 300; font-size: clamp(2.4rem,6vw,4.2rem); line-height: 1.02; letter-spacing: -0.025em; color: var(--text); margin-bottom: 24px; font-variation-settings: "opsz" 144; }
+  .masthead h1 {
+    font-family: var(--display); font-weight: 300;
+    font-size: clamp(1.6rem, 5.2vw, 3.4rem);
+    line-height: 1.1; letter-spacing: -0.02em;
+    color: var(--text); margin: 0 auto 18px;
+    font-variation-settings: "opsz" 144;
+    text-wrap: balance;
+    max-width: 100%;
+  }
   .masthead h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
-  .masthead-date { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 1.4rem; color: var(--text-dim); margin-bottom: 36px; }
-  .masthead-dek { font-family: var(--body); font-size: 1.08rem; color: var(--text-dim); max-width: 620px; line-height: 1.65; border-left: 2px solid var(--accent); padding-left: 22px; }
+  .masthead-date { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 1.2rem; color: var(--text-dim); margin-bottom: 28px; }
+  .masthead-dek { font-family: var(--body); font-size: 1rem; color: var(--text-dim); max-width: 600px; margin: 0 auto; line-height: 1.6; border-left: 2px solid var(--accent); padding-left: 22px; text-align: left; }
 
   .picks-section { max-width: 1080px; margin: 0 auto 36px; padding: 0 32px; }
   .picks-title { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.22em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border-soft); }
   .picks-list { list-style: none; }
-  .pick-item { display: flex; gap: 16px; align-items: baseline; padding: 14px 16px; border-bottom: 1px solid var(--border-soft); border-left: 3px solid var(--border); margin-bottom: 6px; background: var(--surface); flex-wrap: wrap; }
+  .pick-item { display: flex; gap: 16px; align-items: baseline; padding: 14px 20px; border-left: 3px solid var(--border); margin-bottom: 6px; background: var(--surface); border: 1px solid var(--border-soft); border-left: 3px solid var(--border); flex-wrap: wrap; }
   .pick-item.pick-favorite { border-left-color: var(--favorite); }
   .pick-item.pick-contrarian { border-left-color: var(--contrarian); }
   .pick-item.pick-pass { border-left-color: var(--pass); }
@@ -88,7 +80,7 @@
   .pick-spread { font-family: var(--mono); font-size: 0.85rem; color: var(--text-dim); }
   .pick-text { font-family: var(--body); font-size: 0.95rem; color: var(--text-dim); flex: 1; }
 
-  .summary-strip { max-width: 1080px; margin: 0 auto 36px; padding: 0 32px; }
+  .summary-strip { max-width: 1080px; margin: 0 auto 56px; padding: 0 32px; }
   .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
   .summary-cell { background: var(--surface); padding: 22px 24px; }
   .summary-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.18em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 10px; }
@@ -98,22 +90,13 @@
   .summary-value.pass { color: var(--pass); }
   .summary-sub { font-family: var(--mono); font-size: 0.7rem; color: var(--text-mute); margin-top: 6px; }
 
-  .tier-strip { max-width: 1080px; margin: 0 auto 56px; padding: 0 32px; }
-  .tier-title { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.22em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--border-soft); }
-  .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-  .tier-cell { background: var(--surface); padding: 18px 22px; }
-  .tier-name { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.18em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 8px; }
-  .tier-record { font-family: var(--display); font-size: 1.5rem; color: var(--text); margin-bottom: 4px; }
-  .tier-pnl { font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); }
-  .tier-pnl.pos { color: var(--favorite); }
-  .tier-pnl.neg { color: var(--avoid); }
+  /* (tier-strip section is REMOVED — data now in top P&L row 2) */
 
   .games { max-width: 1080px; margin: 0 auto; padding: 0 32px 100px; }
   .section-label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.22em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border-soft); display: flex; justify-content: space-between; align-items: baseline; }
   .section-label-count { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 0.95rem; color: var(--text-dim); letter-spacing: 0; text-transform: none; }
 
-  .card { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--border); margin-bottom: 28px; transition: border-color 0.2s ease; }
-  .card:hover { border-color: var(--text-mute); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--border); margin-bottom: 28px; }
   .card.favorite { border-left-color: var(--favorite); }
   .card.contrarian { border-left-color: var(--contrarian); }
   .card.pass { border-left-color: var(--pass); }
@@ -150,13 +133,13 @@
   .meta-row strong { color: var(--text); font-weight: 500; }
   .buy-line { margin-top: 18px; padding: 12px 14px; background: var(--accent-soft); border: 1px solid var(--accent); font-family: var(--mono); font-size: 0.82rem; color: var(--accent); }
   .driver-block { margin-bottom: 22px; } .driver-block:last-child { margin-bottom: 0; }
-  .driver-team { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 0.95rem; color: var(--text-dim); margin-bottom: 10px; }
+  .driver-team { font-family: var(--display); font-style: italic; font-size: 0.95rem; color: var(--text-dim); margin-bottom: 10px; }
   .driver-list { list-style: none; }
   .driver { padding: 8px 0; border-bottom: 1px dashed var(--border-soft); display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; }
-  .driver-name { font-family: var(--body); font-size: 0.92rem; color: var(--text); line-height: 1.3; }
-  .driver-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-mute); white-space: nowrap; letter-spacing: 0.04em; }
+  .driver-name { font-family: var(--body); font-size: 0.92rem; color: var(--text); }
+  .driver-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-mute); white-space: nowrap; }
   .attractiveness { grid-column: 1 / -1; margin-top: 8px; padding: 20px 24px; background: var(--surface-up); border: 1px solid var(--border-soft); display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; }
-  .attr-score { font-family: var(--display); font-weight: 400; font-size: 2.4rem; line-height: 1; color: var(--text); letter-spacing: -0.02em; }
+  .attr-score { font-family: var(--display); font-weight: 400; font-size: 2.4rem; line-height: 1; color: var(--text); }
   .attr-score-suffix { font-family: var(--mono); font-size: 0.85rem; color: var(--text-mute); }
   .attr-label { font-family: var(--mono); font-size: 0.7rem; color: var(--text-mute); letter-spacing: 0.2em; text-transform: uppercase; }
   .attr-tags { font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); line-height: 1.5; margin-top: 6px; }
@@ -165,13 +148,15 @@
   .analysis-bullets { list-style: none; margin-bottom: 24px; }
   .analysis-bullet { font-family: var(--body); font-size: 1.02rem; color: var(--text); line-height: 1.55; padding: 10px 0 10px 30px; position: relative; }
   .analysis-bullet::before { content: ''; position: absolute; left: 6px; top: 18px; width: 14px; height: 1px; background: var(--accent); }
-  .tldr { margin-top: 8px; padding: 18px 22px; background: var(--bg); border-left: 3px solid var(--accent); font-family: var(--display); font-style: italic; font-weight: 400; font-size: 1.12rem; line-height: 1.5; color: var(--text); }
+  .tldr { margin-top: 8px; padding: 18px 22px; background: var(--bg); border-left: 3px solid var(--accent); font-family: var(--display); font-style: italic; font-size: 1.12rem; line-height: 1.5; color: var(--text); }
   .tldr-label { font-family: var(--mono); font-style: normal; font-size: 0.65rem; color: var(--accent); letter-spacing: 0.24em; text-transform: uppercase; margin-bottom: 6px; }
   footer { border-top: 1px solid var(--border-soft); margin-top: 80px; padding: 40px 32px 60px; max-width: 1080px; margin-left: auto; margin-right: auto; font-family: var(--mono); font-size: 0.78rem; color: var(--text-mute); line-height: 1.7; }
   footer p { margin-bottom: 8px; }
   footer strong { color: var(--text-dim); font-weight: 500; }
   @media (max-width: 760px) {
-    .pnl-inner, .summary-grid, .tier-grid { grid-template-columns: repeat(2, 1fr); }
+    .pnl-row.row-financial { grid-template-columns: repeat(2, 1fr); }
+    .pnl-row.row-tiers { grid-template-columns: repeat(3, 1fr); }
+    .summary-grid { grid-template-columns: repeat(2, 1fr); }
     .card-header { grid-template-columns: 1fr; }
     .bet-callout { text-align: left; padding-left: 0; padding-top: 20px; border-left: none; border-top: 1px solid var(--border-soft); margin-top: 16px; }
     .card-body { grid-template-columns: 1fr; }
@@ -183,10 +168,17 @@
 
 <div class="pnl-strip">
   <div class="pnl-inner">
-    <div class="pnl-cell"><div class="pnl-label">Bankroll</div><div class="pnl-value accent">$10.00</div></div>
-    <div class="pnl-cell"><div class="pnl-label">Record</div><div class="pnl-value">0-0 <span style="font-size:0.7rem;color:var(--text-mute);font-family:var(--mono);">—</span></div></div>
-    <div class="pnl-cell"><div class="pnl-label">Net P&amp;L</div><div class="pnl-value pos">+$0.00</div></div>
-    <div class="pnl-cell"><div class="pnl-label">Started</div><div class="pnl-value">$10.00</div></div>
+    <div class="pnl-row row-financial">
+      <div class="pnl-cell"><div class="pnl-label">Bankroll</div><div class="pnl-value accent">$10.00</div></div>
+      <div class="pnl-cell"><div class="pnl-label">Record</div><div class="pnl-value">0-0<span class="pnl-record-rate">—</span></div></div>
+      <div class="pnl-cell"><div class="pnl-label">Net P&amp;L</div><div class="pnl-value pos">+$0.00</div></div>
+      <div class="pnl-cell"><div class="pnl-label">Started</div><div class="pnl-value">$10.00</div></div>
+    </div>
+    <div class="pnl-row row-tiers">
+      <div class="pnl-cell tier-cell tier-high"><div class="pnl-label">High Conf · 6.7+</div><div class="pnl-value">0-0<span class="pnl-record-rate">+$0.00</span></div></div>
+      <div class="pnl-cell tier-cell tier-medium"><div class="pnl-label">Medium · 3.4–6.6</div><div class="pnl-value">0-0<span class="pnl-record-rate">+$0.00</span></div></div>
+      <div class="pnl-cell tier-cell tier-low"><div class="pnl-label">Low · 0–3.3</div><div class="pnl-value">0-0<span class="pnl-record-rate">+$0.00</span></div></div>
+    </div>
   </div>
 </div>
 
@@ -194,19 +186,19 @@
   <div class="topbar-inner">
     <div class="brand"><span class="brand-dot"></span>HIDDEN&nbsp;LINES</div>
     <div class="meta-bar">
-      <strong>v4_2026-05-19</strong> · 130 features · stacked ensemble · updated <strong>10:49 PM ET</strong>
+      <strong>v4_2026-05-19</strong> · 130 features · stacked ensemble · updated <strong>11:14 PM ET</strong>
     </div>
   </div>
 </div>
 
 <div class="masthead">
   <div class="masthead-eyebrow"><span class="eyebrow-line"></span>Daily Edge Report<span class="eyebrow-line"></span></div>
-  <h1>The bets the<br>market <em>didn't price in.</em></h1>
+  <h1>The bets the market <em>didn't price in.</em></h1>
   <div class="masthead-date">Tuesday, May 19, 2026</div>
   <p class="masthead-dek">
     Five-model stacked ensemble compared against Polymarket consensus across today's slate.
     Edges below ±3pp are filtered as calibration noise. Sizing follows fractional Kelly capped at 25%,
-    with dollar recommendations indexed to a 0–10 attractiveness score.
+    with dollar recommendations indexed to a 0–10 attractiveness score (low-confidence bets haircut to half and marked with *).
   </p>
 </div>
 
@@ -216,37 +208,16 @@
         <li class="pick-item pick-pass">
           <span class="pick-matchup">CLE @ NYK</span>
           <span class="pick-spread">(NYK -6.0)</span>
-          <span class="pick-text">No actionable bet (model says PASS)</span>
+          <span class="pick-text">No actionable bet</span>
         </li></ul>
 </div>
 
 <div class="summary-strip">
   <div class="summary-grid">
     <div class="summary-cell"><div class="summary-label">Games on Slate</div><div class="summary-value">1</div><div class="summary-sub">today</div></div>
-    <div class="summary-cell"><div class="summary-label">Actionable Bets</div><div class="summary-value favorite">0</div><div class="summary-sub">FAVORITE + CONTRARIAN</div></div>
-    <div class="summary-cell"><div class="summary-label">Passes / Avoid</div><div class="summary-value pass">1</div><div class="summary-sub">gap inside calibration error</div></div>
+    <div class="summary-cell"><div class="summary-label">Actionable Bets</div><div class="summary-value favorite">0</div><div class="summary-sub">non-zero stakes</div></div>
+    <div class="summary-cell"><div class="summary-label">Passes / Avoid</div><div class="summary-value pass">1</div><div class="summary-sub">outside top 5 or AVOID</div></div>
     <div class="summary-cell"><div class="summary-label">Total $ Recommended</div><div class="summary-value accent">$0.00</div><div class="summary-sub">across actionable bets</div></div>
-  </div>
-</div>
-
-<div class="tier-strip">
-  <div class="tier-title">Performance by Confidence Tier (all-time)</div>
-  <div class="tier-grid">
-    <div class="tier-cell">
-      <div class="tier-name">Low · 0.0–3.3</div>
-      <div class="tier-record">0-0</div>
-      <div class="tier-pnl pos">+$0.00</div>
-    </div>
-    <div class="tier-cell">
-      <div class="tier-name">Medium · 3.4–6.6</div>
-      <div class="tier-record">0-0</div>
-      <div class="tier-pnl pos">+$0.00</div>
-    </div>
-    <div class="tier-cell">
-      <div class="tier-name">High · 6.7+</div>
-      <div class="tier-record">0-0</div>
-      <div class="tier-pnl pos">+$0.00</div>
-    </div>
   </div>
 </div>
 
@@ -263,36 +234,24 @@
       <div class="bet-callout">
         <div class="bet-label">Suggested Bet</div>
         <div class="bet-amount">$0.00</div>
-        <div class="bet-formula">pass — inside calibration noise</div>
+        <div class="bet-formula">no actionable bet</div>
       </div>
     </div>
-
     <div class="direction-row">
-      <div class="direction-tag tag-pass">Pass</div>
-      <div class="direction-text"><strong>No actionable edge</strong> — both sources lean the same way but gap is inside calibration noise.</div>
+      <div class="direction-tag tag-pass">—</div>
+      <div class="direction-text"><strong>No market</strong> — Polymarket has no matching contract.</div>
     </div>
-
     <div class="card-body">
       <div>
         <div class="panel-title">Model vs Market</div>
         <table class="prob-table">
-          <tr>
-            <td class="team">New York Knicks</td>
-            <td class="num">74.2%</td>
-            <td class="num">81.5%</td>
-            <td class="delta delta-neg">-7.2</td>
-          </tr>
-          <tr>
-            <td class="team">Cleveland Cavaliers</td>
-            <td class="num">25.8%</td>
-            <td class="num">18.6%</td>
-            <td class="delta delta-pos">+7.2</td>
-          </tr></table>
+          <tr><td class="team">New York Knicks</td><td class="num">74.2%</td><td class="num">—</td><td class="delta">—</td></tr>
+          <tr><td class="team">Cleveland Cavaliers</td><td class="num">25.8%</td><td class="num">—</td><td class="delta">—</td></tr></table>
         <div class="meta-rows">
           <div class="meta-row"><span>Projected Margin</span><strong>NYK -6.0</strong></div>
-          <div class="meta-row"><span>Expected Value</span><strong>$+0.000 / $1</strong></div>
-          <div class="meta-row"><span>Kelly Stake</span><strong>0.0% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$80,511</strong></div>
+          <div class="meta-row"><span>Expected Value</span><strong>—</strong></div>
+          <div class="meta-row"><span>Kelly Stake</span><strong>—</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>—</strong></div>
         </div>
         
       </div>
@@ -310,16 +269,16 @@
         </div>
       </div>
       <div class="attractiveness">
-        <div><span class="attr-score">1.9</span><span class="attr-score-suffix"> / 10</span></div>
-        <div class="attr-meta">
+        <div><span class="attr-score">3.0</span><span class="attr-score-suffix"> / 10</span></div>
+        <div>
           <div class="attr-label">Attractiveness · LOW tier</div>
-          <div class="attr-tags"><span class="tag">moderate edge</span><span class="tag">thin liquidity</span><span class="tag">no signal confirmation</span><span class="tag">calibrated bin (±3pp)</span></div>
+          <div class="attr-tags"></div>
         </div>
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Knicks 74.2% vs Polymarket&#x27;s 81.5% — a 7.2pp gap favoring Cleveland as the value side.</li><li class="analysis-bullet">Knicks hold a 96-point ELO advantage and a +16-point average scoring differential, both pushing hard toward New York.</li><li class="analysis-bullet">EV is $0.00 per dollar and Kelly recommends 0% stake — zero bankroll allocation justified here.</li><li class="analysis-bullet">Money flow (24.9% leaning Knicks) and falling price drift both contradict taking Cleveland, confirming no actionable signal.</li><li class="analysis-bullet">Gap of 7.2pp sits inside the model&#x27;s ±3.0pp calibration error for this prob range (the well-calibrated middle); the true probability could plausibly favor either side, so this isn&#x27;t an exploitable edge.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Pass — the model-market gap is real but unconfirmable, EV is zero, and no market signals support fading the Knicks.</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">No Polymarket market matched for Cleveland Cavaliers @ New York Knicks. Model probability only: home 74%.</li></ul>
+        
       </div>
     </div>
   </article>
@@ -327,7 +286,7 @@
 
 <footer>
   <p><strong>Methodology.</strong> Five-model stacked ensemble (Random Forest, XGBoost, Logistic Regression, SVM, Extra Trees). Bin-specific calibration error: ±3pp (middle), ±4pp (mid-tails), ±7pp (probability tails &lt; 0.30 or &gt; 0.85).</p>
-  <p><strong>Sizing.</strong> Dollar recommendations equal attractiveness score × $1/point. Polymarket payout: net profit = bet_amount × (1/price - 1) on win, -bet_amount on loss. Bankroll starts at $10.00 on day 1.</p>
+  <p><strong>Sizing.</strong> Top 5 bets per day get dollar recommendations indexed to attractiveness. Bets with attractiveness ≤ 3.3 are haircut to half (marked *). Polymarket payout: net profit = bet_amount × (1/price − 1) on win, −bet_amount on loss.</p>
   <p><strong>Disclaimer.</strong> Personal research project. Predictions are not financial advice.</p>
 </footer>
 
