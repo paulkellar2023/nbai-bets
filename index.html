@@ -6,7 +6,7 @@
 <title>HIDDEN LINES · NBA Quant Daily · Oct 28, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,700;9..144,900&family=Newsreader:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,700;9..144,900&family=Newsreader:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0a0e14; --surface: #131820; --surface-up: #1c222d;
@@ -21,9 +21,10 @@
     --display: 'Fraunces', Georgia, serif;
     --body: 'Newsreader', Georgia, serif;
     --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --num: 'Atkinson Hyperlegible', 'Newsreader', Georgia, sans-serif;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: var(--body); font-weight: 400; line-height: 1.6; min-height: 100vh; -webkit-font-smoothing: antialiased; background-image: radial-gradient(at 20% 0%, #1c222d 0%, transparent 50%), radial-gradient(at 80% 100%, #1a1f28 0%, transparent 50%); background-attachment: fixed; }
+  body { background: var(--bg); color: var(--text); font-family: var(--body); font-weight: 400; font-variant-numeric: lining-nums tabular-nums; line-height: 1.6; min-height: 100vh; -webkit-font-smoothing: antialiased; background-image: radial-gradient(at 20% 0%, #1c222d 0%, transparent 50%), radial-gradient(at 80% 100%, #1a1f28 0%, transparent 50%); background-attachment: fixed; }
 
   /* P&L STRIP — now two rows: 4 financial + 3 tier records */
   .pnl-strip { background: var(--surface); border-bottom: 1px solid var(--border); padding: 12px 0; }
@@ -33,7 +34,7 @@
   .pnl-row.row-tiers     { grid-template-columns: repeat(4, 1fr); }
   .pnl-cell { background: var(--surface); padding: 10px 18px; }
   .pnl-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 6px; }
-  .pnl-value { font-family: var(--display); font-weight: 400; font-size: 1.6rem; line-height: 1; color: var(--text); letter-spacing: -0.015em; font-variation-settings: "opsz" 144; }
+  .pnl-value { font-family: var(--num); font-weight: 400; font-size: 1.6rem; line-height: 1; color: var(--text); letter-spacing: -0.015em; font-variation-settings: "opsz" 144; }
   .pnl-value.pos { color: var(--favorite); }
   .pnl-value.neg { color: var(--avoid); }
   .pnl-value.accent { color: var(--accent); }
@@ -81,13 +82,14 @@
   .pick-matchup { font-family: var(--display); font-weight: 500; font-size: 1.1rem; color: var(--text); }
   .pick-spread { font-family: var(--mono); font-size: 0.85rem; color: var(--text-dim); }
   .pick-text { font-family: var(--body); font-size: 0.95rem; color: var(--text-dim); flex: 1; }
+  .num { font-family: var(--num); font-style: normal; font-weight: 400; font-size: 0.94em; font-variant-numeric: lining-nums tabular-nums; letter-spacing: 0; }
   .shadow-flag { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.14em; color: var(--accent); border: 1px solid var(--accent); padding: 1px 6px; margin-right: 6px; }
 
   .summary-strip { max-width: 1080px; margin: 0 auto 56px; padding: 0 32px; }
   .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
   .summary-cell { background: var(--surface); padding: 22px 24px; }
   .summary-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.18em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 10px; }
-  .summary-value { font-family: var(--display); font-weight: 400; font-size: 2.2rem; line-height: 1; color: var(--text); }
+  .summary-value { font-family: var(--num); font-weight: 400; font-size: 2.2rem; line-height: 1; color: var(--text); }
   .summary-value.accent { color: var(--accent); }
   .summary-value.favorite { color: var(--favorite); }
   .summary-value.pass { color: var(--pass); }
@@ -111,7 +113,7 @@
   .game-time { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
   .bet-callout { text-align: right; padding-left: 32px; border-left: 1px solid var(--border-soft); }
   .bet-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.22em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 8px; }
-  .bet-amount { font-family: var(--display); font-weight: 400; font-size: 3rem; line-height: 1; letter-spacing: -0.04em; color: var(--accent); font-variation-settings: "opsz" 144; }
+  .bet-amount { font-family: var(--num); font-weight: 400; font-size: 3rem; line-height: 1; letter-spacing: -0.04em; color: var(--accent); font-variation-settings: "opsz" 144; }
   .card.pass .bet-amount, .card.avoid .bet-amount { color: var(--text-mute); }
   .bet-formula { font-family: var(--mono); font-size: 0.7rem; color: var(--text-mute); margin-top: 6px; }
   .direction-row { padding: 18px 36px; background: var(--surface-up); border-bottom: 1px solid var(--border-soft); display: flex; align-items: center; gap: 16px; }
@@ -142,7 +144,7 @@
   .driver-name { font-family: var(--body); font-size: 0.92rem; color: var(--text); }
   .driver-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-mute); white-space: nowrap; }
   .attractiveness { grid-column: 1 / -1; margin-top: 8px; padding: 20px 24px; background: var(--surface-up); border: 1px solid var(--border-soft); display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; }
-  .attr-score { font-family: var(--display); font-weight: 400; font-size: 2.4rem; line-height: 1; color: var(--text); }
+  .attr-score { font-family: var(--num); font-weight: 400; font-size: 2.4rem; line-height: 1; color: var(--text); }
   .attr-score-suffix { font-family: var(--mono); font-size: 0.85rem; color: var(--text-mute); }
   .attr-label { font-family: var(--mono); font-size: 0.7rem; color: var(--text-mute); letter-spacing: 0.2em; text-transform: uppercase; }
   .attr-tags { font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); line-height: 1.5; margin-top: 6px; }
@@ -347,7 +349,7 @@
   <div class="topbar-inner">
     <div class="brand"><span class="brand-dot"></span>HIDDEN&nbsp;LINES</div>
     <div class="meta-bar">
-      <strong>v4_2026-05-19</strong> · 130 features · stacked ensemble · updated <strong>10:16 PM ET</strong>
+      <strong>v4_2026-05-19</strong> · 130 features · stacked ensemble · updated <strong>10:21 PM ET</strong>
     </div>
   </div>
 </div>
@@ -369,22 +371,17 @@
         <li class="pick-item pick-favorite">
           <span class="pick-matchup">LAL @ LAC</span>
           <span class="pick-spread">(LAC -0.5)</span>
-          <span class="pick-text">$5.71 recommended wager on LA Clippers</span>
+          <span class="pick-text"><span class="num">$5.71</span> recommended wager on LA Clippers</span>
         </li>
         <li class="pick-item pick-contrarian">
           <span class="pick-matchup">PHI @ IND</span>
           <span class="pick-spread">(PHI -5.0)</span>
-          <span class="pick-text">$1.28* recommended wager on Indiana Pacers (underdog haircut) (game no longer on the live slate)</span>
+          <span class="pick-text"><span class="num">$1.28*</span> recommended wager on Indiana Pacers (underdog haircut) (game no longer on the live slate)</span>
         </li>
-        <li class="pick-item pick-favorite">
+        <li class="pick-item pick-pass">
           <span class="pick-matchup">OKC @ DAL</span>
           <span class="pick-spread">(OKC -15.5)</span>
-          <span class="pick-text">Not wagered: daily limit of 2 bets reached (ranked #3 by attractiveness)</span>
-        </li>
-        <li class="pick-item pick-favorite">
-          <span class="pick-matchup">NYK @ CHI</span>
-          <span class="pick-spread">(NYK -11.5)</span>
-          <span class="pick-text">Not wagered: daily limit of 2 bets reached (ranked #4 by attractiveness)</span>
+          <span class="pick-text">No actionable bet</span>
         </li>
         <li class="pick-item pick-pass">
           <span class="pick-matchup">GSW @ MIN</span>
@@ -399,6 +396,11 @@
         <li class="pick-item pick-pass">
           <span class="pick-matchup">SAS @ UTA</span>
           <span class="pick-spread">(SAS -16.5)</span>
+          <span class="pick-text">No actionable bet</span>
+        </li>
+        <li class="pick-item pick-pass">
+          <span class="pick-matchup">NYK @ CHI</span>
+          <span class="pick-spread">(NYK -11.5)</span>
           <span class="pick-text">No actionable bet</span>
         </li>
         <li class="pick-item pick-avoid">
@@ -462,7 +464,7 @@
           <div class="meta-row"><span>Projected Margin</span><strong>LAC -0.5</strong></div>
           <div class="meta-row"><span>Expected Value</span><strong>$+0.136 / $1</strong></div>
           <div class="meta-row"><span>Kelly Stake</span><strong>6.9% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$946,173</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$907,901</strong></div>
         </div>
         
         <div class="buy-line">
@@ -491,13 +493,13 @@
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Clippers 64.1% vs Polymarket&#x27;s 50.5% — a 13.6pp gap that is well outside calibration noise and actionable.</li><li class="analysis-bullet">Clippers hold a +7.6 offensive rating advantage and +7.1 net rating edge over the Lakers, the two strongest model drivers.</li><li class="analysis-bullet">Lakers&#x27; ELO is actually higher (1604 vs 1544), which suppresses the Clippers&#x27; probability — but performance metrics override it here.</li><li class="analysis-bullet">EV of $0.14 per $1 and confirmed money flow (only 25.7% on Clippers) means the market is undervaluing the home side.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet $5.71 on the Clippers — a 13.6pp model edge backed by superior efficiency ratings and a mispriced market makes this the clearest value play on the card.</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Clippers <span class="num">64.1%</span> vs Polymarket&#x27;s <span class="num">50.5%</span> — a <span class="num">13.6</span>pp gap that is well outside noise and actionable.</li><li class="analysis-bullet">Clippers hold a +<span class="num">7.6</span> offensive rating edge and +<span class="num">7.1</span> net rating advantage over the Lakers this season.</li><li class="analysis-bullet">The ELO signals favor the Lakers on paper, but every efficiency metric overrules that with consistent home dominance.</li><li class="analysis-bullet">Money flow and price drift both confirm the Clippers edge, validating the model&#x27;s lean with real market behavior.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet <span class="num">$5.71</span> on the LA Clippers — the model&#x27;s <span class="num">13.6</span>pp edge over market odds, backed by superior efficiency ratings and confirming money flow, makes this a strong play.</div>
       </div>
     </div>
   </article>
 
-  <article class="card favorite">
+  <article class="card pass">
     <div class="card-header">
       <div>
         <div class="matchup-line">Spread OKC -15.5</div>
@@ -507,24 +509,24 @@
       <div class="bet-callout">
         <div class="bet-label">Suggested Bet</div>
         <div class="bet-amount">$0.00</div>
-        <div class="bet-formula">daily limit: top 2 only (rank #3)</div>
+        <div class="bet-formula">pass: inside calibration noise</div>
       </div>
     </div>
     <div class="direction-row">
-      <div class="direction-tag tag-favorite">Favorite Play (Strong)</div>
-      <div class="direction-text"><strong>Ride the market</strong> — bet Oklahoma City Thunder (AWAY), the agreed favorite. <strong>Not wagered:</strong> daily limit is 2 bets per day and this pick ranked #3 by attractiveness.</div>
+      <div class="direction-tag tag-pass">Pass</div>
+      <div class="direction-text"><strong>No actionable edge</strong> — gap is inside calibration noise; no meaningful disagreement to exploit.</div>
     </div>
     <div class="card-body">
       <div>
         <div class="panel-title">Model vs Market</div>
         <table class="prob-table">
-          <tr><td class="team">Dallas Mavericks</td><td class="num">26.1%</td><td class="num">45.5%</td><td class="delta delta-neg">-19.4</td></tr>
-          <tr><td class="team">Oklahoma City Thunder</td><td class="num">73.9%</td><td class="num">54.5%</td><td class="delta delta-pos">+19.4</td></tr></table>
+          <tr><td class="team">Dallas Mavericks</td><td class="num">26.1%</td><td class="num">51.5%</td><td class="delta delta-neg">-25.4</td></tr>
+          <tr><td class="team">Oklahoma City Thunder</td><td class="num">73.9%</td><td class="num">48.5%</td><td class="delta delta-pos">+25.4</td></tr></table>
         <div class="meta-rows">
           <div class="meta-row"><span>Projected Margin</span><strong>OKC -15.5</strong></div>
-          <div class="meta-row"><span>Expected Value</span><strong>$+0.194 / $1</strong></div>
-          <div class="meta-row"><span>Kelly Stake</span><strong>10.7% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$167,433</strong></div>
+          <div class="meta-row"><span>Expected Value</span><strong>$+0.254 / $1</strong></div>
+          <div class="meta-row"><span>Kelly Stake</span><strong>12.3% of bankroll</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$146,448</strong></div>
         </div>
         
       </div>
@@ -542,75 +544,16 @@
         </div>
       </div>
       <div class="attractiveness">
-        <div><span class="attr-score">8.0</span><span class="attr-score-suffix"> / 10</span></div>
+        <div><span class="attr-score">6.5</span><span class="attr-score-suffix"> / 10</span></div>
         <div>
-          <div class="attr-label">Attractiveness · HIGH tier</div>
-          <div class="attr-tags"><span class="tag">strong edge</span><span class="tag">decent liquidity</span><span class="tag">partial confirmation</span><span class="tag">noisy tail bin (±7pp)</span><span class="tag">daily limit: rank #3</span></div>
+          <div class="attr-label">Attractiveness · MEDIUM tier</div>
+          <div class="attr-tags"><span class="tag">strong edge</span><span class="tag">decent liquidity</span><span class="tag">no signal confirmation</span><span class="tag">noisy tail bin (±7pp)</span></div>
         </div>
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives OKC 73.9% vs Polymarket&#x27;s 54.5% — a 19.4pp gap that is too wide to ignore as noise.</li><li class="analysis-bullet">ELO differential of -504 points crushed Dallas&#x27;s win probability; OKC is the significantly superior team by rating.</li><li class="analysis-bullet">OKC&#x27;s opponent net rating advantage of 18.4 points signals Dallas&#x27;s schedule-adjusted defense is getting torched this season.</li><li class="analysis-bullet">EV of $0.19 per dollar with ¼ Kelly confirming a strong favorite play makes this one of the cleaner edges on the slate.</li><li class="analysis-bullet">Money flow leans OKC at 12.7% but price drift is falling — market is not fully aligned, watch for line movement before tip.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Not wagered (daily limit of 2 bets). Model favors OKC because a 19.4pp model-to-market gap backed by a 504-point ELO advantage signals Polymarket is badly undervaluing the Thunder.</div>
-      </div>
-    </div>
-  </article>
-
-  <article class="card favorite">
-    <div class="card-header">
-      <div>
-        <div class="matchup-line">Spread NYK -11.5</div>
-        <div class="matchup">New York Knicks <em>at</em> Chicago Bulls</div>
-        <div class="game-time">NYK @ CHI · 2026-10-28</div>
-      </div>
-      <div class="bet-callout">
-        <div class="bet-label">Suggested Bet</div>
-        <div class="bet-amount">$0.00</div>
-        <div class="bet-formula">daily limit: top 2 only (rank #4)</div>
-      </div>
-    </div>
-    <div class="direction-row">
-      <div class="direction-tag tag-favorite">Favorite Play (Strong)</div>
-      <div class="direction-text"><strong>Ride the market</strong> — bet New York Knicks (AWAY), the agreed favorite. <strong>Not wagered:</strong> daily limit is 2 bets per day and this pick ranked #4 by attractiveness.</div>
-    </div>
-    <div class="card-body">
-      <div>
-        <div class="panel-title">Model vs Market</div>
-        <table class="prob-table">
-          <tr><td class="team">Chicago Bulls</td><td class="num">29.6%</td><td class="num">42.5%</td><td class="delta delta-neg">-12.9</td></tr>
-          <tr><td class="team">New York Knicks</td><td class="num">70.4%</td><td class="num">57.5%</td><td class="delta delta-pos">+12.9</td></tr></table>
-        <div class="meta-rows">
-          <div class="meta-row"><span>Projected Margin</span><strong>NYK -11.5</strong></div>
-          <div class="meta-row"><span>Expected Value</span><strong>$+0.129 / $1</strong></div>
-          <div class="meta-row"><span>Kelly Stake</span><strong>7.6% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$166,251</strong></div>
-        </div>
-        
-      </div>
-      <div>
-        <div class="panel-title">Top SHAP Drivers</div>
-        
-        <div class="driver-block">
-          <div class="driver-team">Pushing toward Chicago Bulls</div>
-          <ul class="driver-list"><li class="driver"><span class="driver-name">away win probability from ELO alone</span><span class="driver-share">69%</span></li><li class="driver"><span class="driver-name">away team&#x27;s recent opp fg3 pct</span><span class="driver-share">7%</span></li><li class="driver"><span class="driver-name">home vs away gap in opp fg3 pct</span><span class="driver-share">6%</span></li></ul>
-        </div>
-        
-        <div class="driver-block">
-          <div class="driver-team">Pushing toward New York Knicks</div>
-          <ul class="driver-list"><li class="driver"><span class="driver-name">ELO rating gap (home minus away)</span><span class="driver-share">20%</span></li><li class="driver"><span class="driver-name">home win probability from ELO alone</span><span class="driver-share">18%</span></li><li class="driver"><span class="driver-name">home team&#x27;s ELO rating</span><span class="driver-share">15%</span></li></ul>
-        </div>
-      </div>
-      <div class="attractiveness">
-        <div><span class="attr-score">7.4</span><span class="attr-score-suffix"> / 10</span></div>
-        <div>
-          <div class="attr-label">Attractiveness · HIGH tier</div>
-          <div class="attr-tags"><span class="tag">strong edge</span><span class="tag">decent liquidity</span><span class="tag">partial confirmation</span><span class="tag">noisy tail bin (±7pp)</span><span class="tag">daily limit: rank #4</span></div>
-        </div>
-      </div>
-      <div class="analysis">
-        <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Knicks 70.4% vs Polymarket&#x27;s 57.5% — a 12.9pp gap that is meaningful and actionable.</li><li class="analysis-bullet">Knicks hold a massive ELO advantage (388-point gap), with Chicago&#x27;s home ELO at just 1339, driving the model&#x27;s conviction.</li><li class="analysis-bullet">Opponent net rating differential of +25.4pp favors New York, signaling a significant defensive and efficiency edge.</li><li class="analysis-bullet">EV of $0.13 per $1 and a ¼ Kelly stake confirm strong bet attractiveness — market is underpricing the Knicks.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Not wagered (daily limit of 2 bets). Model favors the Knicks because the model sees a 12.9pp pricing gap backed by dominant ELO and efficiency metrics the market is ignoring.</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives OKC <span class="num">73.9%</span> vs. Polymarket&#x27;s <span class="num">48.5%</span> — a <span class="num">25.4</span>pp gap that is well beyond noise.</li><li class="analysis-bullet">ELO differential of -<span class="num">504</span> points is the dominant signal: OKC is dramatically the stronger team.</li><li class="analysis-bullet">OKC&#x27;s opponent net rating advantage of <span class="num">18.4</span> points confirms elite two-way dominance over Dallas.</li><li class="analysis-bullet">EV of <span class="num">$0.25</span> per <span class="num">$1</span> bet is strong; market money flow and drift do not confirm, so size stays disciplined.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet <span class="num">$6.49</span> on OKC Thunder because a <span class="num">504</span>-point ELO gap makes the market&#x27;s near-coin-flip odds a clear mispricing.</div>
       </div>
     </div>
   </article>
@@ -636,13 +579,13 @@
       <div>
         <div class="panel-title">Model vs Market</div>
         <table class="prob-table">
-          <tr><td class="team">Minnesota Timberwolves</td><td class="num">51.9%</td><td class="num">8.5%</td><td class="delta delta-pos">+43.4</td></tr>
-          <tr><td class="team">Golden State Warriors</td><td class="num">48.1%</td><td class="num">91.5%</td><td class="delta delta-neg">-43.4</td></tr></table>
+          <tr><td class="team">Minnesota Timberwolves</td><td class="num">51.9%</td><td class="num">3.0%</td><td class="delta delta-pos">+48.9</td></tr>
+          <tr><td class="team">Golden State Warriors</td><td class="num">48.1%</td><td class="num">97.0%</td><td class="delta delta-neg">-48.9</td></tr></table>
         <div class="meta-rows">
           <div class="meta-row"><span>Projected Margin</span><strong>MIN -8.5</strong></div>
-          <div class="meta-row"><span>Expected Value</span><strong>$+0.434 / $1</strong></div>
-          <div class="meta-row"><span>Kelly Stake</span><strong>11.9% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$87,579</strong></div>
+          <div class="meta-row"><span>Expected Value</span><strong>$+0.489 / $1</strong></div>
+          <div class="meta-row"><span>Kelly Stake</span><strong>12.6% of bankroll</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$108,783</strong></div>
         </div>
         
       </div>
@@ -663,13 +606,13 @@
         <div><span class="attr-score">6.4</span><span class="attr-score-suffix"> / 10</span></div>
         <div>
           <div class="attr-label">Attractiveness · MEDIUM tier</div>
-          <div class="attr-tags"><span class="tag">strong edge</span><span class="tag">thin liquidity</span><span class="tag">no signal confirmation</span><span class="tag">calibrated bin (±3pp)</span></div>
+          <div class="attr-tags"><span class="tag">strong edge</span><span class="tag">decent liquidity</span><span class="tag">no signal confirmation</span><span class="tag">calibrated bin (±3pp)</span></div>
         </div>
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Minnesota 51.9% vs Polymarket&#x27;s 8.5% — a 43.4pp gap that screams mispricing, not noise.</li><li class="analysis-bullet">ELO favors Minnesota by 163 points, and their opponents are generating worse net ratings than Golden State&#x27;s.</li><li class="analysis-bullet">98.8% of order book money and price drift both back Golden State, making this a pure contrarian play.</li><li class="analysis-bullet">EV of $0.43 per dollar bet is strong; ¼ Kelly stake reflects the market&#x27;s overwhelming disagreement with the model.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet $6.40 on Minnesota Timberwolves because the model&#x27;s ELO and net rating edge creates a 43pp market gap worth fading the crowd on.</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Minnesota <span class="num">51.9%</span> vs Polymarket&#x27;s <span class="num">3.0%</span> — a <span class="num">48.9</span>pp gap that screams market mispricing, not noise.</li><li class="analysis-bullet">ELO differential of <span class="num">162</span> points is the top driver, putting Minnesota clearly ahead on model-rated team strength.</li><li class="analysis-bullet">Minnesota&#x27;s opponents are posting a -<span class="num">2.6</span> net rating differential, signaling the Wolves face easier competition on defense.</li><li class="analysis-bullet"><span class="num">99.1%</span> of money is on Golden State — this is a pure contrarian play; market structure gives zero confirmation.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet <span class="num">$6.44</span> on Minnesota Timberwolves because a <span class="num">48.9</span>pp model-market gap and strong ELO advantage make this the clearest contrarian value on the board.</div>
       </div>
     </div>
   </article>
@@ -695,13 +638,13 @@
       <div>
         <div class="panel-title">Model vs Market</div>
         <table class="prob-table">
-          <tr><td class="team">New Orleans Pelicans</td><td class="num">34.1%</td><td class="num">6.5%</td><td class="delta delta-pos">+27.6</td></tr>
-          <tr><td class="team">Denver Nuggets</td><td class="num">65.9%</td><td class="num">93.5%</td><td class="delta delta-neg">-27.6</td></tr></table>
+          <tr><td class="team">New Orleans Pelicans</td><td class="num">34.1%</td><td class="num">2.5%</td><td class="delta delta-pos">+31.7</td></tr>
+          <tr><td class="team">Denver Nuggets</td><td class="num">65.9%</td><td class="num">97.5%</td><td class="delta delta-neg">-31.7</td></tr></table>
         <div class="meta-rows">
           <div class="meta-row"><span>Projected Margin</span><strong>DEN -7.5</strong></div>
-          <div class="meta-row"><span>Expected Value</span><strong>$+0.276 / $1</strong></div>
-          <div class="meta-row"><span>Kelly Stake</span><strong>7.4% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$71,338</strong></div>
+          <div class="meta-row"><span>Expected Value</span><strong>$+0.317 / $1</strong></div>
+          <div class="meta-row"><span>Kelly Stake</span><strong>8.1% of bankroll</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$50,637</strong></div>
         </div>
         
       </div>
@@ -719,7 +662,7 @@
         </div>
       </div>
       <div class="attractiveness">
-        <div><span class="attr-score">6.4</span><span class="attr-score-suffix"> / 10</span></div>
+        <div><span class="attr-score">6.3</span><span class="attr-score-suffix"> / 10</span></div>
         <div>
           <div class="attr-label">Attractiveness · MEDIUM tier</div>
           <div class="attr-tags"><span class="tag">strong edge</span><span class="tag">thin liquidity</span><span class="tag">no signal confirmation</span><span class="tag">mid-tail bin (±4pp)</span></div>
@@ -727,8 +670,8 @@
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives New Orleans 34.1% win probability; Polymarket has them at just 6.5% — a 27.6pp gap that is too large to ignore.</li><li class="analysis-bullet">The biggest model driver is ELO-based home win expectancy, suggesting the market is overreacting to Denver&#x27;s historical rating advantage.</li><li class="analysis-bullet">New Orleans&#x27; defensive and offensive production metrics both outperform baseline, signaling genuine home competitiveness this season.</li><li class="analysis-bullet">EV of $0.28 per dollar and a ¼ Kelly stake confirm this clears the bar as a contrarian value play, not a coin flip.</li><li class="analysis-bullet">99.9% of market money is on Denver and price is drifting their way — the edge is real but you&#x27;re swimming upstream.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet $6.37 on New Orleans Pelicans because the 27.6pp model-market gap and $0.28 EV make this a clear contrarian value opportunity.</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives New Orleans <span class="num">34.1%</span> vs Polymarket&#x27;s <span class="num">2.5%</span> — a <span class="num">31.7</span>pp gap that is far too large to be noise.</li><li class="analysis-bullet">ELO heavily favors Denver, but New Orleans home production metrics and opponent foul rates push back meaningfully in the model.</li><li class="analysis-bullet">EV of <span class="num">$0.32</span> per dollar and ¼ Kelly at <span class="num">8.1%</span> signal a real edge, not a marginal one.</li><li class="analysis-bullet"><span class="num">100%</span> of order book money is on Denver and price is drifting their way — market structure fully contradicts the model bet.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet <span class="num">$6.31</span> on New Orleans Pelicans because the <span class="num">31.7</span>pp model-to-market gap generates genuine positive EV that the lopsided public money has left on the table.</div>
       </div>
     </div>
   </article>
@@ -754,13 +697,13 @@
       <div>
         <div class="panel-title">Model vs Market</div>
         <table class="prob-table">
-          <tr><td class="team">Utah Jazz</td><td class="num">30.5%</td><td class="num">25.5%</td><td class="delta delta-pos">+5.0</td></tr>
-          <tr><td class="team">San Antonio Spurs</td><td class="num">69.5%</td><td class="num">74.5%</td><td class="delta delta-neg">-5.0</td></tr></table>
+          <tr><td class="team">Utah Jazz</td><td class="num">30.5%</td><td class="num">26.5%</td><td class="delta delta-pos">+4.0</td></tr>
+          <tr><td class="team">San Antonio Spurs</td><td class="num">69.5%</td><td class="num">73.5%</td><td class="delta delta-neg">-4.0</td></tr></table>
         <div class="meta-rows">
           <div class="meta-row"><span>Projected Margin</span><strong>SAS -16.5</strong></div>
-          <div class="meta-row"><span>Expected Value</span><strong>$+0.050 / $1</strong></div>
-          <div class="meta-row"><span>Kelly Stake</span><strong>1.7% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$305,088</strong></div>
+          <div class="meta-row"><span>Expected Value</span><strong>$+0.040 / $1</strong></div>
+          <div class="meta-row"><span>Kelly Stake</span><strong>1.3% of bankroll</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$302,309</strong></div>
         </div>
         
       </div>
@@ -778,16 +721,75 @@
         </div>
       </div>
       <div class="attractiveness">
-        <div><span class="attr-score">5.1</span><span class="attr-score-suffix"> / 10</span></div>
+        <div><span class="attr-score">6.3</span><span class="attr-score-suffix"> / 10</span></div>
         <div>
           <div class="attr-label">Attractiveness · MEDIUM tier</div>
-          <div class="attr-tags"><span class="tag">moderate edge</span><span class="tag">decent liquidity</span><span class="tag">partial confirmation</span><span class="tag">mid-tail bin (±4pp)</span></div>
+          <div class="attr-tags"><span class="tag">thin edge</span><span class="tag">decent liquidity</span><span class="tag">both signals confirm</span><span class="tag">mid-tail bin (±4pp)</span></div>
         </div>
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model prices Utah Jazz at 30.5% vs. Polymarket&#x27;s 25.5% — a 5pp gap that clears the ±4pp calibration threshold, making this a real edge.</li><li class="analysis-bullet">ELO expects San Antonio to win big, but Utah&#x27;s offensive production metrics (home ORTG: 111.0) and efficiency rates are quietly propping up the Jazz.</li><li class="analysis-bullet">Utah outperforms opponent 3-point defense by a meaningful margin, limiting San Antonio&#x27;s perimeter game and narrowing the actual skill gap.</li><li class="analysis-bullet">EV of $0.05 per dollar and ¼ Kelly at 1.7% signal a modest but real opportunity — not a screamer, but positive expected value confirmed.</li><li class="analysis-bullet">Money flow favors Spurs (54.4%) but price is drifting toward Jazz — smart money disagrees with the crowd, confirming the contrarian thesis.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet $5.10 on Utah Jazz because the model finds a real 5pp edge over market odds, backed by strong home offensive efficiency and confirming price drift.</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Utah Jazz <span class="num">30.5%</span> vs Polymarket&#x27;s <span class="num">26.5%</span> — a <span class="num">4</span>pp gap that clears noise and flips the value side to the home dog.</li><li class="analysis-bullet">Spurs&#x27; massive ELO advantage (-<span class="num">529</span> point gap) dominates the model&#x27;s bearish features, making this a genuine contrarian call.</li><li class="analysis-bullet">Utah&#x27;s home offense rating (<span class="num">111.0</span> ORTG) and above-average offensive production are the primary reasons the model overweights the Jazz.</li><li class="analysis-bullet">Money flow (<span class="num">58.3%</span> leaning Jazz) and falling price drift both confirm the edge, suggesting smart money is quietly buying the home side.</li><li class="analysis-bullet">EV of <span class="num">$0.04</span> per dollar and quarter-Kelly sizing signal a real but modest edge — disciplined, not a table-pounder.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet <span class="num">$6.29</span> on Utah Jazz because the model sees <span class="num">4</span>pp of mispriced value the market is ignoring on the home underdog.</div>
+      </div>
+    </div>
+  </article>
+
+  <article class="card pass">
+    <div class="card-header">
+      <div>
+        <div class="matchup-line">Spread NYK -11.5</div>
+        <div class="matchup">New York Knicks <em>at</em> Chicago Bulls</div>
+        <div class="game-time">NYK @ CHI · 2026-10-28</div>
+      </div>
+      <div class="bet-callout">
+        <div class="bet-label">Suggested Bet</div>
+        <div class="bet-amount">$0.00</div>
+        <div class="bet-formula">pass: inside calibration noise</div>
+      </div>
+    </div>
+    <div class="direction-row">
+      <div class="direction-tag tag-pass">Pass</div>
+      <div class="direction-text"><strong>No actionable edge</strong> — gap is inside calibration noise; no meaningful disagreement to exploit.</div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="panel-title">Model vs Market</div>
+        <table class="prob-table">
+          <tr><td class="team">Chicago Bulls</td><td class="num">29.6%</td><td class="num">15.5%</td><td class="delta delta-pos">+14.1</td></tr>
+          <tr><td class="team">New York Knicks</td><td class="num">70.4%</td><td class="num">84.5%</td><td class="delta delta-neg">-14.1</td></tr></table>
+        <div class="meta-rows">
+          <div class="meta-row"><span>Projected Margin</span><strong>NYK -11.5</strong></div>
+          <div class="meta-row"><span>Expected Value</span><strong>$+0.141 / $1</strong></div>
+          <div class="meta-row"><span>Kelly Stake</span><strong>4.2% of bankroll</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$96,311</strong></div>
+        </div>
+        
+      </div>
+      <div>
+        <div class="panel-title">Top SHAP Drivers</div>
+        
+        <div class="driver-block">
+          <div class="driver-team">Pushing toward Chicago Bulls</div>
+          <ul class="driver-list"><li class="driver"><span class="driver-name">away win probability from ELO alone</span><span class="driver-share">69%</span></li><li class="driver"><span class="driver-name">away team&#x27;s recent opp fg3 pct</span><span class="driver-share">7%</span></li><li class="driver"><span class="driver-name">home vs away gap in opp fg3 pct</span><span class="driver-share">6%</span></li></ul>
+        </div>
+        
+        <div class="driver-block">
+          <div class="driver-team">Pushing toward New York Knicks</div>
+          <ul class="driver-list"><li class="driver"><span class="driver-name">ELO rating gap (home minus away)</span><span class="driver-share">20%</span></li><li class="driver"><span class="driver-name">home win probability from ELO alone</span><span class="driver-share">18%</span></li><li class="driver"><span class="driver-name">home team&#x27;s ELO rating</span><span class="driver-share">15%</span></li></ul>
+        </div>
+      </div>
+      <div class="attractiveness">
+        <div><span class="attr-score">6.1</span><span class="attr-score-suffix"> / 10</span></div>
+        <div>
+          <div class="attr-label">Attractiveness · MEDIUM tier</div>
+          <div class="attr-tags"><span class="tag">strong edge</span><span class="tag">thin liquidity</span><span class="tag">no signal confirmation</span><span class="tag">noisy tail bin (±7pp)</span></div>
+        </div>
+      </div>
+      <div class="analysis">
+        <div class="panel-title">Analysis</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Chicago <span class="num">29.6%</span> vs Polymarket&#x27;s <span class="num">15.5%</span> — a <span class="num">14.1</span>pp gap that is meaningful and actionable.</li><li class="analysis-bullet">ELO gap dominates the bearish SHAP signal, but Chicago&#x27;s defensive production and opponent <span class="num">3</span>PT suppression push back hard.</li><li class="analysis-bullet"><span class="num">87.5%</span> of order book money leans Knicks, confirming the market is one-sided and the contrarian edge is real.</li><li class="analysis-bullet">EV of <span class="num">$0.14</span> per dollar and ¼ Kelly stake signal a genuine but measured opportunity, not a slam dunk.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet <span class="num">$6.15</span> on Chicago Bulls — the model sees them as nearly twice as likely to win as the market implies, creating a rare <span class="num">14.1</span>pp contrarian edge worth taking.</div>
       </div>
     </div>
   </article>
@@ -813,13 +815,13 @@
       <div>
         <div class="panel-title">Model vs Market</div>
         <table class="prob-table">
-          <tr><td class="team">Milwaukee Bucks</td><td class="num">39.1%</td><td class="num">4.1%</td><td class="delta delta-pos">+35.0</td></tr>
-          <tr><td class="team">Houston Rockets</td><td class="num">60.9%</td><td class="num">95.9%</td><td class="delta delta-neg">-35.0</td></tr></table>
+          <tr><td class="team">Milwaukee Bucks</td><td class="num">39.1%</td><td class="num">3.9%</td><td class="delta delta-pos">+35.2</td></tr>
+          <tr><td class="team">Houston Rockets</td><td class="num">60.9%</td><td class="num">96.1%</td><td class="delta delta-neg">-35.2</td></tr></table>
         <div class="meta-rows">
           <div class="meta-row"><span>Projected Margin</span><strong>HOU -8.0</strong></div>
-          <div class="meta-row"><span>Expected Value</span><strong>$+0.350 / $1</strong></div>
+          <div class="meta-row"><span>Expected Value</span><strong>$+0.352 / $1</strong></div>
           <div class="meta-row"><span>Kelly Stake</span><strong>9.1% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$45,955</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$41,563</strong></div>
         </div>
         
       </div>
@@ -845,8 +847,8 @@
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Milwaukee 39.1% win probability; Polymarket has them at 4.1% — a 35pp gap that demands attention.</li><li class="analysis-bullet">Houston&#x27;s ELO advantage is the dominant signal: a 290-point ELO differential crushes every Milwaukee home-court factor in the model.</li><li class="analysis-bullet">EV of $0.35 per dollar and a Kelly signal exist on paper, but liquidity is only $46K with 100% of order flow backing Houston.</li><li class="analysis-bullet">Market structure is a hard red flag: zero drift confirmation, zero money confirmation, and thin liquidity means the spread eats your edge alive.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet $0.00 on Milwaukee — the system kills this bet on liquidity grounds, and the entire market is screaming Houston for good reason.</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Milwaukee <span class="num">39.1%</span> win probability; Polymarket has them at <span class="num">3.9%</span> — a massive <span class="num">35.2</span>pp gap demanding attention.</li><li class="analysis-bullet">Houston&#x27;s ELO advantage is the dominant signal: a <span class="num">290</span>-point ELO gap and expected home win rate of just <span class="num">15.8%</span> crush the Milwaukee lean.</li><li class="analysis-bullet">EV of <span class="num">$0.35</span> per dollar and ¼ Kelly at <span class="num">9.1%</span> look attractive on paper, but the entire order book — <span class="num">100%</span> money flow — is on Houston.</li><li class="analysis-bullet">Liquidity is only <span class="num">$41</span>K with <span class="num">$6.7</span>K daily volume; the spread eats the edge before you can capture it.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet <span class="num">$0.00</span> on Milwaukee — thin liquidity and unanimous market conviction toward Houston make this edge uncapturable despite the <span class="num">35.2</span>pp model gap.</div>
       </div>
     </div>
   </article>
@@ -904,7 +906,7 @@
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model predicts Cleveland Cavaliers home wins 77%, Washington Wizards 23%.</li><li class="analysis-bullet">No Polymarket data available; no edge analysis possible.</li></ul>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model predicts Cleveland Cavaliers home wins <span class="num">77%</span>, Washington Wizards <span class="num">23%</span>.</li><li class="analysis-bullet">No Polymarket data available; no edge analysis possible.</li></ul>
         <div class="tldr"><div class="tldr-label">TL;DR</div>Cannot recommend a bet — no market to compare against.</div>
       </div>
     </div>
@@ -963,7 +965,7 @@
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model predicts Toronto Raptors home wins 72%, Orlando Magic 28%.</li><li class="analysis-bullet">No Polymarket data available; no edge analysis possible.</li></ul>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model predicts Toronto Raptors home wins <span class="num">72%</span>, Orlando Magic <span class="num">28%</span>.</li><li class="analysis-bullet">No Polymarket data available; no edge analysis possible.</li></ul>
         <div class="tldr"><div class="tldr-label">TL;DR</div>Cannot recommend a bet — no market to compare against.</div>
       </div>
     </div>
@@ -1022,7 +1024,7 @@
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model predicts Detroit Pistons home wins 62%, Charlotte Hornets 38%.</li><li class="analysis-bullet">No Polymarket data available; no edge analysis possible.</li></ul>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model predicts Detroit Pistons home wins <span class="num">62%</span>, Charlotte Hornets <span class="num">38%</span>.</li><li class="analysis-bullet">No Polymarket data available; no edge analysis possible.</li></ul>
         <div class="tldr"><div class="tldr-label">TL;DR</div>Cannot recommend a bet — no market to compare against.</div>
       </div>
     </div>
@@ -1039,7 +1041,7 @@
           <div class="history-bet">
             <span class="history-matchup">DET @ NYK</span>
             <span class="history-spread">(NYK -3.0)</span>
-            <span class="history-amount">— $4.89 recommended wager</span>
+            <span class="history-amount">— <span class="num">$4.89</span> recommended wager</span>
             <span class="history-tier">(high confidence)</span>
           </div>
           <div class="history-outcome">NYK covered (-14 MOV)</div>
@@ -1048,7 +1050,7 @@
           <div class="history-bet">
             <span class="history-matchup">SAC @ SAS</span>
             <span class="history-spread">(SAS -20.5)</span>
-            <span class="history-amount">— $1.02* recommended wager</span>
+            <span class="history-amount">— <span class="num">$1.02*</span> recommended wager</span>
             <span class="history-tier">(high confidence)</span>
           </div>
           <div class="history-outcome">SAC missed — SAS won by 27</div>
@@ -1061,7 +1063,7 @@
           <div class="history-bet">
             <span class="history-matchup">ATL @ HOU</span>
             <span class="history-spread">(HOU -5.0)</span>
-            <span class="history-amount">— $1.26* recommended wager</span>
+            <span class="history-amount">— <span class="num">$1.26*</span> recommended wager</span>
             <span class="history-tier">(high confidence)</span>
           </div>
           <div class="history-outcome">HOU covered (-10 MOV)</div>
@@ -1070,7 +1072,7 @@
           <div class="history-bet">
             <span class="history-matchup">WAS @ CHA</span>
             <span class="history-spread">(CHA -18.5)</span>
-            <span class="history-amount">— $4.38 recommended wager</span>
+            <span class="history-amount">— <span class="num">$4.38</span> recommended wager</span>
             <span class="history-tier">(high confidence)</span>
           </div>
           <div class="history-outcome">CHA covered (-7 MOV)</div>
@@ -1083,7 +1085,7 @@
           <div class="history-bet">
             <span class="history-matchup">ORL @ NYK</span>
             <span class="history-spread">(NYK -8.5)</span>
-            <span class="history-amount">— $6.03 recommended wager</span>
+            <span class="history-amount">— <span class="num">$6.03</span> recommended wager</span>
             <span class="history-tier">(high confidence)</span>
           </div>
           <div class="history-outcome">NYK missed — ORL won by 9</div>
@@ -1092,7 +1094,7 @@
           <div class="history-bet">
             <span class="history-matchup">MEM @ SAC</span>
             <span class="history-spread">(SAC -3.0)</span>
-            <span class="history-amount">— $7.08 recommended wager</span>
+            <span class="history-amount">— <span class="num">$7.08</span> recommended wager</span>
             <span class="history-tier">(high confidence)</span>
           </div>
           <div class="history-outcome">SAC missed — MEM won by 11</div>
@@ -1105,7 +1107,7 @@
           <div class="history-bet">
             <span class="history-matchup">MIA @ CHA</span>
             <span class="history-spread">(CHA -6.0)</span>
-            <span class="history-amount">— $1.28* recommended wager</span>
+            <span class="history-amount">— <span class="num">$1.28*</span> recommended wager</span>
             <span class="history-tier">(high confidence)</span>
           </div>
           <div class="history-outcome">CHA covered (-5 MOV)</div>
@@ -1114,7 +1116,7 @@
           <div class="history-bet">
             <span class="history-matchup">SAS @ DAL</span>
             <span class="history-spread">(SAS -14.5)</span>
-            <span class="history-amount">— $5.98 recommended wager</span>
+            <span class="history-amount">— <span class="num">$5.98</span> recommended wager</span>
             <span class="history-tier">(high confidence)</span>
           </div>
           <div class="history-outcome">SAS covered (-16 MOV)</div>
@@ -1127,7 +1129,7 @@
           <div class="history-bet">
             <span class="history-matchup">ATL @ CHA</span>
             <span class="history-spread">(CHA -4.0)</span>
-            <span class="history-amount">— $1.56* recommended wager</span>
+            <span class="history-amount">— <span class="num">$1.56*</span> recommended wager</span>
             <span class="history-tier">(high confidence)</span>
           </div>
           <div class="history-outcome">CHA missed — ATL won by 47</div>
@@ -1136,7 +1138,7 @@
           <div class="history-bet">
             <span class="history-matchup">MEM @ GSW</span>
             <span class="history-spread">(GSW -8.0)</span>
-            <span class="history-amount">— $6.13 recommended wager</span>
+            <span class="history-amount">— <span class="num">$6.13</span> recommended wager</span>
             <span class="history-tier">(high confidence)</span>
           </div>
           <div class="history-outcome">GSW missed — MEM won by 3</div>
@@ -1149,7 +1151,7 @@
           <div class="history-bet">
             <span class="history-matchup">CHA @ BKN</span>
             <span class="history-spread">(CHA -11.0)</span>
-            <span class="history-amount">— $6.63 recommended wager</span>
+            <span class="history-amount">— <span class="num">$6.63</span> recommended wager</span>
             <span class="history-tier">(high confidence)</span>
           </div>
           <div class="history-outcome">CHA covered (-7 MOV)</div>
@@ -1158,7 +1160,7 @@
           <div class="history-bet">
             <span class="history-matchup">MIL @ WAS</span>
             <span class="history-spread">(MIL -3.5)</span>
-            <span class="history-amount">— $1.43* recommended wager</span>
+            <span class="history-amount">— <span class="num">$1.43*</span> recommended wager</span>
             <span class="history-tier">(high confidence)</span>
           </div>
           <div class="history-outcome">MIL missed — WAS won by 12</div>
@@ -1171,7 +1173,7 @@
           <div class="history-bet">
             <span class="history-matchup">PHI @ NYK</span>
             <span class="history-spread">(NYK -10.0)</span>
-            <span class="history-amount">— $6.71 recommended wager</span>
+            <span class="history-amount">— <span class="num">$6.71</span> recommended wager</span>
             <span class="history-tier">(high confidence)</span>
           </div>
           <div class="history-outcome">NYK missed — PHI won by 6</div>
@@ -1180,7 +1182,7 @@
           <div class="history-bet">
             <span class="history-matchup">OKC @ SAS</span>
             <span class="history-spread">(SAS -1.5)</span>
-            <span class="history-amount">— $1.61* recommended wager</span>
+            <span class="history-amount">— <span class="num">$1.61*</span> recommended wager</span>
             <span class="history-tier">(high confidence)</span>
           </div>
           <div class="history-outcome">SAS missed — OKC won by 12</div>
@@ -1193,7 +1195,7 @@
           <div class="history-bet">
             <span class="history-matchup">SAS @ NYK</span>
             <span class="history-spread">(NYK -0.5)</span>
-            <span class="history-amount">— $15.88 recommended wager</span>
+            <span class="history-amount">— <span class="num">$15.88</span> recommended wager</span>
             <span class="history-tier">(high confidence)</span>
           </div>
           <div class="history-outcome">NYK covered (-1 MOV)</div>
@@ -1206,7 +1208,7 @@
           <div class="history-bet">
             <span class="history-matchup">SAS @ NYK</span>
             <span class="history-spread">(NYK -0.5)</span>
-            <span class="history-amount">— $21.63 recommended wager</span>
+            <span class="history-amount">— <span class="num">$21.63</span> recommended wager</span>
             <span class="history-tier">(high confidence)</span>
           </div>
           <div class="history-outcome">NYK missed — SAS won by 4</div>
@@ -1219,7 +1221,7 @@
           <div class="history-bet">
             <span class="history-matchup">SAS @ OKC</span>
             <span class="history-spread">(OKC -3.5)</span>
-            <span class="history-amount">— $16.93 recommended wager</span>
+            <span class="history-amount">— <span class="num">$16.93</span> recommended wager</span>
             <span class="history-tier">(medium confidence)</span>
           </div>
           <div class="history-outcome">OKC missed — SAS won by 8</div>
@@ -1232,7 +1234,7 @@
           <div class="history-bet">
             <span class="history-matchup">OKC @ SAS</span>
             <span class="history-spread">(SAS -1.5)</span>
-            <span class="history-amount">— $19.27 recommended wager</span>
+            <span class="history-amount">— <span class="num">$19.27</span> recommended wager</span>
             <span class="history-tier">(medium confidence)</span>
           </div>
           <div class="history-outcome">SAS covered (-27 MOV)</div>
@@ -1245,7 +1247,7 @@
           <div class="history-bet">
             <span class="history-matchup">SAS @ OKC</span>
             <span class="history-spread">(OKC -3.5)</span>
-            <span class="history-amount">— $13.82* recommended wager</span>
+            <span class="history-amount">— <span class="num">$13.82*</span> recommended wager</span>
             <span class="history-tier">(medium confidence)</span>
           </div>
           <div class="history-outcome">OKC covered (-0 MOV)</div>
@@ -1258,7 +1260,7 @@
           <div class="history-bet">
             <span class="history-matchup">OKC @ SAS</span>
             <span class="history-spread">(SAS -1.5)</span>
-            <span class="history-amount">— $16.64 recommended wager</span>
+            <span class="history-amount">— <span class="num">$16.64</span> recommended wager</span>
             <span class="history-tier">(high confidence)</span>
           </div>
           <div class="history-outcome">SAS covered (-21 MOV)</div>
@@ -1271,7 +1273,7 @@
           <div class="history-bet">
             <span class="history-matchup">NYK @ CLE</span>
             <span class="history-spread">(NYK -1.0)</span>
-            <span class="history-amount">— $2.66* recommended wager</span>
+            <span class="history-amount">— <span class="num">$2.66*</span> recommended wager</span>
             <span class="history-tier">(medium confidence)</span>
           </div>
           <div class="history-outcome">NYK covered (-13 MOV)</div>
@@ -1284,7 +1286,7 @@
           <div class="history-bet">
             <span class="history-matchup">OKC @ SAS</span>
             <span class="history-spread">(SAS -1.5)</span>
-            <span class="history-amount">— $21.69 recommended wager</span>
+            <span class="history-amount">— <span class="num">$21.69</span> recommended wager</span>
             <span class="history-tier">(high confidence)</span>
           </div>
           <div class="history-outcome">SAS missed — OKC won by 15</div>
@@ -1297,7 +1299,7 @@
           <div class="history-bet">
             <span class="history-matchup">CLE @ NYK</span>
             <span class="history-spread">(NYK -6.0)</span>
-            <span class="history-amount">— $18.18 recommended wager</span>
+            <span class="history-amount">— <span class="num">$18.18</span> recommended wager</span>
             <span class="history-tier">(high confidence)</span>
           </div>
           <div class="history-outcome">NYK covered (-16 MOV)</div>
@@ -1310,7 +1312,7 @@
           <div class="history-bet">
             <span class="history-matchup">SAS @ OKC</span>
             <span class="history-spread">(OKC -3.5)</span>
-            <span class="history-amount">— $3.86* recommended wager</span>
+            <span class="history-amount">— <span class="num">$3.86*</span> recommended wager</span>
             <span class="history-tier">(medium confidence)</span>
           </div>
           <div class="history-outcome">SAS missed — OKC won by 9</div>
@@ -1323,7 +1325,7 @@
           <div class="history-bet">
             <span class="history-matchup">CLE @ NYK</span>
             <span class="history-spread">(NYK -6.0)</span>
-            <span class="history-amount">— $13.25 recommended wager</span>
+            <span class="history-amount">— <span class="num">$13.25</span> recommended wager</span>
             <span class="history-tier">(medium confidence)</span>
           </div>
           <div class="history-outcome">NYK covered (-11 MOV)</div>
@@ -1351,43 +1353,43 @@
 <line x1="70" y1="164.2" x2="930" y2="164.2" stroke="#5c5851" stroke-width="1" stroke-dasharray="4,4"/>
 <polyline points="70.0,137.5 117.8,155.3 165.6,109.3 213.3,208.9 261.1,193.6 308.9,134.8 356.7,92.5 404.4,32.3 452.2,110.0 500.0,209.3 547.8,148.5 595.6,186.7 643.3,165.7 691.1,201.0 738.9,167.5 786.7,227.7 834.4,208.1 882.2,198.1 930.0,184.7" stroke="#f5b942" stroke-width="2.5" fill="none"/>
 <circle cx="70.0" cy="137.5" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
-<text x="70.0" y="123.5" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">+$5.81</text>
+<text x="70.0" y="123.5" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$5.81</text>
 <circle cx="117.8" cy="155.3" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
-<text x="117.8" y="141.3" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">+$1.95</text>
+<text x="117.8" y="141.3" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$1.95</text>
 <circle cx="165.6" cy="109.3" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
-<text x="165.6" y="95.3" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">+$11.96</text>
+<text x="165.6" y="95.3" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$11.96</text>
 <circle cx="213.3" cy="208.9" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="213.3" y="194.9" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">-$9.73</text>
+<text x="213.3" y="194.9" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$9.73</text>
 <circle cx="261.1" cy="193.6" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="261.1" y="179.6" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">-$6.41</text>
+<text x="261.1" y="179.6" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$6.41</text>
 <circle cx="308.9" cy="134.8" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
-<text x="308.9" y="120.8" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">+$6.40</text>
+<text x="308.9" y="120.8" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$6.40</text>
 <circle cx="356.7" cy="92.5" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
-<text x="356.7" y="78.5" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">+$15.61</text>
+<text x="356.7" y="78.5" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$15.61</text>
 <circle cx="404.4" cy="32.3" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
-<text x="404.4" y="18.3" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">+$28.73</text>
+<text x="404.4" y="18.3" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$28.73</text>
 <circle cx="452.2" cy="110.0" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
-<text x="452.2" y="96.0" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">+$11.80</text>
+<text x="452.2" y="96.0" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$11.80</text>
 <circle cx="500.0" cy="209.3" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="500.0" y="195.3" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">-$9.83</text>
+<text x="500.0" y="195.3" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$9.83</text>
 <circle cx="547.8" cy="148.5" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
-<text x="547.8" y="134.5" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">+$3.43</text>
+<text x="547.8" y="134.5" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$3.43</text>
 <circle cx="595.6" cy="186.7" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="595.6" y="172.7" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">-$4.89</text>
+<text x="595.6" y="172.7" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$4.89</text>
 <circle cx="643.3" cy="165.7" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="643.3" y="151.7" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">-$0.32</text>
+<text x="643.3" y="151.7" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$0.32</text>
 <circle cx="691.1" cy="201.0" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="691.1" y="187.0" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">-$8.01</text>
+<text x="691.1" y="187.0" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$8.01</text>
 <circle cx="738.9" cy="167.5" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="738.9" y="153.5" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">-$0.72</text>
+<text x="738.9" y="153.5" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$0.72</text>
 <circle cx="786.7" cy="227.7" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="786.7" y="213.7" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">-$13.83</text>
+<text x="786.7" y="213.7" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$13.83</text>
 <circle cx="834.4" cy="208.1" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="834.4" y="194.1" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">-$9.56</text>
+<text x="834.4" y="194.1" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$9.56</text>
 <circle cx="882.2" cy="198.1" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="882.2" y="184.1" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">-$7.39</text>
+<text x="882.2" y="184.1" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$7.39</text>
 <circle cx="930.0" cy="184.7" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="930.0" y="170.7" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" fill="#e6e1d6" font-weight="500">-$4.47</text>
+<text x="930.0" y="170.7" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$4.47</text>
 <text x="70.0" y="250" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5c5851">05-19</text>
 <text x="117.8" y="250" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5c5851">05-20</text>
 <text x="165.6" y="250" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5c5851">05-21</text>
