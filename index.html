@@ -30,7 +30,7 @@
   .pnl-inner { max-width: 1080px; margin: 0 auto; padding: 0 32px; display: flex; flex-direction: column; gap: 1px; }
   .pnl-row { display: grid; gap: 1px; background: var(--border-soft); }
   .pnl-row.row-financial { grid-template-columns: repeat(4, 1fr); }
-  .pnl-row.row-tiers     { grid-template-columns: repeat(3, 1fr); }
+  .pnl-row.row-tiers     { grid-template-columns: repeat(4, 1fr); }
   .pnl-cell { background: var(--surface); padding: 10px 18px; }
   .pnl-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 6px; }
   .pnl-value { font-family: var(--display); font-weight: 400; font-size: 1.6rem; line-height: 1; color: var(--text); letter-spacing: -0.015em; font-variation-settings: "opsz" 144; }
@@ -42,6 +42,8 @@
   .pnl-cell.tier-high { border-left-color: var(--favorite); }
   .pnl-cell.tier-medium { border-left-color: var(--accent); }
   .pnl-cell.tier-low { border-left-color: var(--pass); }
+  .pnl-cell.tier-contrarian { border-left-color: var(--contrarian); }
+  .pnl-cell.tier-favorite { border-left-color: var(--favorite); }
 
   .topbar { border-bottom: 1px solid var(--border); padding: 14px 0; backdrop-filter: blur(10px); background: rgba(10,14,20,0.85); position: sticky; top: 0; z-index: 100; }
   .topbar-inner { max-width: 1080px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
@@ -208,7 +210,7 @@
     /* P&L strip: 2-col financials, 3-col tiers, smaller values */
     .pnl-strip { padding: 10px 0; }
     .pnl-row.row-financial { grid-template-columns: repeat(2, 1fr); }
-    .pnl-row.row-tiers { grid-template-columns: repeat(3, 1fr); }
+    .pnl-row.row-tiers { grid-template-columns: repeat(2, 1fr); }
     .pnl-cell { padding: 8px 12px; }
     .pnl-label { font-size: 0.56rem; letter-spacing: 0.16em; margin-bottom: 4px; }
     .pnl-value { font-size: 1.25rem; }
@@ -335,7 +337,8 @@
     <div class="pnl-row row-tiers">
       <div class="pnl-cell tier-cell tier-high"><div class="pnl-label">High Conf · 6.7+</div><div class="pnl-value">10-10<span class="pnl-record-rate">-$15.14</span></div></div>
       <div class="pnl-cell tier-cell tier-medium"><div class="pnl-label">Medium · 3.4–6.6</div><div class="pnl-value">4-2<span class="pnl-record-rate">+$10.67</span></div></div>
-      <div class="pnl-cell tier-cell tier-low"><div class="pnl-label">Low · 0–3.3</div><div class="pnl-value">0-0<span class="pnl-record-rate">+$0.00</span></div></div>
+      <div class="pnl-cell tier-cell tier-contrarian"><div class="pnl-label">Contrarian · Underdog</div><div class="pnl-value">4-5<span class="pnl-record-rate">-$0.30</span></div></div>
+      <div class="pnl-cell tier-cell tier-favorite"><div class="pnl-label">Favorite · Overall</div><div class="pnl-value">10-7<span class="pnl-record-rate">-$4.18</span></div></div>
     </div>
   </div>
 </div>
@@ -344,7 +347,7 @@
   <div class="topbar-inner">
     <div class="brand"><span class="brand-dot"></span>HIDDEN&nbsp;LINES</div>
     <div class="meta-bar">
-      <strong>v4_2026-05-19</strong> · 130 features · stacked ensemble · updated <strong>10:10 PM ET</strong>
+      <strong>v4_2026-05-19</strong> · 130 features · stacked ensemble · updated <strong>10:16 PM ET</strong>
     </div>
   </div>
 </div>
@@ -373,29 +376,29 @@
           <span class="pick-spread">(PHI -5.0)</span>
           <span class="pick-text">$1.28* recommended wager on Indiana Pacers (underdog haircut) (game no longer on the live slate)</span>
         </li>
-        <li class="pick-item pick-contrarian">
-          <span class="pick-matchup">DEN @ NOP</span>
-          <span class="pick-spread">(DEN -7.5)</span>
-          <span class="pick-text">Not wagered: daily limit of 2 bets reached (ranked #3 by attractiveness)</span>
-        </li>
         <li class="pick-item pick-favorite">
           <span class="pick-matchup">OKC @ DAL</span>
           <span class="pick-spread">(OKC -15.5)</span>
-          <span class="pick-text">Not wagered: daily limit of 2 bets reached (ranked #4 by attractiveness)</span>
+          <span class="pick-text">Not wagered: daily limit of 2 bets reached (ranked #3 by attractiveness)</span>
         </li>
         <li class="pick-item pick-favorite">
           <span class="pick-matchup">NYK @ CHI</span>
           <span class="pick-spread">(NYK -11.5)</span>
-          <span class="pick-text">Not wagered: daily limit of 2 bets reached (ranked #5 by attractiveness)</span>
-        </li>
-        <li class="pick-item pick-contrarian">
-          <span class="pick-matchup">SAS @ UTA</span>
-          <span class="pick-spread">(SAS -16.5)</span>
-          <span class="pick-text">Not wagered: daily limit of 2 bets reached (ranked #6 by attractiveness)</span>
+          <span class="pick-text">Not wagered: daily limit of 2 bets reached (ranked #4 by attractiveness)</span>
         </li>
         <li class="pick-item pick-pass">
           <span class="pick-matchup">GSW @ MIN</span>
           <span class="pick-spread">(MIN -8.5)</span>
+          <span class="pick-text">No actionable bet</span>
+        </li>
+        <li class="pick-item pick-pass">
+          <span class="pick-matchup">DEN @ NOP</span>
+          <span class="pick-spread">(DEN -7.5)</span>
+          <span class="pick-text">No actionable bet</span>
+        </li>
+        <li class="pick-item pick-pass">
+          <span class="pick-matchup">SAS @ UTA</span>
+          <span class="pick-spread">(SAS -16.5)</span>
           <span class="pick-text">No actionable bet</span>
         </li>
         <li class="pick-item pick-avoid">
@@ -459,7 +462,7 @@
           <div class="meta-row"><span>Projected Margin</span><strong>LAC -0.5</strong></div>
           <div class="meta-row"><span>Expected Value</span><strong>$+0.136 / $1</strong></div>
           <div class="meta-row"><span>Kelly Stake</span><strong>6.9% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$965,665</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$946,173</strong></div>
         </div>
         
         <div class="buy-line">
@@ -488,67 +491,8 @@
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Clippers 64.1% vs Polymarket&#x27;s 50.5% — a 13.6pp gap that is well outside noise.</li><li class="analysis-bullet">Clippers hold a +7.6 offensive rating edge and a +7.1 net rating advantage over opponents this season.</li><li class="analysis-bullet">EV of $0.14 per dollar bet is strong; Kelly confirms with 6.9% sizing even at quarter-Kelly.</li><li class="analysis-bullet">Money flow and price drift both confirm the Clippers edge, with odds still falling in their favor.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet $5.71 on LA Clippers — the model sees a 13.6pp mispricing backed by superior net ratings and confirmed by market structure.</div>
-      </div>
-    </div>
-  </article>
-
-  <article class="card contrarian">
-    <div class="card-header">
-      <div>
-        <div class="matchup-line">Spread DEN -7.5</div>
-        <div class="matchup">Denver Nuggets <em>at</em> New Orleans Pelicans</div>
-        <div class="game-time">DEN @ NOP · 2026-10-28</div>
-      </div>
-      <div class="bet-callout">
-        <div class="bet-label">Suggested Bet</div>
-        <div class="bet-amount">$0.00</div>
-        <div class="bet-formula">daily limit: top 2 only (rank #3)</div>
-      </div>
-    </div>
-    <div class="direction-row">
-      <div class="direction-tag tag-contrarian">Contrarian Opportunity (Strong)</div>
-      <div class="direction-text"><strong>Fade the consensus</strong> — both sources pick the favorite, but model thinks the favorite is overpriced. Value bet on New Orleans Pelicans (HOME). <strong>Not wagered:</strong> daily limit is 2 bets per day and this pick ranked #3 by attractiveness.</div>
-    </div>
-    <div class="card-body">
-      <div>
-        <div class="panel-title">Model vs Market</div>
-        <table class="prob-table">
-          <tr><td class="team">New Orleans Pelicans</td><td class="num">34.1%</td><td class="num">5.5%</td><td class="delta delta-pos">+28.6</td></tr>
-          <tr><td class="team">Denver Nuggets</td><td class="num">65.9%</td><td class="num">94.5%</td><td class="delta delta-neg">-28.6</td></tr></table>
-        <div class="meta-rows">
-          <div class="meta-row"><span>Projected Margin</span><strong>DEN -7.5</strong></div>
-          <div class="meta-row"><span>Expected Value</span><strong>$+0.286 / $1</strong></div>
-          <div class="meta-row"><span>Kelly Stake</span><strong>7.6% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$200,756</strong></div>
-        </div>
-        
-      </div>
-      <div>
-        <div class="panel-title">Top SHAP Drivers</div>
-        
-        <div class="driver-block">
-          <div class="driver-team">Pushing toward New Orleans Pelicans</div>
-          <ul class="driver-list"><li class="driver"><span class="driver-name">away win probability from ELO alone</span><span class="driver-share">51%</span></li><li class="driver"><span class="driver-name">home team&#x27;s available defensive production %</span><span class="driver-share">13%</span></li><li class="driver"><span class="driver-name">home team&#x27;s available player production %</span><span class="driver-share">12%</span></li></ul>
-        </div>
-        
-        <div class="driver-block">
-          <div class="driver-team">Pushing toward Denver Nuggets</div>
-          <ul class="driver-list"><li class="driver"><span class="driver-name">ELO rating gap (home minus away)</span><span class="driver-share">25%</span></li><li class="driver"><span class="driver-name">home win probability from ELO alone</span><span class="driver-share">23%</span></li><li class="driver"><span class="driver-name">home team&#x27;s ELO rating</span><span class="driver-share">16%</span></li></ul>
-        </div>
-      </div>
-      <div class="attractiveness">
-        <div><span class="attr-score">8.0</span><span class="attr-score-suffix"> / 10</span></div>
-        <div>
-          <div class="attr-label">Attractiveness · HIGH tier</div>
-          <div class="attr-tags"><span class="tag">strong edge</span><span class="tag">decent liquidity</span><span class="tag">partial confirmation</span><span class="tag">mid-tail bin (±4pp)</span><span class="tag">daily limit: rank #3</span></div>
-        </div>
-      </div>
-      <div class="analysis">
-        <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Pelicans 34.1% vs Polymarket&#x27;s 5.5% — a 28.6pp gap that is too large to dismiss as noise.</li><li class="analysis-bullet">ELO says Denver wins comfortably, but New Orleans home defense and offensive production metrics are pushing back hard against that lean.</li><li class="analysis-bullet">Denver commits 20.4 personal fouls per game on average, a meaningful edge for a Pelicans team that can exploit foul trouble at home.</li><li class="analysis-bullet">EV of $0.29 per $1 and a strong contrarian signal make this one of the more attractive spots the model flags; the market is heavily mispriced here.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Not wagered (daily limit of 2 bets). Model favors New Orleans Pelicans because the model sees a 34.1% win probability the market has drastically undervalued at 5.5%, generating a rare 28.6pp exploitable edge.</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Clippers 64.1% vs Polymarket&#x27;s 50.5% — a 13.6pp gap that is well outside calibration noise and actionable.</li><li class="analysis-bullet">Clippers hold a +7.6 offensive rating advantage and +7.1 net rating edge over the Lakers, the two strongest model drivers.</li><li class="analysis-bullet">Lakers&#x27; ELO is actually higher (1604 vs 1544), which suppresses the Clippers&#x27; probability — but performance metrics override it here.</li><li class="analysis-bullet">EV of $0.14 per $1 and confirmed money flow (only 25.7% on Clippers) means the market is undervaluing the home side.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet $5.71 on the Clippers — a 13.6pp model edge backed by superior efficiency ratings and a mispriced market makes this the clearest value play on the card.</div>
       </div>
     </div>
   </article>
@@ -563,24 +507,24 @@
       <div class="bet-callout">
         <div class="bet-label">Suggested Bet</div>
         <div class="bet-amount">$0.00</div>
-        <div class="bet-formula">daily limit: top 2 only (rank #4)</div>
+        <div class="bet-formula">daily limit: top 2 only (rank #3)</div>
       </div>
     </div>
     <div class="direction-row">
       <div class="direction-tag tag-favorite">Favorite Play (Strong)</div>
-      <div class="direction-text"><strong>Ride the market</strong> — bet Oklahoma City Thunder (AWAY), the agreed favorite. <strong>Not wagered:</strong> daily limit is 2 bets per day and this pick ranked #4 by attractiveness.</div>
+      <div class="direction-text"><strong>Ride the market</strong> — bet Oklahoma City Thunder (AWAY), the agreed favorite. <strong>Not wagered:</strong> daily limit is 2 bets per day and this pick ranked #3 by attractiveness.</div>
     </div>
     <div class="card-body">
       <div>
         <div class="panel-title">Model vs Market</div>
         <table class="prob-table">
-          <tr><td class="team">Dallas Mavericks</td><td class="num">26.1%</td><td class="num">41.5%</td><td class="delta delta-neg">-15.4</td></tr>
-          <tr><td class="team">Oklahoma City Thunder</td><td class="num">73.9%</td><td class="num">58.5%</td><td class="delta delta-pos">+15.4</td></tr></table>
+          <tr><td class="team">Dallas Mavericks</td><td class="num">26.1%</td><td class="num">45.5%</td><td class="delta delta-neg">-19.4</td></tr>
+          <tr><td class="team">Oklahoma City Thunder</td><td class="num">73.9%</td><td class="num">54.5%</td><td class="delta delta-pos">+19.4</td></tr></table>
         <div class="meta-rows">
           <div class="meta-row"><span>Projected Margin</span><strong>OKC -15.5</strong></div>
-          <div class="meta-row"><span>Expected Value</span><strong>$+0.154 / $1</strong></div>
-          <div class="meta-row"><span>Kelly Stake</span><strong>9.3% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$161,219</strong></div>
+          <div class="meta-row"><span>Expected Value</span><strong>$+0.194 / $1</strong></div>
+          <div class="meta-row"><span>Kelly Stake</span><strong>10.7% of bankroll</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$167,433</strong></div>
         </div>
         
       </div>
@@ -601,13 +545,13 @@
         <div><span class="attr-score">8.0</span><span class="attr-score-suffix"> / 10</span></div>
         <div>
           <div class="attr-label">Attractiveness · HIGH tier</div>
-          <div class="attr-tags"><span class="tag">strong edge</span><span class="tag">decent liquidity</span><span class="tag">partial confirmation</span><span class="tag">noisy tail bin (±7pp)</span><span class="tag">daily limit: rank #4</span></div>
+          <div class="attr-tags"><span class="tag">strong edge</span><span class="tag">decent liquidity</span><span class="tag">partial confirmation</span><span class="tag">noisy tail bin (±7pp)</span><span class="tag">daily limit: rank #3</span></div>
         </div>
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives OKC 73.9% vs Polymarket&#x27;s 58.5% — a 15.4pp gap that is meaningful and actionable.</li><li class="analysis-bullet">ELO differential of -504 points is the dominant driver, signaling OKC is dramatically the stronger team on paper.</li><li class="analysis-bullet">OKC&#x27;s opponent net rating advantage (+18.4) confirms they&#x27;ve been beating better teams than Dallas has faced.</li><li class="analysis-bullet">EV of $0.15 per $1 with a ¼ Kelly stake of 9.3% signals strong conviction — this is a high-quality edge.</li><li class="analysis-bullet">Money flow leans OKC but price is drifting against the edge — monitor for late line movement before locking in.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Not wagered (daily limit of 2 bets). Model favors Oklahoma City Thunder — a 15.4pp model-vs-market gap backed by a massive ELO advantage makes this the clearest value on the board.</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives OKC 73.9% vs Polymarket&#x27;s 54.5% — a 19.4pp gap that is too wide to ignore as noise.</li><li class="analysis-bullet">ELO differential of -504 points crushed Dallas&#x27;s win probability; OKC is the significantly superior team by rating.</li><li class="analysis-bullet">OKC&#x27;s opponent net rating advantage of 18.4 points signals Dallas&#x27;s schedule-adjusted defense is getting torched this season.</li><li class="analysis-bullet">EV of $0.19 per dollar with ¼ Kelly confirming a strong favorite play makes this one of the cleaner edges on the slate.</li><li class="analysis-bullet">Money flow leans OKC at 12.7% but price drift is falling — market is not fully aligned, watch for line movement before tip.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Not wagered (daily limit of 2 bets). Model favors OKC because a 19.4pp model-to-market gap backed by a 504-point ELO advantage signals Polymarket is badly undervaluing the Thunder.</div>
       </div>
     </div>
   </article>
@@ -622,24 +566,24 @@
       <div class="bet-callout">
         <div class="bet-label">Suggested Bet</div>
         <div class="bet-amount">$0.00</div>
-        <div class="bet-formula">daily limit: top 2 only (rank #5)</div>
+        <div class="bet-formula">daily limit: top 2 only (rank #4)</div>
       </div>
     </div>
     <div class="direction-row">
       <div class="direction-tag tag-favorite">Favorite Play (Strong)</div>
-      <div class="direction-text"><strong>Ride the market</strong> — bet New York Knicks (AWAY), the agreed favorite. <strong>Not wagered:</strong> daily limit is 2 bets per day and this pick ranked #5 by attractiveness.</div>
+      <div class="direction-text"><strong>Ride the market</strong> — bet New York Knicks (AWAY), the agreed favorite. <strong>Not wagered:</strong> daily limit is 2 bets per day and this pick ranked #4 by attractiveness.</div>
     </div>
     <div class="card-body">
       <div>
         <div class="panel-title">Model vs Market</div>
         <table class="prob-table">
-          <tr><td class="team">Chicago Bulls</td><td class="num">29.6%</td><td class="num">44.5%</td><td class="delta delta-neg">-14.9</td></tr>
-          <tr><td class="team">New York Knicks</td><td class="num">70.4%</td><td class="num">55.5%</td><td class="delta delta-pos">+14.9</td></tr></table>
+          <tr><td class="team">Chicago Bulls</td><td class="num">29.6%</td><td class="num">42.5%</td><td class="delta delta-neg">-12.9</td></tr>
+          <tr><td class="team">New York Knicks</td><td class="num">70.4%</td><td class="num">57.5%</td><td class="delta delta-pos">+12.9</td></tr></table>
         <div class="meta-rows">
           <div class="meta-row"><span>Projected Margin</span><strong>NYK -11.5</strong></div>
-          <div class="meta-row"><span>Expected Value</span><strong>$+0.149 / $1</strong></div>
-          <div class="meta-row"><span>Kelly Stake</span><strong>8.4% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$105,329</strong></div>
+          <div class="meta-row"><span>Expected Value</span><strong>$+0.129 / $1</strong></div>
+          <div class="meta-row"><span>Kelly Stake</span><strong>7.6% of bankroll</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$166,251</strong></div>
         </div>
         
       </div>
@@ -657,75 +601,16 @@
         </div>
       </div>
       <div class="attractiveness">
-        <div><span class="attr-score">7.0</span><span class="attr-score-suffix"> / 10</span></div>
+        <div><span class="attr-score">7.4</span><span class="attr-score-suffix"> / 10</span></div>
         <div>
           <div class="attr-label">Attractiveness · HIGH tier</div>
-          <div class="attr-tags"><span class="tag">strong edge</span><span class="tag">decent liquidity</span><span class="tag">no signal confirmation</span><span class="tag">noisy tail bin (±7pp)</span><span class="tag">daily limit: rank #5</span></div>
+          <div class="attr-tags"><span class="tag">strong edge</span><span class="tag">decent liquidity</span><span class="tag">partial confirmation</span><span class="tag">noisy tail bin (±7pp)</span><span class="tag">daily limit: rank #4</span></div>
         </div>
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Knicks 70.4% vs Polymarket&#x27;s 55.5% — a 14.9pp gap that is meaningful and actionable.</li><li class="analysis-bullet">Knicks hold a massive ELO advantage (388-point gap), and Chicago&#x27;s home ELO sits at a weak 1339, driving the model&#x27;s lean.</li><li class="analysis-bullet">The Knicks also show a dominant net rating differential of +25.4 and a +25.5 average point differential edge over opponents.</li><li class="analysis-bullet">EV of $0.15 per $1 and ¼ Kelly at 8.4% signal strong value; market money flowing 71.6% away from Chicago confirms Knicks dominance.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Not wagered (daily limit of 2 bets). Model favors the New York Knicks because the model&#x27;s 14.9pp edge over Polymarket, backed by a massive ELO gap and superior net ratings, makes this the clear play.</div>
-      </div>
-    </div>
-  </article>
-
-  <article class="card contrarian">
-    <div class="card-header">
-      <div>
-        <div class="matchup-line">Spread SAS -16.5</div>
-        <div class="matchup">San Antonio Spurs <em>at</em> Utah Jazz</div>
-        <div class="game-time">SAS @ UTA · 2026-10-28</div>
-      </div>
-      <div class="bet-callout">
-        <div class="bet-label">Suggested Bet</div>
-        <div class="bet-amount">$0.00</div>
-        <div class="bet-formula">daily limit: top 2 only (rank #6)</div>
-      </div>
-    </div>
-    <div class="direction-row">
-      <div class="direction-tag tag-contrarian">Contrarian Opportunity</div>
-      <div class="direction-text"><strong>Fade the consensus</strong> — both sources pick the favorite, but model thinks the favorite is overpriced. Value bet on Utah Jazz (HOME). <strong>Not wagered:</strong> daily limit is 2 bets per day and this pick ranked #6 by attractiveness.</div>
-    </div>
-    <div class="card-body">
-      <div>
-        <div class="panel-title">Model vs Market</div>
-        <table class="prob-table">
-          <tr><td class="team">Utah Jazz</td><td class="num">30.5%</td><td class="num">25.5%</td><td class="delta delta-pos">+5.0</td></tr>
-          <tr><td class="team">San Antonio Spurs</td><td class="num">69.5%</td><td class="num">74.5%</td><td class="delta delta-neg">-5.0</td></tr></table>
-        <div class="meta-rows">
-          <div class="meta-row"><span>Projected Margin</span><strong>SAS -16.5</strong></div>
-          <div class="meta-row"><span>Expected Value</span><strong>$+0.050 / $1</strong></div>
-          <div class="meta-row"><span>Kelly Stake</span><strong>1.7% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$306,087</strong></div>
-        </div>
-        
-      </div>
-      <div>
-        <div class="panel-title">Top SHAP Drivers</div>
-        
-        <div class="driver-block">
-          <div class="driver-team">Pushing toward Utah Jazz</div>
-          <ul class="driver-list"><li class="driver"><span class="driver-name">away win probability from ELO alone</span><span class="driver-share">44%</span></li><li class="driver"><span class="driver-name">home team&#x27;s available offensive production %</span><span class="driver-share">14%</span></li><li class="driver"><span class="driver-name">home team&#x27;s available player production %</span><span class="driver-share">12%</span></li></ul>
-        </div>
-        
-        <div class="driver-block">
-          <div class="driver-team">Pushing toward San Antonio Spurs</div>
-          <ul class="driver-list"><li class="driver"><span class="driver-name">home win probability from ELO alone</span><span class="driver-share">21%</span></li><li class="driver"><span class="driver-name">ELO rating gap (home minus away)</span><span class="driver-share">20%</span></li><li class="driver"><span class="driver-name">home vs away gap in opponents&#x27; net rating faced</span><span class="driver-share">15%</span></li></ul>
-        </div>
-      </div>
-      <div class="attractiveness">
-        <div><span class="attr-score">6.6</span><span class="attr-score-suffix"> / 10</span></div>
-        <div>
-          <div class="attr-label">Attractiveness · MEDIUM tier</div>
-          <div class="attr-tags"><span class="tag">moderate edge</span><span class="tag">decent liquidity</span><span class="tag">both signals confirm</span><span class="tag">mid-tail bin (±4pp)</span><span class="tag">daily limit: rank #6</span></div>
-        </div>
-      </div>
-      <div class="analysis">
-        <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Utah Jazz 30.5% vs Polymarket&#x27;s 25.5% — a 5pp gap that clears the ±4pp calibration band, making this a real edge.</li><li class="analysis-bullet">Spurs&#x27; ELO advantage is the dominant counter-signal, with a 529-point ELO gap crushing the home-side case.</li><li class="analysis-bullet">Jazz home offense is a bright spot, posting an ORTG of 111 and outproducing opponents at 1.2x rate.</li><li class="analysis-bullet">Money flow (56% order book leaning Jazz) and price drift both confirm the edge, backing the contrarian model call.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Not wagered (daily limit of 2 bets). Model favors Utah Jazz — market undervalues them by 5pp, money flow confirms, and Jazz home offense gives a real foundation for the upset.</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Knicks 70.4% vs Polymarket&#x27;s 57.5% — a 12.9pp gap that is meaningful and actionable.</li><li class="analysis-bullet">Knicks hold a massive ELO advantage (388-point gap), with Chicago&#x27;s home ELO at just 1339, driving the model&#x27;s conviction.</li><li class="analysis-bullet">Opponent net rating differential of +25.4pp favors New York, signaling a significant defensive and efficiency edge.</li><li class="analysis-bullet">EV of $0.13 per $1 and a ¼ Kelly stake confirm strong bet attractiveness — market is underpricing the Knicks.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Not wagered (daily limit of 2 bets). Model favors the Knicks because the model sees a 12.9pp pricing gap backed by dominant ELO and efficiency metrics the market is ignoring.</div>
       </div>
     </div>
   </article>
@@ -751,13 +636,13 @@
       <div>
         <div class="panel-title">Model vs Market</div>
         <table class="prob-table">
-          <tr><td class="team">Minnesota Timberwolves</td><td class="num">51.9%</td><td class="num">7.5%</td><td class="delta delta-pos">+44.4</td></tr>
-          <tr><td class="team">Golden State Warriors</td><td class="num">48.1%</td><td class="num">92.5%</td><td class="delta delta-neg">-44.4</td></tr></table>
+          <tr><td class="team">Minnesota Timberwolves</td><td class="num">51.9%</td><td class="num">8.5%</td><td class="delta delta-pos">+43.4</td></tr>
+          <tr><td class="team">Golden State Warriors</td><td class="num">48.1%</td><td class="num">91.5%</td><td class="delta delta-neg">-43.4</td></tr></table>
         <div class="meta-rows">
           <div class="meta-row"><span>Projected Margin</span><strong>MIN -8.5</strong></div>
-          <div class="meta-row"><span>Expected Value</span><strong>$+0.444 / $1</strong></div>
-          <div class="meta-row"><span>Kelly Stake</span><strong>12.0% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$93,426</strong></div>
+          <div class="meta-row"><span>Expected Value</span><strong>$+0.434 / $1</strong></div>
+          <div class="meta-row"><span>Kelly Stake</span><strong>11.9% of bankroll</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$87,579</strong></div>
         </div>
         
       </div>
@@ -783,8 +668,126 @@
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Minnesota 51.9% vs Polymarket&#x27;s 7.5% — a 44.4pp gap that screams market mispricing, not noise.</li><li class="analysis-bullet">ELO differential of 162 points is the top driver, confirming Minnesota holds a meaningful structural edge over Golden State.</li><li class="analysis-bullet">Minnesota&#x27;s net rating advantage (+2.921 diff) further supports the model&#x27;s lean toward the home side winning.</li><li class="analysis-bullet">EV of $0.44 per $1 and a Kelly recommendation signal strong value, but 96.6% of order book money backs Golden State.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet $6.41 on Minnesota Timberwolves because the model&#x27;s 44.4pp edge over Polymarket reflects a genuine ELO and net rating advantage the market has ignored.</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Minnesota 51.9% vs Polymarket&#x27;s 8.5% — a 43.4pp gap that screams mispricing, not noise.</li><li class="analysis-bullet">ELO favors Minnesota by 163 points, and their opponents are generating worse net ratings than Golden State&#x27;s.</li><li class="analysis-bullet">98.8% of order book money and price drift both back Golden State, making this a pure contrarian play.</li><li class="analysis-bullet">EV of $0.43 per dollar bet is strong; ¼ Kelly stake reflects the market&#x27;s overwhelming disagreement with the model.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet $6.40 on Minnesota Timberwolves because the model&#x27;s ELO and net rating edge creates a 43pp market gap worth fading the crowd on.</div>
+      </div>
+    </div>
+  </article>
+
+  <article class="card pass">
+    <div class="card-header">
+      <div>
+        <div class="matchup-line">Spread DEN -7.5</div>
+        <div class="matchup">Denver Nuggets <em>at</em> New Orleans Pelicans</div>
+        <div class="game-time">DEN @ NOP · 2026-10-28</div>
+      </div>
+      <div class="bet-callout">
+        <div class="bet-label">Suggested Bet</div>
+        <div class="bet-amount">$0.00</div>
+        <div class="bet-formula">pass: inside calibration noise</div>
+      </div>
+    </div>
+    <div class="direction-row">
+      <div class="direction-tag tag-pass">Pass</div>
+      <div class="direction-text"><strong>No actionable edge</strong> — gap is inside calibration noise; no meaningful disagreement to exploit.</div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="panel-title">Model vs Market</div>
+        <table class="prob-table">
+          <tr><td class="team">New Orleans Pelicans</td><td class="num">34.1%</td><td class="num">6.5%</td><td class="delta delta-pos">+27.6</td></tr>
+          <tr><td class="team">Denver Nuggets</td><td class="num">65.9%</td><td class="num">93.5%</td><td class="delta delta-neg">-27.6</td></tr></table>
+        <div class="meta-rows">
+          <div class="meta-row"><span>Projected Margin</span><strong>DEN -7.5</strong></div>
+          <div class="meta-row"><span>Expected Value</span><strong>$+0.276 / $1</strong></div>
+          <div class="meta-row"><span>Kelly Stake</span><strong>7.4% of bankroll</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$71,338</strong></div>
+        </div>
+        
+      </div>
+      <div>
+        <div class="panel-title">Top SHAP Drivers</div>
+        
+        <div class="driver-block">
+          <div class="driver-team">Pushing toward New Orleans Pelicans</div>
+          <ul class="driver-list"><li class="driver"><span class="driver-name">away win probability from ELO alone</span><span class="driver-share">51%</span></li><li class="driver"><span class="driver-name">home team&#x27;s available defensive production %</span><span class="driver-share">13%</span></li><li class="driver"><span class="driver-name">home team&#x27;s available player production %</span><span class="driver-share">12%</span></li></ul>
+        </div>
+        
+        <div class="driver-block">
+          <div class="driver-team">Pushing toward Denver Nuggets</div>
+          <ul class="driver-list"><li class="driver"><span class="driver-name">ELO rating gap (home minus away)</span><span class="driver-share">25%</span></li><li class="driver"><span class="driver-name">home win probability from ELO alone</span><span class="driver-share">23%</span></li><li class="driver"><span class="driver-name">home team&#x27;s ELO rating</span><span class="driver-share">16%</span></li></ul>
+        </div>
+      </div>
+      <div class="attractiveness">
+        <div><span class="attr-score">6.4</span><span class="attr-score-suffix"> / 10</span></div>
+        <div>
+          <div class="attr-label">Attractiveness · MEDIUM tier</div>
+          <div class="attr-tags"><span class="tag">strong edge</span><span class="tag">thin liquidity</span><span class="tag">no signal confirmation</span><span class="tag">mid-tail bin (±4pp)</span></div>
+        </div>
+      </div>
+      <div class="analysis">
+        <div class="panel-title">Analysis</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives New Orleans 34.1% win probability; Polymarket has them at just 6.5% — a 27.6pp gap that is too large to ignore.</li><li class="analysis-bullet">The biggest model driver is ELO-based home win expectancy, suggesting the market is overreacting to Denver&#x27;s historical rating advantage.</li><li class="analysis-bullet">New Orleans&#x27; defensive and offensive production metrics both outperform baseline, signaling genuine home competitiveness this season.</li><li class="analysis-bullet">EV of $0.28 per dollar and a ¼ Kelly stake confirm this clears the bar as a contrarian value play, not a coin flip.</li><li class="analysis-bullet">99.9% of market money is on Denver and price is drifting their way — the edge is real but you&#x27;re swimming upstream.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet $6.37 on New Orleans Pelicans because the 27.6pp model-market gap and $0.28 EV make this a clear contrarian value opportunity.</div>
+      </div>
+    </div>
+  </article>
+
+  <article class="card pass">
+    <div class="card-header">
+      <div>
+        <div class="matchup-line">Spread SAS -16.5</div>
+        <div class="matchup">San Antonio Spurs <em>at</em> Utah Jazz</div>
+        <div class="game-time">SAS @ UTA · 2026-10-28</div>
+      </div>
+      <div class="bet-callout">
+        <div class="bet-label">Suggested Bet</div>
+        <div class="bet-amount">$0.00</div>
+        <div class="bet-formula">pass: inside calibration noise</div>
+      </div>
+    </div>
+    <div class="direction-row">
+      <div class="direction-tag tag-pass">Pass</div>
+      <div class="direction-text"><strong>No actionable edge</strong> — gap is inside calibration noise; no meaningful disagreement to exploit.</div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="panel-title">Model vs Market</div>
+        <table class="prob-table">
+          <tr><td class="team">Utah Jazz</td><td class="num">30.5%</td><td class="num">25.5%</td><td class="delta delta-pos">+5.0</td></tr>
+          <tr><td class="team">San Antonio Spurs</td><td class="num">69.5%</td><td class="num">74.5%</td><td class="delta delta-neg">-5.0</td></tr></table>
+        <div class="meta-rows">
+          <div class="meta-row"><span>Projected Margin</span><strong>SAS -16.5</strong></div>
+          <div class="meta-row"><span>Expected Value</span><strong>$+0.050 / $1</strong></div>
+          <div class="meta-row"><span>Kelly Stake</span><strong>1.7% of bankroll</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$305,088</strong></div>
+        </div>
+        
+      </div>
+      <div>
+        <div class="panel-title">Top SHAP Drivers</div>
+        
+        <div class="driver-block">
+          <div class="driver-team">Pushing toward Utah Jazz</div>
+          <ul class="driver-list"><li class="driver"><span class="driver-name">away win probability from ELO alone</span><span class="driver-share">44%</span></li><li class="driver"><span class="driver-name">home team&#x27;s available offensive production %</span><span class="driver-share">14%</span></li><li class="driver"><span class="driver-name">home team&#x27;s available player production %</span><span class="driver-share">12%</span></li></ul>
+        </div>
+        
+        <div class="driver-block">
+          <div class="driver-team">Pushing toward San Antonio Spurs</div>
+          <ul class="driver-list"><li class="driver"><span class="driver-name">home win probability from ELO alone</span><span class="driver-share">21%</span></li><li class="driver"><span class="driver-name">ELO rating gap (home minus away)</span><span class="driver-share">20%</span></li><li class="driver"><span class="driver-name">home vs away gap in opponents&#x27; net rating faced</span><span class="driver-share">15%</span></li></ul>
+        </div>
+      </div>
+      <div class="attractiveness">
+        <div><span class="attr-score">5.1</span><span class="attr-score-suffix"> / 10</span></div>
+        <div>
+          <div class="attr-label">Attractiveness · MEDIUM tier</div>
+          <div class="attr-tags"><span class="tag">moderate edge</span><span class="tag">decent liquidity</span><span class="tag">partial confirmation</span><span class="tag">mid-tail bin (±4pp)</span></div>
+        </div>
+      </div>
+      <div class="analysis">
+        <div class="panel-title">Analysis</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model prices Utah Jazz at 30.5% vs. Polymarket&#x27;s 25.5% — a 5pp gap that clears the ±4pp calibration threshold, making this a real edge.</li><li class="analysis-bullet">ELO expects San Antonio to win big, but Utah&#x27;s offensive production metrics (home ORTG: 111.0) and efficiency rates are quietly propping up the Jazz.</li><li class="analysis-bullet">Utah outperforms opponent 3-point defense by a meaningful margin, limiting San Antonio&#x27;s perimeter game and narrowing the actual skill gap.</li><li class="analysis-bullet">EV of $0.05 per dollar and ¼ Kelly at 1.7% signal a modest but real opportunity — not a screamer, but positive expected value confirmed.</li><li class="analysis-bullet">Money flow favors Spurs (54.4%) but price is drifting toward Jazz — smart money disagrees with the crowd, confirming the contrarian thesis.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet $5.10 on Utah Jazz because the model finds a real 5pp edge over market odds, backed by strong home offensive efficiency and confirming price drift.</div>
       </div>
     </div>
   </article>
@@ -810,13 +813,13 @@
       <div>
         <div class="panel-title">Model vs Market</div>
         <table class="prob-table">
-          <tr><td class="team">Milwaukee Bucks</td><td class="num">39.1%</td><td class="num">8.5%</td><td class="delta delta-pos">+30.6</td></tr>
-          <tr><td class="team">Houston Rockets</td><td class="num">60.9%</td><td class="num">91.5%</td><td class="delta delta-neg">-30.6</td></tr></table>
+          <tr><td class="team">Milwaukee Bucks</td><td class="num">39.1%</td><td class="num">4.1%</td><td class="delta delta-pos">+35.0</td></tr>
+          <tr><td class="team">Houston Rockets</td><td class="num">60.9%</td><td class="num">95.9%</td><td class="delta delta-neg">-35.0</td></tr></table>
         <div class="meta-rows">
           <div class="meta-row"><span>Projected Margin</span><strong>HOU -8.0</strong></div>
-          <div class="meta-row"><span>Expected Value</span><strong>$+0.306 / $1</strong></div>
-          <div class="meta-row"><span>Kelly Stake</span><strong>8.4% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$38,073</strong></div>
+          <div class="meta-row"><span>Expected Value</span><strong>$+0.350 / $1</strong></div>
+          <div class="meta-row"><span>Kelly Stake</span><strong>9.1% of bankroll</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$45,955</strong></div>
         </div>
         
       </div>
@@ -837,13 +840,13 @@
         <div><span class="attr-score">3.0</span><span class="attr-score-suffix"> / 10</span></div>
         <div>
           <div class="attr-label">Attractiveness · LOW tier</div>
-          <div class="attr-tags"><span class="tag">strong edge</span><span class="tag">thin liquidity</span><span class="tag">partial confirmation</span><span class="tag">mid-tail bin (±4pp)</span></div>
+          <div class="attr-tags"><span class="tag">strong edge</span><span class="tag">thin liquidity</span><span class="tag">no signal confirmation</span><span class="tag">mid-tail bin (±4pp)</span></div>
         </div>
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Milwaukee 39.1% vs Polymarket&#x27;s 8.5% — a 30.6pp gap that screams mispricing, not noise.</li><li class="analysis-bullet">Massive ELO deficit is the biggest drag: Houston outranks Milwaukee by 290 ELO points, making the Rockets heavy statistical favorites.</li><li class="analysis-bullet">Milwaukee&#x27;s offensive production metrics (1.347 home off production) push back slightly, but they can&#x27;t overcome the raw talent gap.</li><li class="analysis-bullet">EV is a strong $0.31 per dollar and Kelly confirms real edge, but $38K liquidity means spreads devour the theoretical profit before you realize it.</li><li class="analysis-bullet">Market structure is decisive: 99.9% of order book money is on Houston, and thin liquidity makes this bet unexecutable at fair value.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet $0.00 on Milwaukee — despite a 30.6pp model edge, liquidity is too thin at $38K and the spread eats every cent of the $0.31 EV.</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Milwaukee 39.1% win probability; Polymarket has them at 4.1% — a 35pp gap that demands attention.</li><li class="analysis-bullet">Houston&#x27;s ELO advantage is the dominant signal: a 290-point ELO differential crushes every Milwaukee home-court factor in the model.</li><li class="analysis-bullet">EV of $0.35 per dollar and a Kelly signal exist on paper, but liquidity is only $46K with 100% of order flow backing Houston.</li><li class="analysis-bullet">Market structure is a hard red flag: zero drift confirmation, zero money confirmation, and thin liquidity means the spread eats your edge alive.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet $0.00 on Milwaukee — the system kills this bet on liquidity grounds, and the entire market is screaming Houston for good reason.</div>
       </div>
     </div>
   </article>
