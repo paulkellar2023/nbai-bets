@@ -326,6 +326,75 @@
     /* Charts: even larger SVG text */
     .chart-svg text { font-size: 28px; }
   }
+  /* fix15.18: tabs + playoff bracket */
+  .tabs { display: flex; gap: 6px; margin-right: auto; margin-left: 28px; }
+  .tab { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); text-decoration: none; padding: 6px 12px; border: 1px solid transparent; border-radius: 2px; transition: color .15s, border-color .15s, background .15s; }
+  .tab:hover { color: var(--text); border-color: var(--border); }
+  .tab.on { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+  .view[hidden] { display: none; }
+  .bk-wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px 60px; }
+  .bk-conf-heads { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); padding: 0 6px 10px; border-bottom: 1px solid var(--border-soft); margin-bottom: 14px; }
+  .bk-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.25fr) repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .bk-col { display: flex; flex-direction: column; }
+  .bk-col-label { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-mute); text-align: center; margin-bottom: 10px; }
+  .bk-col-body { flex: 1; display: flex; flex-direction: column; justify-content: space-around; gap: 14px; min-height: 560px; }
+  .bk-center .bk-col-body { justify-content: center; gap: 16px; }
+  .bk-s { background: var(--surface); border: 1px solid var(--border); border-radius: 3px; position: relative; }
+  .bk-w .bk-s::after, .bk-e .bk-s::before { content: ""; position: absolute; top: 50%; width: 14px; border-top: 1px solid var(--border); }
+  .bk-w .bk-s::after { right: -15px; }
+  .bk-e .bk-s::before { left: -15px; }
+  .bk-t { display: grid; grid-template-columns: 14px 1fr auto 38px; align-items: baseline; gap: 6px; padding: 7px 9px; border-bottom: 1px solid var(--border-soft); color: var(--text-dim); cursor: default; }
+  .bk-t.is-fav { color: var(--text); background: var(--accent-soft); box-shadow: inset 2px 0 0 var(--accent); }
+  .bk-sd { font-family: var(--mono); font-size: 0.68rem; color: var(--text-mute); }
+  .bk-ab { font-family: var(--display); font-weight: 700; font-size: 0.98rem; letter-spacing: 0.04em; }
+  .bk-rc { font-family: var(--num); font-size: 0.78rem; color: var(--text-mute); }
+  .bk-p { font-family: var(--num); font-size: 0.82rem; font-weight: 600; color: var(--accent); text-align: right; }
+  .bk-m { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-mute); padding: 5px 10px; }
+  .bk-champ { text-align: center; padding: 22px 14px 18px; border: 1px solid var(--accent); border-radius: 3px; background: radial-gradient(120% 90% at 50% 0%, #f5b9421f, transparent 70%), var(--surface); }
+  .bk-champ-label { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); }
+  .bk-champ-team { font-family: var(--display); font-weight: 900; font-size: 3rem; line-height: 1.05; letter-spacing: 0.04em; margin-top: 8px; }
+  .bk-champ-name { font-family: var(--display); font-style: italic; color: var(--text-dim); font-size: 1rem; }
+  .bk-champ-odds { font-family: var(--num); color: var(--text-dim); font-size: 0.9rem; margin-top: 10px; }
+  .bk-champ-odds b { color: var(--accent); font-size: 1.15rem; }
+  .bk-finals { border-color: var(--accent); }
+  .bk-odds { padding: 4px 2px; }
+  .bk-odds-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-mute); margin-bottom: 8px; text-align: center; }
+  .bk-odd { display: grid; grid-template-columns: 40px 1fr 40px; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .bk-odd-t { font-family: var(--display); font-weight: 700; font-size: 0.85rem; }
+  .bk-odd-bar { height: 6px; background: var(--border-soft); border-radius: 3px; overflow: hidden; }
+  .bk-odd-bar span { display: block; height: 100%; background: var(--accent); }
+  .bk-odd-p { font-family: var(--num); font-size: 0.8rem; color: var(--text-dim); text-align: right; }
+  .bk-playins { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 36px; }
+  .bk-pi-head { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .bk-pi-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .bk-pi { background: var(--surface); border: 1px solid var(--border-soft); border-radius: 3px; }
+  .bk-pi-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mute); padding: 7px 10px 4px; min-height: 2.6em; }
+  .bk-note { font-family: var(--body); color: var(--text-mute); font-size: 0.9rem; margin-top: 28px; max-width: 760px; }
+  .bk-compact { display: none; }
+  .bk-rc { white-space: nowrap; }
+  @media (max-width: 1240px) {
+    .bk-grid .bk-rc { display: none; }
+  }
+  @media (max-width: 1000px) {
+    .bk-grid, .bk-conf-heads { display: none; }
+    .bk-compact { display: block; }
+    .bk-c-conf { margin-bottom: 30px; }
+    .bk-c-round { margin-bottom: 16px; }
+    .bk-c-round .bk-col-label { text-align: left; }
+    .bk-c-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .bk-compact .bk-center .bk-col-label { display: none; }
+    .bk-compact .bk-center .bk-col-body { min-height: 0; }
+    .bk-playins { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 760px) {
+    .tabs { margin: 0; }
+    .bk-wrap { padding: 0 16px 40px; }
+    .bk-pi-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .bk-c-cards { grid-template-columns: 1fr; }
+    .bk-champ-team { font-size: 2.4rem; }
+  }
 </style>
 </head>
 <body>
@@ -333,16 +402,16 @@
 <div class="pnl-strip">
   <div class="pnl-inner">
     <div class="pnl-row row-financial">
-      <div class="pnl-cell"><div class="pnl-label">Bankroll</div><div class="pnl-value accent">$36.34</div></div>
-      <div class="pnl-cell"><div class="pnl-label">Record</div><div class="pnl-value">25-28<span class="pnl-record-rate">47%</span></div></div>
-      <div class="pnl-cell"><div class="pnl-label">Net P&amp;L</div><div class="pnl-value neg">-$13.66</div></div>
+      <div class="pnl-cell"><div class="pnl-label">Bankroll</div><div class="pnl-value accent">$39.28</div></div>
+      <div class="pnl-cell"><div class="pnl-label">Record</div><div class="pnl-value">26-28<span class="pnl-record-rate">48%</span></div></div>
+      <div class="pnl-cell"><div class="pnl-label">Net P&amp;L</div><div class="pnl-value neg">-$10.72</div></div>
       <div class="pnl-cell"><div class="pnl-label">Started</div><div class="pnl-value">$50.00</div></div>
     </div>
     <div class="pnl-row row-tiers">
-      <div class="pnl-cell tier-cell tier-high"><div class="pnl-label">High Conf · 6.7+</div><div class="pnl-value">21-25<span class="pnl-record-rate">-$26.98</span></div></div>
+      <div class="pnl-cell tier-cell tier-high"><div class="pnl-label">High Conf · 6.7+</div><div class="pnl-value">22-25<span class="pnl-record-rate">-$24.04</span></div></div>
       <div class="pnl-cell tier-cell tier-medium"><div class="pnl-label">Medium · 3.4–6.6</div><div class="pnl-value">4-3<span class="pnl-record-rate">+$13.32</span></div></div>
       <div class="pnl-cell tier-cell tier-contrarian"><div class="pnl-label">Contrarian · Underdog</div><div class="pnl-value">6-14<span class="pnl-record-rate">-$2.99</span></div></div>
-      <div class="pnl-cell tier-cell tier-favorite"><div class="pnl-label">Favorite · Overall</div><div class="pnl-value">19-14<span class="pnl-record-rate">-$10.67</span></div></div>
+      <div class="pnl-cell tier-cell tier-favorite"><div class="pnl-label">Favorite · Overall</div><div class="pnl-value">20-14<span class="pnl-record-rate">-$7.72</span></div></div>
     </div>
   </div>
 </div>
@@ -350,12 +419,14 @@
 <div class="topbar">
   <div class="topbar-inner">
     <div class="brand"><span class="brand-dot"></span>HIDDEN&nbsp;LINES</div>
+    <nav class="tabs"><a class="tab on" href="#/picks" data-v="picks">Picks</a><a class="tab" href="#/bracket" data-v="bracket">Bracket</a></nav>
     <div class="meta-bar">
-      <strong>v4_2026-05-19</strong> · 130 features · stacked ensemble · updated <strong>6:33 PM ET</strong>
+      <strong>v4_2026-05-19</strong> · 130 features · stacked ensemble · updated <strong>10:20 PM ET</strong>
     </div>
   </div>
 </div>
 
+<div class="view" data-view="picks">
 <div class="masthead">
   <div class="masthead-eyebrow"><span class="eyebrow-line"></span>Daily Edge Report<span class="eyebrow-line"></span></div>
   <h1>The bets the market <em>didn't price in.</em></h1>
@@ -380,20 +451,20 @@
           <span class="pick-spread">(MIN -4.5)</span>
           <span class="pick-text"><span class="num">$3.82</span> recommended wager on Minnesota Timberwolves</span>
         </li>
-        <li class="pick-item pick-pass">
+        <li class="pick-item pick-contrarian">
           <span class="pick-matchup">DET @ SAS</span>
           <span class="pick-spread">(SAS -6.0)</span>
+          <span class="pick-text">Not wagered: daily limit of <span class="num">2</span> bets reached (ranked <span class="num">#3</span> by attractiveness)</span>
+        </li>
+        <li class="pick-item pick-pass">
+          <span class="pick-matchup">NYK @ TOR</span>
+          <span class="pick-spread">(NYK -4.0)</span>
           <span class="pick-text">No actionable bet</span>
         </li>
         <li class="pick-item pick-pass">
           <span class="pick-matchup">CHA @ LAL</span>
           <span class="pick-spread">(LAL -8.0)</span>
-          <span class="pick-text"><span class='shadow-flag'>SHADOW</span> <span class="num">$0</span> wagered (proposed <span class="num">$7.31</span>) on Los Angeles Lakers — consensus pick, no edge</span>
-        </li>
-        <li class="pick-item pick-pass">
-          <span class="pick-matchup">NYK @ TOR</span>
-          <span class="pick-spread">(NYK -4.0)</span>
-          <span class="pick-text"><span class='shadow-flag'>SHADOW</span> <span class="num">$0</span> wagered (proposed <span class="num">$5.60</span>) on New York Knicks — consensus pick, no edge</span>
+          <span class="pick-text"><span class='shadow-flag'>SHADOW</span> <span class="num">$0</span> wagered (proposed <span class="num">$5.37</span>) on Los Angeles Lakers — consensus pick, no edge</span>
         </li></ul>
 </div>
 
@@ -436,7 +507,7 @@
           <div class="meta-row"><span>Projected Margin</span><strong>LAC -10.5</strong></div>
           <div class="meta-row"><span>Expected Value</span><strong>$+0.085 / $1</strong></div>
           <div class="meta-row"><span>Kelly Stake</span><strong>6.5% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$470,760</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$937,499</strong></div>
         </div>
         
         <div class="buy-line">
@@ -460,13 +531,13 @@
         <div><span class="attr-score">7.7</span><span class="attr-score-suffix"> / 10</span></div>
         <div>
           <div class="attr-label">Attractiveness · HIGH tier</div>
-          <div class="attr-tags"><span class="tag">strong edge</span><span class="tag">decent liquidity</span><span class="tag">both signals confirm</span><span class="tag">mid-tail bin (±4pp)</span></div>
+          <div class="attr-tags"><span class="tag">strong edge</span><span class="tag">deep market</span><span class="tag">both signals confirm</span><span class="tag">mid-tail bin (±4pp)</span></div>
         </div>
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Clippers <span class="num">76%</span> vs. Polymarket&#x27;s <span class="num">67.5%</span> — an <span class="num">8.5</span>pp gap that&#x27;s well outside the ±<span class="num">4</span>pp calibration noise.</li><li class="analysis-bullet">ELO spread of <span class="num">230</span> points dominates the signal, making Clippers a heavy analytical favorite regardless of recent form.</li><li class="analysis-bullet">Clippers&#x27; offensive rating advantage of +<span class="num">5.6</span> points per <span class="num">100</span> possessions adds a second independent layer of confirmation.</li><li class="analysis-bullet">Money flow (<span class="num">61.8%</span>) and falling Jazz price both confirm the edge — market structure aligns, not contradicts.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet <span class="num">$4.21</span> on LA Clippers because an <span class="num">8.5</span>pp model edge, strong ELO dominance, and confirming market structure all point the same direction.</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model prices LA Clippers at <span class="num">76%</span> vs Polymarket&#x27;s <span class="num">67.5%</span> — an <span class="num">8.5</span>pp gap that is meaningful and exploitable.</li><li class="analysis-bullet">ELO gap of <span class="num">230</span> points is the dominant signal, projecting an <span class="num">87%</span> home win probability by rating alone.</li><li class="analysis-bullet">Clippers hold a +<span class="num">5.6</span> offensive rating advantage over Utah, reinforcing the ELO edge with real on-court data.</li><li class="analysis-bullet">EV of <span class="num">$0.085</span> per dollar and ¼ Kelly at <span class="num">6.5%</span> confirm this is a strong, disciplined bet — not a marginal play.</li><li class="analysis-bullet">Money flow (<span class="num">48.3%</span> Clippers) and falling price drift both confirm the edge without contradicting the model.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet <span class="num">$4.21</span> on LA Clippers — a rare <span class="num">8.5</span>pp model-to-market gap backed by dominant ELO superiority and positive on-court metrics makes this the clearest value play on the card.</div>
       </div>
     </div>
   </article>
@@ -492,17 +563,17 @@
       <div>
         <div class="panel-title">Model vs Market</div>
         <table class="prob-table">
-          <tr><td class="team">Minnesota Timberwolves</td><td class="num">66.1%</td><td class="num">56.5%</td><td class="delta delta-pos">+9.6</td></tr>
-          <tr><td class="team">Portland Trail Blazers</td><td class="num">33.9%</td><td class="num">43.5%</td><td class="delta delta-neg">-9.6</td></tr></table>
+          <tr><td class="team">Minnesota Timberwolves</td><td class="num">66.1%</td><td class="num">46.5%</td><td class="delta delta-pos">+19.6</td></tr>
+          <tr><td class="team">Portland Trail Blazers</td><td class="num">33.9%</td><td class="num">53.5%</td><td class="delta delta-neg">-19.6</td></tr></table>
         <div class="meta-rows">
           <div class="meta-row"><span>Projected Margin</span><strong>MIN -4.5</strong></div>
-          <div class="meta-row"><span>Expected Value</span><strong>$+0.096 / $1</strong></div>
-          <div class="meta-row"><span>Kelly Stake</span><strong>5.5% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$186,178</strong></div>
+          <div class="meta-row"><span>Expected Value</span><strong>$+0.196 / $1</strong></div>
+          <div class="meta-row"><span>Kelly Stake</span><strong>9.2% of bankroll</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$103,503</strong></div>
         </div>
         
         <div class="buy-line">
-          <strong>→ Buy Minnesota Timberwolves (HOME)</strong> at 0.565 · Kelly 5.5% · EV $+0.096/$1
+          <strong>→ Buy Minnesota Timberwolves (HOME)</strong> at 0.465 · Kelly 9.2% · EV $+0.196/$1
         </div>
       </div>
       <div>
@@ -527,13 +598,13 @@
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Minnesota <span class="num">66.1%</span> vs Polymarket&#x27;s <span class="num">56.5%</span> — a <span class="num">9.6</span>pp gap that is meaningful and actionable.</li><li class="analysis-bullet">Minnesota&#x27;s superior net rating differential (+<span class="num">5.8</span>) and ELO advantage (<span class="num">57</span>-point gap) are the top drivers behind the model&#x27;s lean.</li><li class="analysis-bullet">EV of <span class="num">$0.096</span> per dollar with a <span class="num">5.5%</span> Kelly stake signals a strong, high-confidence play worth pressing.</li><li class="analysis-bullet">Money flow only <span class="num">27.1%</span> toward Minnesota despite the edge — smart money hasn&#x27;t piled in yet, keeping the line exploitable.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet <span class="num">$3.82</span> on Minnesota Timberwolves because the model sees a <span class="num">9.6</span>pp edge over the market backed by clear rating and ELO superiority.</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Minnesota <span class="num">66.1%</span> vs Polymarket&#x27;s <span class="num">46.5%</span> — a <span class="num">19.6</span>pp gap that is too large to be noise.</li><li class="analysis-bullet">Minnesota&#x27;s superior net rating differential (+<span class="num">5.8</span>) and ELO advantage (<span class="num">57</span>-point gap) are the primary model drivers.</li><li class="analysis-bullet">EV of <span class="num">$0.20</span> per dollar with ¼ Kelly stake signals a strong, disciplined opportunity worth taking.</li><li class="analysis-bullet">Money flow only <span class="num">35.4%</span> toward Minnesota, confirming the market is genuinely mispricing the favorite here.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet <span class="num">$3.82</span> on Minnesota Timberwolves — the model sees a <span class="num">19.6</span>pp edge over Polymarket, backed by clear ELO and net rating dominance that the market is ignoring.</div>
       </div>
     </div>
   </article>
 
-  <article class="card pass">
+  <article class="card contrarian">
     <div class="card-header">
       <div>
         <div class="matchup-line">Spread SAS -6.0</div>
@@ -543,24 +614,24 @@
       <div class="bet-callout">
         <div class="bet-label">Suggested Bet</div>
         <div class="bet-amount">$0.00</div>
-        <div class="bet-formula">pass: inside calibration noise</div>
+        <div class="bet-formula">daily limit: top 2 only (rank #3)</div>
       </div>
     </div>
     <div class="direction-row">
-      <div class="direction-tag tag-pass">Pass</div>
-      <div class="direction-text"><strong>No actionable edge</strong> — gap is inside calibration noise; no meaningful disagreement to exploit.</div>
+      <div class="direction-tag tag-contrarian">Contrarian Opportunity (Strong)</div>
+      <div class="direction-text"><strong>Tail the underdog</strong> — model picks San Antonio Spurs (HOME), contrarian to market's pick. <strong>Not wagered:</strong> daily limit is <span class="num">2</span> bets per day and this pick ranked <span class="num">#3</span> by attractiveness.</div>
     </div>
     <div class="card-body">
       <div>
         <div class="panel-title">Model vs Market</div>
         <table class="prob-table">
-          <tr><td class="team">San Antonio Spurs</td><td class="num">74.6%</td><td class="num">78.5%</td><td class="delta delta-neg">-3.9</td></tr>
-          <tr><td class="team">Detroit Pistons</td><td class="num">25.4%</td><td class="num">21.5%</td><td class="delta delta-pos">+3.9</td></tr></table>
+          <tr><td class="team">San Antonio Spurs</td><td class="num">74.6%</td><td class="num">13.5%</td><td class="delta delta-pos">+61.1</td></tr>
+          <tr><td class="team">Detroit Pistons</td><td class="num">25.4%</td><td class="num">86.5%</td><td class="delta delta-neg">-61.1</td></tr></table>
         <div class="meta-rows">
           <div class="meta-row"><span>Projected Margin</span><strong>SAS -6.0</strong></div>
-          <div class="meta-row"><span>Expected Value</span><strong>$+0.039 / $1</strong></div>
-          <div class="meta-row"><span>Kelly Stake</span><strong>1.3% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$1,067,629</strong></div>
+          <div class="meta-row"><span>Expected Value</span><strong>$+0.611 / $1</strong></div>
+          <div class="meta-row"><span>Kelly Stake</span><strong>17.6% of bankroll</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$185,388</strong></div>
         </div>
         
       </div>
@@ -578,16 +649,75 @@
         </div>
       </div>
       <div class="attractiveness">
-        <div><span class="attr-score">4.0</span><span class="attr-score-suffix"> / 10</span></div>
+        <div><span class="attr-score">8.0</span><span class="attr-score-suffix"> / 10</span></div>
         <div>
-          <div class="attr-label">Attractiveness · MEDIUM tier</div>
-          <div class="attr-tags"><span class="tag">thin edge</span><span class="tag">deep market</span><span class="tag">no signal confirmation</span><span class="tag">calibrated bin (±3pp)</span></div>
+          <div class="attr-label">Attractiveness · HIGH tier</div>
+          <div class="attr-tags"><span class="tag">strong edge</span><span class="tag">decent liquidity</span><span class="tag">partial confirmation</span><span class="tag">calibrated bin (±3pp)</span><span class="tag">daily limit: rank #3</span></div>
         </div>
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Detroit <span class="num">25.4%</span> vs Polymarket&#x27;s <span class="num">21.5%</span> — a <span class="num">3.9</span>pp gap that&#x27;s meaningful but sits near calibration limits.</li><li class="analysis-bullet">ELO gap of <span class="num">97</span> points and San Antonio&#x27;s +<span class="num">11.2</span> net rating differential are the dominant signals favoring the Spurs heavily.</li><li class="analysis-bullet">EV of <span class="num">$0.039</span> per dollar and quarter-Kelly sizing signal a real but modest edge — not a slam dunk.</li><li class="analysis-bullet">Market structure is against you: <span class="num">73.1%</span> of order book money backs San Antonio and price is drifting away from Detroit.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Bet <span class="num">$4.00</span> on Detroit Pistons because the model finds them <span class="num">3.9</span>pp undervalued by the market, offering positive EV on a contrarian underdog play.</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives San Antonio <span class="num">74.6%</span> win probability; Polymarket has them at <span class="num">13.5%</span> — a <span class="num">61.1</span>pp gap that is not noise.</li><li class="analysis-bullet">ELO differential of <span class="num">97</span> points and an <span class="num">11.2</span>-point net rating advantage are the dominant signals driving the Spurs lean.</li><li class="analysis-bullet">Detroit&#x27;s opponent net rating sits at -<span class="num">4.0</span>, confirming the Pistons are beating weak competition — this edge is illusory.</li><li class="analysis-bullet">EV of <span class="num">$0.61</span> per dollar and a strong system flag make this one of the clearest contrarian spots on the board.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Not wagered (daily limit of <span class="num">2</span> bets). Model favors San Antonio Spurs — the model&#x27;s <span class="num">61.1</span>pp edge over Polymarket, backed by dominant ELO and net rating advantages, is too large to ignore.</div>
+      </div>
+    </div>
+  </article>
+
+  <article class="card pass">
+    <div class="card-header">
+      <div>
+        <div class="matchup-line">Spread NYK -4.0</div>
+        <div class="matchup">New York Knicks <em>at</em> Toronto Raptors</div>
+        <div class="game-time">NYK @ TOR · 2026-11-17</div>
+      </div>
+      <div class="bet-callout">
+        <div class="bet-label">Suggested Bet</div>
+        <div class="bet-amount">$0.00</div>
+        <div class="bet-formula">no actionable bet</div>
+      </div>
+    </div>
+    <div class="direction-row">
+      <div class="direction-tag tag-pass">—</div>
+      <div class="direction-text"><strong>No market</strong> — Polymarket has no matching contract.</div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="panel-title">Model vs Market</div>
+        <table class="prob-table">
+          <tr><td class="team">Toronto Raptors</td><td class="num">41.9%</td><td class="num">—</td><td class="delta">—</td></tr>
+          <tr><td class="team">New York Knicks</td><td class="num">58.1%</td><td class="num">—</td><td class="delta">—</td></tr></table>
+        <div class="meta-rows">
+          <div class="meta-row"><span>Projected Margin</span><strong>NYK -4.0</strong></div>
+          <div class="meta-row"><span>Expected Value</span><strong>—</strong></div>
+          <div class="meta-row"><span>Kelly Stake</span><strong>—</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>—</strong></div>
+        </div>
+        
+      </div>
+      <div>
+        <div class="panel-title">Top SHAP Drivers</div>
+        
+        <div class="driver-block">
+          <div class="driver-team">Pushing toward Toronto Raptors</div>
+          <ul class="driver-list"><li class="driver"><span class="driver-name">home team&#x27;s ELO rating</span><span class="driver-share">35%</span></li><li class="driver"><span class="driver-name">home vs away gap in opponents&#x27; defensive rating faced</span><span class="driver-share">13%</span></li><li class="driver"><span class="driver-name">home vs away gap in opp fg3 pct</span><span class="driver-share">13%</span></li></ul>
+        </div>
+        
+        <div class="driver-block">
+          <div class="driver-team">Pushing toward New York Knicks</div>
+          <ul class="driver-list"><li class="driver"><span class="driver-name">away win probability from ELO alone</span><span class="driver-share">26%</span></li><li class="driver"><span class="driver-name">ELO rating gap (home minus away)</span><span class="driver-share">20%</span></li><li class="driver"><span class="driver-name">home win probability from ELO alone</span><span class="driver-share">18%</span></li></ul>
+        </div>
+      </div>
+      <div class="attractiveness">
+        <div><span class="attr-score">1.6</span><span class="attr-score-suffix"> / 10</span></div>
+        <div>
+          <div class="attr-label">Attractiveness · LOW tier</div>
+          <div class="attr-tags"></div>
+        </div>
+      </div>
+      <div class="analysis">
+        <div class="panel-title">Analysis</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model predicts Toronto Raptors home wins <span class="num">42%</span>, New York Knicks <span class="num">58%</span>.</li><li class="analysis-bullet">No Polymarket data available; no edge analysis possible.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Cannot recommend a bet — no market to compare against.</div>
       </div>
     </div>
   </article>
@@ -619,7 +749,7 @@
           <div class="meta-row"><span>Projected Margin</span><strong>LAL -8.0</strong></div>
           <div class="meta-row"><span>Expected Value</span><strong>$+0.014 / $1</strong></div>
           <div class="meta-row"><span>Kelly Stake</span><strong>1.3% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$276,617</strong></div>
+          <div class="meta-row"><span>Liquidity</span><strong>$999,170</strong></div>
         </div>
         
       </div>
@@ -637,66 +767,7 @@
         </div>
       </div>
       <div class="attractiveness">
-        <div><span class="attr-score">4.0</span><span class="attr-score-suffix"> / 10</span></div>
-        <div>
-          <div class="attr-label">Attractiveness · MEDIUM tier</div>
-          <div class="attr-tags"><span class="tag">thin edge</span><span class="tag">decent liquidity</span><span class="tag">partial confirmation</span><span class="tag">calibrated bin (±3pp)</span><span class="tag">low-conf haircut (x0.50)</span></div>
-        </div>
-      </div>
-      <div class="analysis">
-        <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Lakers <span class="num">73.9%</span> vs Polymarket&#x27;s <span class="num">72.5%</span> — a <span class="num">1.4</span>pp gap that is market noise, not an exploitable signal.</li><li class="analysis-bullet">ELO differential of <span class="num">157.8</span> points and an <span class="num">18.4</span>-point average scoring gap are the top drivers pushing the model toward LA.</li><li class="analysis-bullet">Charlotte&#x27;s faster pace (<span class="num">96.7</span> possessions/game) creates slight variance risk, but it barely dents the Lakers&#x27; structural advantage.</li><li class="analysis-bullet">EV is <span class="num">$0.014</span> per dollar and Kelly recommends just <span class="num">1.3%</span> — both signals confirm this edge is too thin to wager.</li><li class="analysis-bullet">Gap of <span class="num">1.4</span>pp sits inside the model&#x27;s ±<span class="num">3.0</span>pp calibration error for this prob range (the well-calibrated middle); the true probability could plausibly favor either side, so this isn&#x27;t an exploitable edge.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Betting <span class="num">$0.00</span> on the Lakers — model and market agree LA wins, but the edge is too thin to justify real money.</div>
-      </div>
-    </div>
-  </article>
-
-  <article class="card pass">
-    <div class="card-header">
-      <div>
-        <div class="matchup-line">Spread NYK -4.0</div>
-        <div class="matchup">New York Knicks <em>at</em> Toronto Raptors</div>
-        <div class="game-time">NYK @ TOR · 2026-11-17</div>
-      </div>
-      <div class="bet-callout">
-        <div class="bet-label">Suggested Bet</div>
-        <div class="bet-amount">$0.00</div>
-        <div class="bet-formula">no actionable bet</div>
-      </div>
-    </div>
-    <div class="direction-row">
-      <div class="direction-tag tag-pass">—</div>
-      <div class="direction-text"><strong>No market</strong> — Polymarket has no matching contract.</div>
-    </div>
-    <div class="card-body">
-      <div>
-        <div class="panel-title">Model vs Market</div>
-        <table class="prob-table">
-          <tr><td class="team">Toronto Raptors</td><td class="num">41.9%</td><td class="num">44.5%</td><td class="delta delta-neg">-2.6</td></tr>
-          <tr><td class="team">New York Knicks</td><td class="num">58.1%</td><td class="num">55.5%</td><td class="delta delta-pos">+2.6</td></tr></table>
-        <div class="meta-rows">
-          <div class="meta-row"><span>Projected Margin</span><strong>NYK -4.0</strong></div>
-          <div class="meta-row"><span>Expected Value</span><strong>$+0.026 / $1</strong></div>
-          <div class="meta-row"><span>Kelly Stake</span><strong>1.4% of bankroll</strong></div>
-          <div class="meta-row"><span>Liquidity</span><strong>$1,035,189</strong></div>
-        </div>
-        
-      </div>
-      <div>
-        <div class="panel-title">Top SHAP Drivers</div>
-        
-        <div class="driver-block">
-          <div class="driver-team">Pushing toward Toronto Raptors</div>
-          <ul class="driver-list"><li class="driver"><span class="driver-name">home team&#x27;s ELO rating</span><span class="driver-share">35%</span></li><li class="driver"><span class="driver-name">home vs away gap in opponents&#x27; defensive rating faced</span><span class="driver-share">13%</span></li><li class="driver"><span class="driver-name">home vs away gap in opp fg3 pct</span><span class="driver-share">13%</span></li></ul>
-        </div>
-        
-        <div class="driver-block">
-          <div class="driver-team">Pushing toward New York Knicks</div>
-          <ul class="driver-list"><li class="driver"><span class="driver-name">away win probability from ELO alone</span><span class="driver-share">26%</span></li><li class="driver"><span class="driver-name">ELO rating gap (home minus away)</span><span class="driver-share">20%</span></li><li class="driver"><span class="driver-name">home win probability from ELO alone</span><span class="driver-share">18%</span></li></ul>
-        </div>
-      </div>
-      <div class="attractiveness">
-        <div><span class="attr-score">3.1</span><span class="attr-score-suffix"> / 10</span></div>
+        <div><span class="attr-score">2.7</span><span class="attr-score-suffix"> / 10</span></div>
         <div>
           <div class="attr-label">Attractiveness · LOW tier</div>
           <div class="attr-tags"><span class="tag">thin edge</span><span class="tag">deep market</span><span class="tag">no signal confirmation</span><span class="tag">calibrated bin (±3pp)</span><span class="tag">low-conf haircut (x0.50)</span></div>
@@ -704,8 +775,8 @@
       </div>
       <div class="analysis">
         <div class="panel-title">Analysis</div>
-        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Knicks <span class="num">58.1%</span> vs Polymarket&#x27;s <span class="num">55.5%</span> — a <span class="num">2.6</span>pp gap that barely clears noise.</li><li class="analysis-bullet">Knicks&#x27; ELO advantage of <span class="num">185</span> points is the dominant driver, signaling a significantly stronger team on paper.</li><li class="analysis-bullet">Home court and Toronto&#x27;s defensive metrics push back modestly, but can&#x27;t overcome the ELO signal.</li><li class="analysis-bullet">EV is <span class="num">$0.026</span> per dollar and Kelly recommends just <span class="num">1.4%</span> — both confirm this edge is too thin to pull the trigger.</li><li class="analysis-bullet">Gap of <span class="num">2.6</span>pp sits inside the model&#x27;s ±<span class="num">3.0</span>pp calibration error for this prob range (the well-calibrated middle); the true probability could plausibly favor either side, so this isn&#x27;t an exploitable edge.</li></ul>
-        <div class="tldr"><div class="tldr-label">TL;DR</div>Betting <span class="num">$0.00</span> on the Knicks because a <span class="num">2.6</span>pp edge disappears inside the model&#x27;s own calibration uncertainty, making this unplayable.</div>
+        <ul class="analysis-bullets"><li class="analysis-bullet">Model gives Lakers <span class="num">73.9%</span> vs Polymarket&#x27;s <span class="num">72.5%</span> — a <span class="num">1.4</span>pp gap that&#x27;s effectively market noise.</li><li class="analysis-bullet">ELO differential of <span class="num">157.8</span> points and an <span class="num">18.4</span>-point average scoring margin are the primary drivers backing the Lakers.</li><li class="analysis-bullet">Charlotte&#x27;s pace metrics (<span class="num">96.7</span> possessions/game) nudge slightly toward an upset but are far too weak to shift the verdict.</li><li class="analysis-bullet">EV is <span class="num">$0.014</span> per dollar and Kelly recommends just <span class="num">1.3%</span> — both signal this edge is too thin to deploy capital.</li><li class="analysis-bullet">Gap of <span class="num">1.4</span>pp sits inside the model&#x27;s ±<span class="num">3.0</span>pp calibration error for this prob range (the well-calibrated middle); the true probability could plausibly favor either side, so this isn&#x27;t an exploitable edge.</li></ul>
+        <div class="tldr"><div class="tldr-label">TL;DR</div>Betting <span class="num">$0.00</span> on the Lakers because the <span class="num">1.4</span>pp edge is swallowed entirely by model calibration error, leaving no actionable value.</div>
       </div>
     </div>
   </article>
@@ -1347,109 +1418,112 @@
 <line x1="70" y1="230.0" x2="930" y2="230.0" stroke="#1f2530" stroke-width="1"/>
 <text x="62" y="234.0" text-anchor="end" font-family="ui-monospace, monospace" font-size="13" fill="#5c5851">-$22.65</text>
 <line x1="70" y1="148.7" x2="930" y2="148.7" stroke="#5c5851" stroke-width="1" stroke-dasharray="4,4"/>
-<polyline points="70.0,127.9 96.1,92.0 122.1,169.8 148.2,157.9 174.2,111.9 200.3,78.9 226.4,31.8 252.4,92.5 278.5,170.1 304.5,122.6 330.6,152.4 356.7,136.0 382.7,163.6 408.8,137.5 434.8,184.5 460.9,169.2 487.0,157.7 513.0,167.8 539.1,153.1 565.2,181.0 591.2,169.5 617.3,186.0 643.3,208.1 669.4,213.7 695.5,209.2 721.5,206.0 747.6,205.4 773.6,211.4 799.7,226.3 825.8,228.2 851.8,220.5 877.9,217.0 903.9,194.0 930.0,197.7" stroke="#f5b942" stroke-width="2.5" fill="none"/>
+<polyline points="70.0,127.9 95.3,92.0 120.6,169.8 145.9,157.9 171.2,111.9 196.5,78.9 221.8,31.8 247.1,92.5 272.4,170.1 297.6,122.6 322.9,152.4 348.2,136.0 373.5,163.6 398.8,137.5 424.1,184.5 449.4,169.2 474.7,157.7 500.0,167.8 525.3,153.1 550.6,181.0 575.9,169.5 601.2,186.0 626.5,208.1 651.8,213.7 677.1,209.2 702.4,206.0 727.6,205.4 752.9,211.4 778.2,226.3 803.5,228.2 828.8,220.5 854.1,217.0 879.4,194.0 904.7,197.7 930.0,187.2" stroke="#f5b942" stroke-width="2.5" fill="none"/>
 <circle cx="70.0" cy="127.9" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
 <text x="70.0" y="113.9" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$5.81</text>
-<circle cx="96.1" cy="92.0" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
-<text x="96.1" y="78.0" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$15.82</text>
-<circle cx="122.1" cy="169.8" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="122.1" y="155.8" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$5.87</text>
-<circle cx="148.2" cy="157.9" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="148.2" y="143.9" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$2.55</text>
-<circle cx="174.2" cy="111.9" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
-<text x="174.2" y="97.9" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$10.26</text>
-<circle cx="200.3" cy="78.9" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
-<text x="200.3" y="64.9" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$19.47</text>
-<circle cx="226.4" cy="31.8" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
-<text x="226.4" y="17.8" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$32.59</text>
-<circle cx="252.4" cy="92.5" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
-<text x="252.4" y="78.5" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$15.66</text>
-<circle cx="278.5" cy="170.1" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="278.5" y="156.1" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$5.97</text>
-<circle cx="304.5" cy="122.6" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
-<text x="304.5" y="108.6" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$7.29</text>
-<circle cx="330.6" cy="152.4" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="330.6" y="138.4" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$1.03</text>
-<circle cx="356.7" cy="136.0" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
-<text x="356.7" y="122.0" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$3.54</text>
-<circle cx="382.7" cy="163.6" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="382.7" y="149.6" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$4.15</text>
-<circle cx="408.8" cy="137.5" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
-<text x="408.8" y="123.5" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$3.14</text>
-<circle cx="434.8" cy="184.5" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="434.8" y="170.5" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$9.97</text>
-<circle cx="460.9" cy="169.2" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="460.9" y="155.2" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$5.70</text>
-<circle cx="487.0" cy="157.7" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="487.0" y="143.7" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$2.51</text>
-<circle cx="513.0" cy="167.8" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="513.0" y="153.8" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$5.30</text>
-<circle cx="539.1" cy="153.1" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="539.1" y="139.1" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$1.21</text>
-<circle cx="565.2" cy="181.0" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="565.2" y="167.0" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$8.99</text>
-<circle cx="591.2" cy="169.5" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="591.2" y="155.5" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$5.80</text>
-<circle cx="617.3" cy="186.0" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="617.3" y="172.0" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$10.39</text>
-<circle cx="643.3" cy="208.1" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="643.3" y="194.1" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$16.55</text>
-<circle cx="669.4" cy="213.7" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="669.4" y="199.7" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$18.10</text>
-<circle cx="695.5" cy="209.2" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="695.5" y="195.2" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$16.86</text>
-<circle cx="721.5" cy="206.0" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="721.5" y="192.0" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$15.95</text>
-<circle cx="747.6" cy="205.4" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="747.6" y="191.4" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$15.79</text>
-<circle cx="773.6" cy="211.4" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="773.6" y="197.4" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$17.47</text>
-<circle cx="799.7" cy="226.3" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="799.7" y="212.3" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$21.61</text>
-<circle cx="825.8" cy="228.2" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="825.8" y="214.2" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$22.15</text>
-<circle cx="851.8" cy="220.5" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="851.8" y="206.5" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$20.01</text>
-<circle cx="877.9" cy="217.0" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="877.9" y="203.0" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$19.04</text>
-<circle cx="903.9" cy="194.0" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="903.9" y="180.0" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$12.62</text>
-<circle cx="930.0" cy="197.7" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
-<text x="930.0" y="183.7" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$13.66</text>
+<circle cx="95.3" cy="92.0" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
+<text x="95.3" y="78.0" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$15.82</text>
+<circle cx="120.6" cy="169.8" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="120.6" y="155.8" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$5.87</text>
+<circle cx="145.9" cy="157.9" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="145.9" y="143.9" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$2.55</text>
+<circle cx="171.2" cy="111.9" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
+<text x="171.2" y="97.9" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$10.26</text>
+<circle cx="196.5" cy="78.9" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
+<text x="196.5" y="64.9" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$19.47</text>
+<circle cx="221.8" cy="31.8" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
+<text x="221.8" y="17.8" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$32.59</text>
+<circle cx="247.1" cy="92.5" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
+<text x="247.1" y="78.5" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$15.66</text>
+<circle cx="272.4" cy="170.1" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="272.4" y="156.1" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$5.97</text>
+<circle cx="297.6" cy="122.6" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
+<text x="297.6" y="108.6" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$7.29</text>
+<circle cx="322.9" cy="152.4" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="322.9" y="138.4" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$1.03</text>
+<circle cx="348.2" cy="136.0" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
+<text x="348.2" y="122.0" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$3.54</text>
+<circle cx="373.5" cy="163.6" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="373.5" y="149.6" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$4.15</text>
+<circle cx="398.8" cy="137.5" r="5" fill="#5fa777" stroke="#0a0e14" stroke-width="2"/>
+<text x="398.8" y="123.5" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">+$3.14</text>
+<circle cx="424.1" cy="184.5" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="424.1" y="170.5" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$9.97</text>
+<circle cx="449.4" cy="169.2" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="449.4" y="155.2" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$5.70</text>
+<circle cx="474.7" cy="157.7" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="474.7" y="143.7" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$2.51</text>
+<circle cx="500.0" cy="167.8" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="500.0" y="153.8" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$5.30</text>
+<circle cx="525.3" cy="153.1" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="525.3" y="139.1" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$1.21</text>
+<circle cx="550.6" cy="181.0" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="550.6" y="167.0" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$8.99</text>
+<circle cx="575.9" cy="169.5" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="575.9" y="155.5" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$5.80</text>
+<circle cx="601.2" cy="186.0" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="601.2" y="172.0" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$10.39</text>
+<circle cx="626.5" cy="208.1" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="626.5" y="194.1" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$16.55</text>
+<circle cx="651.8" cy="213.7" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="651.8" y="199.7" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$18.10</text>
+<circle cx="677.1" cy="209.2" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="677.1" y="195.2" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$16.86</text>
+<circle cx="702.4" cy="206.0" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="702.4" y="192.0" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$15.95</text>
+<circle cx="727.6" cy="205.4" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="727.6" y="191.4" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$15.79</text>
+<circle cx="752.9" cy="211.4" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="752.9" y="197.4" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$17.47</text>
+<circle cx="778.2" cy="226.3" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="778.2" y="212.3" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$21.61</text>
+<circle cx="803.5" cy="228.2" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="803.5" y="214.2" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$22.15</text>
+<circle cx="828.8" cy="220.5" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="828.8" y="206.5" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$20.01</text>
+<circle cx="854.1" cy="217.0" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="854.1" y="203.0" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$19.04</text>
+<circle cx="879.4" cy="194.0" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="879.4" y="180.0" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$12.62</text>
+<circle cx="904.7" cy="197.7" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="904.7" y="183.7" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$13.66</text>
+<circle cx="930.0" cy="187.2" r="5" fill="#c25450" stroke="#0a0e14" stroke-width="2"/>
+<text x="930.0" y="173.2" text-anchor="middle" font-family="Atkinson Hyperlegible, Fraunces, Georgia, sans-serif" font-size="15" fill="#e6e1d6" font-weight="500">-$10.72</text>
 <text x="70.0" y="238.0" transform="rotate(-90 70.0 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-19</text>
-<text x="96.1" y="238.0" transform="rotate(-90 96.1 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-21</text>
-<text x="122.1" y="238.0" transform="rotate(-90 122.1 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-22</text>
-<text x="148.2" y="238.0" transform="rotate(-90 148.2 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-23</text>
-<text x="174.2" y="238.0" transform="rotate(-90 174.2 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-24</text>
-<text x="200.3" y="238.0" transform="rotate(-90 200.3 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-26</text>
-<text x="226.4" y="238.0" transform="rotate(-90 226.4 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-28</text>
-<text x="252.4" y="238.0" transform="rotate(-90 252.4 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-30</text>
-<text x="278.5" y="238.0" transform="rotate(-90 278.5 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">06-08</text>
-<text x="304.5" y="238.0" transform="rotate(-90 304.5 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">06-10</text>
-<text x="330.6" y="238.0" transform="rotate(-90 330.6 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-20</text>
-<text x="356.7" y="238.0" transform="rotate(-90 356.7 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-21</text>
-<text x="382.7" y="238.0" transform="rotate(-90 382.7 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-23</text>
-<text x="408.8" y="238.0" transform="rotate(-90 408.8 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-24</text>
-<text x="434.8" y="238.0" transform="rotate(-90 434.8 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-25</text>
-<text x="460.9" y="238.0" transform="rotate(-90 460.9 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-26</text>
-<text x="487.0" y="238.0" transform="rotate(-90 487.0 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-27</text>
-<text x="513.0" y="238.0" transform="rotate(-90 513.0 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-28</text>
-<text x="539.1" y="238.0" transform="rotate(-90 539.1 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-29</text>
-<text x="565.2" y="238.0" transform="rotate(-90 565.2 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-30</text>
-<text x="591.2" y="238.0" transform="rotate(-90 591.2 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-31</text>
-<text x="617.3" y="238.0" transform="rotate(-90 617.3 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-01</text>
-<text x="643.3" y="238.0" transform="rotate(-90 643.3 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-02</text>
-<text x="669.4" y="238.0" transform="rotate(-90 669.4 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-04</text>
-<text x="695.5" y="238.0" transform="rotate(-90 695.5 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-06</text>
-<text x="721.5" y="238.0" transform="rotate(-90 721.5 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-08</text>
-<text x="747.6" y="238.0" transform="rotate(-90 747.6 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-09</text>
-<text x="773.6" y="238.0" transform="rotate(-90 773.6 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-10</text>
-<text x="799.7" y="238.0" transform="rotate(-90 799.7 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-11</text>
-<text x="825.8" y="238.0" transform="rotate(-90 825.8 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-12</text>
-<text x="851.8" y="238.0" transform="rotate(-90 851.8 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-13</text>
-<text x="877.9" y="238.0" transform="rotate(-90 877.9 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-14</text>
-<text x="903.9" y="238.0" transform="rotate(-90 903.9 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-15</text>
-<text x="930.0" y="238.0" transform="rotate(-90 930.0 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-16</text>
+<text x="95.3" y="238.0" transform="rotate(-90 95.3 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-21</text>
+<text x="120.6" y="238.0" transform="rotate(-90 120.6 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-22</text>
+<text x="145.9" y="238.0" transform="rotate(-90 145.9 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-23</text>
+<text x="171.2" y="238.0" transform="rotate(-90 171.2 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-24</text>
+<text x="196.5" y="238.0" transform="rotate(-90 196.5 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-26</text>
+<text x="221.8" y="238.0" transform="rotate(-90 221.8 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-28</text>
+<text x="247.1" y="238.0" transform="rotate(-90 247.1 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-30</text>
+<text x="272.4" y="238.0" transform="rotate(-90 272.4 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">06-08</text>
+<text x="297.6" y="238.0" transform="rotate(-90 297.6 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">06-10</text>
+<text x="322.9" y="238.0" transform="rotate(-90 322.9 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-20</text>
+<text x="348.2" y="238.0" transform="rotate(-90 348.2 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-21</text>
+<text x="373.5" y="238.0" transform="rotate(-90 373.5 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-23</text>
+<text x="398.8" y="238.0" transform="rotate(-90 398.8 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-24</text>
+<text x="424.1" y="238.0" transform="rotate(-90 424.1 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-25</text>
+<text x="449.4" y="238.0" transform="rotate(-90 449.4 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-26</text>
+<text x="474.7" y="238.0" transform="rotate(-90 474.7 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-27</text>
+<text x="500.0" y="238.0" transform="rotate(-90 500.0 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-28</text>
+<text x="525.3" y="238.0" transform="rotate(-90 525.3 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-29</text>
+<text x="550.6" y="238.0" transform="rotate(-90 550.6 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-30</text>
+<text x="575.9" y="238.0" transform="rotate(-90 575.9 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-31</text>
+<text x="601.2" y="238.0" transform="rotate(-90 601.2 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-01</text>
+<text x="626.5" y="238.0" transform="rotate(-90 626.5 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-02</text>
+<text x="651.8" y="238.0" transform="rotate(-90 651.8 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-04</text>
+<text x="677.1" y="238.0" transform="rotate(-90 677.1 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-06</text>
+<text x="702.4" y="238.0" transform="rotate(-90 702.4 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-08</text>
+<text x="727.6" y="238.0" transform="rotate(-90 727.6 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-09</text>
+<text x="752.9" y="238.0" transform="rotate(-90 752.9 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-10</text>
+<text x="778.2" y="238.0" transform="rotate(-90 778.2 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-11</text>
+<text x="803.5" y="238.0" transform="rotate(-90 803.5 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-12</text>
+<text x="828.8" y="238.0" transform="rotate(-90 828.8 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-13</text>
+<text x="854.1" y="238.0" transform="rotate(-90 854.1 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-14</text>
+<text x="879.4" y="238.0" transform="rotate(-90 879.4 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-15</text>
+<text x="904.7" y="238.0" transform="rotate(-90 904.7 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-16</text>
+<text x="930.0" y="238.0" transform="rotate(-90 930.0 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-17</text>
 </svg>
   </div>
   <div class="chart-block">
@@ -1461,129 +1535,156 @@
 <text x="62" y="134.0" text-anchor="end" font-family="ui-monospace, monospace" font-size="13" fill="#5c5851">1</text>
 <line x1="70" y1="30.0" x2="930" y2="30.0" stroke="#1f2530" stroke-width="1"/>
 <text x="62" y="34.0" text-anchor="end" font-family="ui-monospace, monospace" font-size="13" fill="#5c5851">2</text>
-<rect x="73.1" y="130.0" width="8.9" height="100.0" fill="#5fa777"/>
-<text x="77.6" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
-<text x="82.6" y="238.0" transform="rotate(-90 82.6 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-19</text>
-<rect x="98.4" y="130.0" width="8.9" height="100.0" fill="#5fa777"/>
-<text x="102.9" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
-<text x="107.9" y="238.0" transform="rotate(-90 107.9 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-21</text>
-<rect x="133.9" y="130.0" width="8.9" height="100.0" fill="#c25450"/>
-<text x="138.3" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
-<text x="133.2" y="238.0" transform="rotate(-90 133.2 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-22</text>
-<rect x="149.0" y="130.0" width="8.9" height="100.0" fill="#5fa777"/>
-<text x="153.4" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
-<text x="158.5" y="238.0" transform="rotate(-90 158.5 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-23</text>
-<rect x="174.3" y="130.0" width="8.9" height="100.0" fill="#5fa777"/>
-<text x="178.7" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
-<text x="183.8" y="238.0" transform="rotate(-90 183.8 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-24</text>
-<rect x="199.6" y="130.0" width="8.9" height="100.0" fill="#5fa777"/>
-<text x="204.0" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
-<text x="209.1" y="238.0" transform="rotate(-90 209.1 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-26</text>
-<rect x="224.9" y="130.0" width="8.9" height="100.0" fill="#5fa777"/>
-<text x="229.3" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
-<text x="234.4" y="238.0" transform="rotate(-90 234.4 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-28</text>
-<rect x="260.4" y="130.0" width="8.9" height="100.0" fill="#c25450"/>
-<text x="264.8" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
-<text x="259.7" y="238.0" transform="rotate(-90 259.7 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-30</text>
-<rect x="285.7" y="130.0" width="8.9" height="100.0" fill="#c25450"/>
-<text x="290.1" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
-<text x="285.0" y="238.0" transform="rotate(-90 285.0 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">06-08</text>
-<rect x="300.8" y="130.0" width="8.9" height="100.0" fill="#5fa777"/>
-<text x="305.2" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
-<text x="310.3" y="238.0" transform="rotate(-90 310.3 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">06-10</text>
-<rect x="336.3" y="30.0" width="8.9" height="200.0" fill="#c25450"/>
-<text x="340.7" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">2</text>
-<text x="335.6" y="238.0" transform="rotate(-90 335.6 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-20</text>
-<rect x="351.4" y="130.0" width="8.9" height="100.0" fill="#5fa777"/>
-<text x="355.8" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
-<rect x="361.5" y="130.0" width="8.9" height="100.0" fill="#c25450"/>
-<text x="366.0" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
-<text x="360.9" y="238.0" transform="rotate(-90 360.9 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-21</text>
-<rect x="386.8" y="30.0" width="8.9" height="200.0" fill="#c25450"/>
-<text x="391.3" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">2</text>
-<text x="386.2" y="238.0" transform="rotate(-90 386.2 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-23</text>
-<rect x="402.0" y="30.0" width="8.9" height="200.0" fill="#5fa777"/>
-<text x="406.4" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">2</text>
-<text x="411.5" y="238.0" transform="rotate(-90 411.5 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-24</text>
-<rect x="437.4" y="30.0" width="8.9" height="200.0" fill="#c25450"/>
-<text x="441.9" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">2</text>
-<text x="436.8" y="238.0" transform="rotate(-90 436.8 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-25</text>
-<rect x="452.5" y="30.0" width="8.9" height="200.0" fill="#5fa777"/>
-<text x="457.0" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">2</text>
-<text x="462.1" y="238.0" transform="rotate(-90 462.1 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-26</text>
-<rect x="477.8" y="130.0" width="8.9" height="100.0" fill="#5fa777"/>
-<text x="482.3" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
-<text x="487.4" y="238.0" transform="rotate(-90 487.4 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-27</text>
-<rect x="503.1" y="130.0" width="8.9" height="100.0" fill="#5fa777"/>
-<text x="507.6" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
-<rect x="513.3" y="130.0" width="8.9" height="100.0" fill="#c25450"/>
-<text x="517.7" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
-<text x="512.6" y="238.0" transform="rotate(-90 512.6 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-28</text>
-<rect x="528.4" y="130.0" width="8.9" height="100.0" fill="#5fa777"/>
-<text x="532.9" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
-<text x="537.9" y="238.0" transform="rotate(-90 537.9 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-29</text>
-<rect x="563.9" y="30.0" width="8.9" height="200.0" fill="#c25450"/>
-<text x="568.3" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">2</text>
-<text x="563.2" y="238.0" transform="rotate(-90 563.2 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-30</text>
-<rect x="579.0" y="130.0" width="8.9" height="100.0" fill="#5fa777"/>
-<text x="583.4" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
-<rect x="589.2" y="130.0" width="8.9" height="100.0" fill="#c25450"/>
-<text x="593.6" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
-<text x="588.5" y="238.0" transform="rotate(-90 588.5 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-31</text>
-<rect x="614.5" y="130.0" width="8.9" height="100.0" fill="#c25450"/>
-<text x="618.9" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
-<text x="613.8" y="238.0" transform="rotate(-90 613.8 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-01</text>
-<rect x="639.8" y="30.0" width="8.9" height="200.0" fill="#c25450"/>
-<text x="644.2" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">2</text>
-<text x="639.1" y="238.0" transform="rotate(-90 639.1 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-02</text>
-<rect x="654.9" y="130.0" width="8.9" height="100.0" fill="#5fa777"/>
-<text x="659.3" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
-<rect x="665.1" y="130.0" width="8.9" height="100.0" fill="#c25450"/>
-<text x="669.5" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
-<text x="664.4" y="238.0" transform="rotate(-90 664.4 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-04</text>
-<rect x="680.2" y="130.0" width="8.9" height="100.0" fill="#5fa777"/>
-<text x="684.6" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
-<rect x="690.4" y="130.0" width="8.9" height="100.0" fill="#c25450"/>
-<text x="694.8" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
-<text x="689.7" y="238.0" transform="rotate(-90 689.7 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-06</text>
-<rect x="705.5" y="130.0" width="8.9" height="100.0" fill="#5fa777"/>
-<text x="709.9" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
-<text x="715.0" y="238.0" transform="rotate(-90 715.0 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-08</text>
-<rect x="730.8" y="130.0" width="8.9" height="100.0" fill="#5fa777"/>
-<text x="735.2" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
-<rect x="741.0" y="130.0" width="8.9" height="100.0" fill="#c25450"/>
-<text x="745.4" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
-<text x="740.3" y="238.0" transform="rotate(-90 740.3 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-09</text>
-<rect x="766.3" y="30.0" width="8.9" height="200.0" fill="#c25450"/>
-<text x="770.7" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">2</text>
-<text x="765.6" y="238.0" transform="rotate(-90 765.6 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-10</text>
-<rect x="791.5" y="30.0" width="8.9" height="200.0" fill="#c25450"/>
-<text x="796.0" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">2</text>
-<text x="790.9" y="238.0" transform="rotate(-90 790.9 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-11</text>
-<rect x="816.8" y="130.0" width="8.9" height="100.0" fill="#c25450"/>
-<text x="821.3" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
-<text x="816.2" y="238.0" transform="rotate(-90 816.2 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-12</text>
-<rect x="832.0" y="130.0" width="8.9" height="100.0" fill="#5fa777"/>
-<text x="836.4" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
-<rect x="842.1" y="130.0" width="8.9" height="100.0" fill="#c25450"/>
-<text x="846.6" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
-<text x="841.5" y="238.0" transform="rotate(-90 841.5 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-13</text>
-<rect x="857.2" y="130.0" width="8.9" height="100.0" fill="#5fa777"/>
-<text x="861.7" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
-<rect x="867.4" y="130.0" width="8.9" height="100.0" fill="#c25450"/>
-<text x="871.9" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
-<text x="866.8" y="238.0" transform="rotate(-90 866.8 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-14</text>
-<rect x="882.5" y="30.0" width="8.9" height="200.0" fill="#5fa777"/>
-<text x="887.0" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">2</text>
-<text x="892.1" y="238.0" transform="rotate(-90 892.1 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-15</text>
-<rect x="907.8" y="130.0" width="8.9" height="100.0" fill="#5fa777"/>
-<text x="912.3" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
-<rect x="918.0" y="130.0" width="8.9" height="100.0" fill="#c25450"/>
-<text x="922.4" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
-<text x="917.4" y="238.0" transform="rotate(-90 917.4 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-16</text>
+<rect x="73.0" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="77.3" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<text x="82.3" y="238.0" transform="rotate(-90 82.3 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-19</text>
+<rect x="97.6" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="101.9" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<text x="106.9" y="238.0" transform="rotate(-90 106.9 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-21</text>
+<rect x="132.1" y="130.0" width="8.6" height="100.0" fill="#c25450"/>
+<text x="136.4" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
+<text x="131.4" y="238.0" transform="rotate(-90 131.4 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-22</text>
+<rect x="146.8" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="151.1" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<text x="156.0" y="238.0" transform="rotate(-90 156.0 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-23</text>
+<rect x="171.3" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="175.6" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<text x="180.6" y="238.0" transform="rotate(-90 180.6 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-24</text>
+<rect x="195.9" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="200.2" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<text x="205.1" y="238.0" transform="rotate(-90 205.1 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-26</text>
+<rect x="220.5" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="224.8" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<text x="229.7" y="238.0" transform="rotate(-90 229.7 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-28</text>
+<rect x="254.9" y="130.0" width="8.6" height="100.0" fill="#c25450"/>
+<text x="259.2" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
+<text x="254.3" y="238.0" transform="rotate(-90 254.3 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">05-30</text>
+<rect x="279.5" y="130.0" width="8.6" height="100.0" fill="#c25450"/>
+<text x="283.8" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
+<text x="278.9" y="238.0" transform="rotate(-90 278.9 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">06-08</text>
+<rect x="294.2" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="298.5" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<text x="303.4" y="238.0" transform="rotate(-90 303.4 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">06-10</text>
+<rect x="328.6" y="30.0" width="8.6" height="200.0" fill="#c25450"/>
+<text x="332.9" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">2</text>
+<text x="328.0" y="238.0" transform="rotate(-90 328.0 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-20</text>
+<rect x="343.3" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="347.6" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<rect x="353.2" y="130.0" width="8.6" height="100.0" fill="#c25450"/>
+<text x="357.5" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
+<text x="352.6" y="238.0" transform="rotate(-90 352.6 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-21</text>
+<rect x="377.8" y="30.0" width="8.6" height="200.0" fill="#c25450"/>
+<text x="382.1" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">2</text>
+<text x="377.1" y="238.0" transform="rotate(-90 377.1 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-23</text>
+<rect x="392.5" y="30.0" width="8.6" height="200.0" fill="#5fa777"/>
+<text x="396.8" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">2</text>
+<text x="401.7" y="238.0" transform="rotate(-90 401.7 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-24</text>
+<rect x="426.9" y="30.0" width="8.6" height="200.0" fill="#c25450"/>
+<text x="431.2" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">2</text>
+<text x="426.3" y="238.0" transform="rotate(-90 426.3 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-25</text>
+<rect x="441.6" y="30.0" width="8.6" height="200.0" fill="#5fa777"/>
+<text x="445.9" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">2</text>
+<text x="450.9" y="238.0" transform="rotate(-90 450.9 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-26</text>
+<rect x="466.2" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="470.5" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<text x="475.4" y="238.0" transform="rotate(-90 475.4 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-27</text>
+<rect x="490.8" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="495.1" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<rect x="500.6" y="130.0" width="8.6" height="100.0" fill="#c25450"/>
+<text x="504.9" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
+<text x="500.0" y="238.0" transform="rotate(-90 500.0 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-28</text>
+<rect x="515.3" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="519.6" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<text x="524.6" y="238.0" transform="rotate(-90 524.6 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-29</text>
+<rect x="549.8" y="30.0" width="8.6" height="200.0" fill="#c25450"/>
+<text x="554.1" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">2</text>
+<text x="549.1" y="238.0" transform="rotate(-90 549.1 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-30</text>
+<rect x="564.5" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="568.8" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<rect x="574.4" y="130.0" width="8.6" height="100.0" fill="#c25450"/>
+<text x="578.7" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
+<text x="573.7" y="238.0" transform="rotate(-90 573.7 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">10-31</text>
+<rect x="598.9" y="130.0" width="8.6" height="100.0" fill="#c25450"/>
+<text x="603.2" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
+<text x="598.3" y="238.0" transform="rotate(-90 598.3 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-01</text>
+<rect x="623.5" y="30.0" width="8.6" height="200.0" fill="#c25450"/>
+<text x="627.8" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">2</text>
+<text x="622.9" y="238.0" transform="rotate(-90 622.9 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-02</text>
+<rect x="638.2" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="642.5" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<rect x="648.1" y="130.0" width="8.6" height="100.0" fill="#c25450"/>
+<text x="652.4" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
+<text x="647.4" y="238.0" transform="rotate(-90 647.4 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-04</text>
+<rect x="662.8" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="667.1" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<rect x="672.6" y="130.0" width="8.6" height="100.0" fill="#c25450"/>
+<text x="676.9" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
+<text x="672.0" y="238.0" transform="rotate(-90 672.0 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-06</text>
+<rect x="687.3" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="691.6" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<text x="696.6" y="238.0" transform="rotate(-90 696.6 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-08</text>
+<rect x="711.9" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="716.2" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<rect x="721.8" y="130.0" width="8.6" height="100.0" fill="#c25450"/>
+<text x="726.1" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
+<text x="721.1" y="238.0" transform="rotate(-90 721.1 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-09</text>
+<rect x="746.4" y="30.0" width="8.6" height="200.0" fill="#c25450"/>
+<text x="750.7" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">2</text>
+<text x="745.7" y="238.0" transform="rotate(-90 745.7 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-10</text>
+<rect x="770.9" y="30.0" width="8.6" height="200.0" fill="#c25450"/>
+<text x="775.2" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">2</text>
+<text x="770.3" y="238.0" transform="rotate(-90 770.3 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-11</text>
+<rect x="795.5" y="130.0" width="8.6" height="100.0" fill="#c25450"/>
+<text x="799.8" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
+<text x="794.9" y="238.0" transform="rotate(-90 794.9 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-12</text>
+<rect x="810.2" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="814.5" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<rect x="820.1" y="130.0" width="8.6" height="100.0" fill="#c25450"/>
+<text x="824.4" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
+<text x="819.4" y="238.0" transform="rotate(-90 819.4 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-13</text>
+<rect x="834.8" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="839.1" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<rect x="844.6" y="130.0" width="8.6" height="100.0" fill="#c25450"/>
+<text x="848.9" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
+<text x="844.0" y="238.0" transform="rotate(-90 844.0 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-14</text>
+<rect x="859.3" y="30.0" width="8.6" height="200.0" fill="#5fa777"/>
+<text x="863.6" y="24.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">2</text>
+<text x="868.6" y="238.0" transform="rotate(-90 868.6 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-15</text>
+<rect x="883.9" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="888.2" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<rect x="893.8" y="130.0" width="8.6" height="100.0" fill="#c25450"/>
+<text x="898.1" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#c25450">1</text>
+<text x="893.1" y="238.0" transform="rotate(-90 893.1 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-16</text>
+<rect x="908.5" y="130.0" width="8.6" height="100.0" fill="#5fa777"/>
+<text x="912.8" y="124.0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5fa777">1</text>
+<text x="917.7" y="238.0" transform="rotate(-90 917.7 238.0)" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, monospace" font-size="12" fill="#8a857a">11-17</text>
 <line x1="70" y1="230" x2="930" y2="230" stroke="#2a3140" stroke-width="1"/>
 </svg>
   </div>
+</div>
+</div>
+
+<div class="view" data-view="bracket" hidden>
+<div class="masthead">
+  <div class="masthead-eyebrow"><span class="eyebrow-line"></span>Playoff Picture<span class="eyebrow-line"></span></div>
+  <h1>Who&#x27;s left standing <em>in June.</em></h1>
+  <p class="masthead-dek">
+    10,000 simulations of the rest of the season, the play-in and every series, from the same model as the daily picks.
+    Seeds come from average projected wins; each round is filled by the model&#x27;s favorite, with its series win % and most likely length.
+    Title odds use all simulations, so they can differ from the filled-in bracket. Per-game probabilities recalibrated on 185 resolved games (slope 1.25; the raw model is overconfident).
+    Ratings stay at today&#x27;s strength (no injuries, trades or form changes). Remaining games: league-average opponents (schedule feed unavailable).
+  </p>
+</div>
+<div class="bk-wrap">
+  <div class="bk-conf-heads"><span>West</span><span>East</span></div>
+  <div class="bk-grid"><div class="bk-col bk-w"><div class="bk-col-label">First round</div><div class="bk-col-body"><div class="bk-s"><div class="bk-t is-fav" title="San Antonio Spurs · now 12-2 · projected 64-18 · playoffs 100% · title 49.4%"><span class="bk-sd">1</span><span class="bk-ab">SAS</span><span class="bk-rc">64-18</span><span class="bk-p">95%</span></div><div class="bk-t" title="Golden State Warriors · now 8-6 · projected 44-38 · playoffs 49% · title 0.0%"><span class="bk-sd">8</span><span class="bk-ab">GSW</span><span class="bk-rc">44-38</span><span class="bk-p"></span></div><div class="bk-m">SAS in 4</div></div><div class="bk-s"><div class="bk-t is-fav" title="Oklahoma City Thunder · now 9-5 · projected 54-28 · playoffs 98% · title 3.4%"><span class="bk-sd">4</span><span class="bk-ab">OKC</span><span class="bk-rc">54-28</span><span class="bk-p">63%</span></div><div class="bk-t" title="Minnesota Timberwolves · now 10-4 · projected 52-30 · playoffs 96% · title 1.0%"><span class="bk-sd">5</span><span class="bk-ab">MIN</span><span class="bk-rc">52-30</span><span class="bk-p"></span></div><div class="bk-m">OKC in 6</div></div><div class="bk-s"><div class="bk-t" title="Houston Rockets · now 11-4 · projected 54-28 · playoffs 99% · title 2.6%"><span class="bk-sd">3</span><span class="bk-ab">HOU</span><span class="bk-rc">54-28</span><span class="bk-p"></span></div><div class="bk-t is-fav" title="Denver Nuggets · now 6-5 · projected 52-30 · playoffs 96% · title 2.2%"><span class="bk-sd">6</span><span class="bk-ab">DEN</span><span class="bk-rc">52-30</span><span class="bk-p">50%</span></div><div class="bk-m">DEN in 6</div></div><div class="bk-s"><div class="bk-t is-fav" title="Los Angeles Lakers · now 12-2 · projected 57-25 · playoffs 100% · title 3.9%"><span class="bk-sd">2</span><span class="bk-ab">LAL</span><span class="bk-rc">57-25</span><span class="bk-p">74%</span></div><div class="bk-t" title="Portland Trail Blazers · now 9-4 · projected 49-33 · playoffs 88% · title 0.2%"><span class="bk-sd">7</span><span class="bk-ab">POR</span><span class="bk-rc">49-33</span><span class="bk-p"></span></div><div class="bk-m">LAL in 5</div></div></div></div><div class="bk-col bk-w"><div class="bk-col-label">Conf. semis</div><div class="bk-col-body"><div class="bk-s"><div class="bk-t is-fav" title="San Antonio Spurs · now 12-2 · projected 64-18 · playoffs 100% · title 49.4%"><span class="bk-sd">1</span><span class="bk-ab">SAS</span><span class="bk-rc"></span><span class="bk-p">83%</span></div><div class="bk-t" title="Oklahoma City Thunder · now 9-5 · projected 54-28 · playoffs 98% · title 3.4%"><span class="bk-sd">4</span><span class="bk-ab">OKC</span><span class="bk-rc"></span><span class="bk-p"></span></div><div class="bk-m">SAS in 5</div></div><div class="bk-s"><div class="bk-t is-fav" title="Los Angeles Lakers · now 12-2 · projected 57-25 · playoffs 100% · title 3.9%"><span class="bk-sd">2</span><span class="bk-ab">LAL</span><span class="bk-rc"></span><span class="bk-p">55%</span></div><div class="bk-t" title="Denver Nuggets · now 6-5 · projected 52-30 · playoffs 96% · title 2.2%"><span class="bk-sd">6</span><span class="bk-ab">DEN</span><span class="bk-rc"></span><span class="bk-p"></span></div><div class="bk-m">LAL in 7</div></div></div></div><div class="bk-col bk-w"><div class="bk-col-label">Conf. finals</div><div class="bk-col-body"><div class="bk-s"><div class="bk-t is-fav" title="San Antonio Spurs · now 12-2 · projected 64-18 · playoffs 100% · title 49.4%"><span class="bk-sd">1</span><span class="bk-ab">SAS</span><span class="bk-rc"></span><span class="bk-p">82%</span></div><div class="bk-t" title="Los Angeles Lakers · now 12-2 · projected 57-25 · playoffs 100% · title 3.9%"><span class="bk-sd">2</span><span class="bk-ab">LAL</span><span class="bk-rc"></span><span class="bk-p"></span></div><div class="bk-m">SAS in 5</div></div></div></div><div class="bk-col bk-center"><div class="bk-col-label">Finals</div><div class="bk-col-body"><div class="bk-champ"><div class="bk-champ-label">Model&#x27;s champion</div><div class="bk-champ-team">SAS</div><div class="bk-champ-name">San Antonio Spurs</div><div class="bk-champ-odds"><b>49%</b> title odds</div></div><div class="bk-s bk-finals"><div class="bk-t is-fav" title="San Antonio Spurs · now 12-2 · projected 64-18 · playoffs 100% · title 49.4%"><span class="bk-sd">1</span><span class="bk-ab">SAS</span><span class="bk-rc"></span><span class="bk-p">70%</span></div><div class="bk-t" title="Boston Celtics · now 11-3 · projected 58-24 · playoffs 100% · title 15.4%"><span class="bk-sd">1</span><span class="bk-ab">BOS</span><span class="bk-rc"></span><span class="bk-p"></span></div><div class="bk-m">SAS in 5</div></div><div class="bk-odds"><div class="bk-odds-label">Title odds · all sims</div><div class="bk-odd"><span class="bk-odd-t">SAS</span><span class="bk-odd-bar"><span style="width:100%"></span></span><span class="bk-odd-p">49%</span></div><div class="bk-odd"><span class="bk-odd-t">NYK</span><span class="bk-odd-bar"><span style="width:32%"></span></span><span class="bk-odd-p">16%</span></div><div class="bk-odd"><span class="bk-odd-t">BOS</span><span class="bk-odd-bar"><span style="width:31%"></span></span><span class="bk-odd-p">15%</span></div><div class="bk-odd"><span class="bk-odd-t">DET</span><span class="bk-odd-bar"><span style="width:9%"></span></span><span class="bk-odd-p">4%</span></div><div class="bk-odd"><span class="bk-odd-t">LAL</span><span class="bk-odd-bar"><span style="width:8%"></span></span><span class="bk-odd-p">4%</span></div></div></div></div><div class="bk-col bk-e"><div class="bk-col-label">Conf. finals</div><div class="bk-col-body"><div class="bk-s"><div class="bk-t is-fav" title="Boston Celtics · now 11-3 · projected 58-24 · playoffs 100% · title 15.4%"><span class="bk-sd">1</span><span class="bk-ab">BOS</span><span class="bk-rc"></span><span class="bk-p">50%</span></div><div class="bk-t" title="New York Knicks · now 7-6 · projected 56-26 · playoffs 100% · title 16.0%"><span class="bk-sd">2</span><span class="bk-ab">NYK</span><span class="bk-rc"></span><span class="bk-p"></span></div><div class="bk-m">BOS in 7</div></div></div></div><div class="bk-col bk-e"><div class="bk-col-label">Conf. semis</div><div class="bk-col-body"><div class="bk-s"><div class="bk-t is-fav" title="Boston Celtics · now 11-3 · projected 58-24 · playoffs 100% · title 15.4%"><span class="bk-sd">1</span><span class="bk-ab">BOS</span><span class="bk-rc"></span><span class="bk-p">76%</span></div><div class="bk-t" title="Miami Heat · now 8-6 · projected 48-34 · playoffs 95% · title 0.8%"><span class="bk-sd">4</span><span class="bk-ab">MIA</span><span class="bk-rc"></span><span class="bk-p"></span></div><div class="bk-m">BOS in 5</div></div><div class="bk-s"><div class="bk-t is-fav" title="New York Knicks · now 7-6 · projected 56-26 · playoffs 100% · title 16.0%"><span class="bk-sd">2</span><span class="bk-ab">NYK</span><span class="bk-rc"></span><span class="bk-p">65%</span></div><div class="bk-t" title="Detroit Pistons · now 8-4 · projected 54-28 · playoffs 100% · title 4.5%"><span class="bk-sd">3</span><span class="bk-ab">DET</span><span class="bk-rc"></span><span class="bk-p"></span></div><div class="bk-m">NYK in 6</div></div></div></div><div class="bk-col bk-e"><div class="bk-col-label">First round</div><div class="bk-col-body"><div class="bk-s"><div class="bk-t is-fav" title="Boston Celtics · now 11-3 · projected 58-24 · playoffs 100% · title 15.4%"><span class="bk-sd">1</span><span class="bk-ab">BOS</span><span class="bk-rc">58-24</span><span class="bk-p">91%</span></div><div class="bk-t" title="Atlanta Hawks · now 8-6 · projected 41-41 · playoffs 56% · title 0.0%"><span class="bk-sd">8</span><span class="bk-ab">ATL</span><span class="bk-rc">41-41</span><span class="bk-p"></span></div><div class="bk-m">BOS in 5</div></div><div class="bk-s"><div class="bk-t is-fav" title="Miami Heat · now 8-6 · projected 48-34 · playoffs 95% · title 0.8%"><span class="bk-sd">4</span><span class="bk-ab">MIA</span><span class="bk-rc">48-34</span><span class="bk-p">68%</span></div><div class="bk-t" title="Philadelphia 76ers · now 12-3 · projected 47-35 · playoffs 94% · title 0.1%"><span class="bk-sd">5</span><span class="bk-ab">PHI</span><span class="bk-rc">47-35</span><span class="bk-p"></span></div><div class="bk-m">MIA in 5</div></div><div class="bk-s"><div class="bk-t is-fav" title="Detroit Pistons · now 8-4 · projected 54-28 · playoffs 100% · title 4.5%"><span class="bk-sd">3</span><span class="bk-ab">DET</span><span class="bk-rc">54-28</span><span class="bk-p">74%</span></div><div class="bk-t" title="Cleveland Cavaliers · now 8-7 · projected 46-36 · playoffs 93% · title 0.4%"><span class="bk-sd">6</span><span class="bk-ab">CLE</span><span class="bk-rc">46-36</span><span class="bk-p"></span></div><div class="bk-m">DET in 5</div></div><div class="bk-s"><div class="bk-t is-fav" title="New York Knicks · now 7-6 · projected 56-26 · playoffs 100% · title 16.0%"><span class="bk-sd">2</span><span class="bk-ab">NYK</span><span class="bk-rc">56-26</span><span class="bk-p">89%</span></div><div class="bk-t" title="Orlando Magic · now 6-7 · projected 42-40 · playoffs 68% · title 0.1%"><span class="bk-sd">7</span><span class="bk-ab">ORL</span><span class="bk-rc">42-40</span><span class="bk-p"></span></div><div class="bk-m">NYK in 5</div></div></div></div></div>
+  <div class="bk-compact"><div class="bk-c-conf"><div class="bk-pi-head">West</div><div class="bk-c-round"><div class="bk-col-label">First round</div><div class="bk-c-cards"><div class="bk-s"><div class="bk-t is-fav" title="San Antonio Spurs · now 12-2 · projected 64-18 · playoffs 100% · title 49.4%"><span class="bk-sd">1</span><span class="bk-ab">SAS</span><span class="bk-rc">64-18</span><span class="bk-p">95%</span></div><div class="bk-t" title="Golden State Warriors · now 8-6 · projected 44-38 · playoffs 49% · title 0.0%"><span class="bk-sd">8</span><span class="bk-ab">GSW</span><span class="bk-rc">44-38</span><span class="bk-p"></span></div><div class="bk-m">SAS in 4</div></div><div class="bk-s"><div class="bk-t is-fav" title="Oklahoma City Thunder · now 9-5 · projected 54-28 · playoffs 98% · title 3.4%"><span class="bk-sd">4</span><span class="bk-ab">OKC</span><span class="bk-rc">54-28</span><span class="bk-p">63%</span></div><div class="bk-t" title="Minnesota Timberwolves · now 10-4 · projected 52-30 · playoffs 96% · title 1.0%"><span class="bk-sd">5</span><span class="bk-ab">MIN</span><span class="bk-rc">52-30</span><span class="bk-p"></span></div><div class="bk-m">OKC in 6</div></div><div class="bk-s"><div class="bk-t" title="Houston Rockets · now 11-4 · projected 54-28 · playoffs 99% · title 2.6%"><span class="bk-sd">3</span><span class="bk-ab">HOU</span><span class="bk-rc">54-28</span><span class="bk-p"></span></div><div class="bk-t is-fav" title="Denver Nuggets · now 6-5 · projected 52-30 · playoffs 96% · title 2.2%"><span class="bk-sd">6</span><span class="bk-ab">DEN</span><span class="bk-rc">52-30</span><span class="bk-p">50%</span></div><div class="bk-m">DEN in 6</div></div><div class="bk-s"><div class="bk-t is-fav" title="Los Angeles Lakers · now 12-2 · projected 57-25 · playoffs 100% · title 3.9%"><span class="bk-sd">2</span><span class="bk-ab">LAL</span><span class="bk-rc">57-25</span><span class="bk-p">74%</span></div><div class="bk-t" title="Portland Trail Blazers · now 9-4 · projected 49-33 · playoffs 88% · title 0.2%"><span class="bk-sd">7</span><span class="bk-ab">POR</span><span class="bk-rc">49-33</span><span class="bk-p"></span></div><div class="bk-m">LAL in 5</div></div></div></div><div class="bk-c-round"><div class="bk-col-label">Conf. semis</div><div class="bk-c-cards"><div class="bk-s"><div class="bk-t is-fav" title="San Antonio Spurs · now 12-2 · projected 64-18 · playoffs 100% · title 49.4%"><span class="bk-sd">1</span><span class="bk-ab">SAS</span><span class="bk-rc">64-18</span><span class="bk-p">83%</span></div><div class="bk-t" title="Oklahoma City Thunder · now 9-5 · projected 54-28 · playoffs 98% · title 3.4%"><span class="bk-sd">4</span><span class="bk-ab">OKC</span><span class="bk-rc">54-28</span><span class="bk-p"></span></div><div class="bk-m">SAS in 5</div></div><div class="bk-s"><div class="bk-t is-fav" title="Los Angeles Lakers · now 12-2 · projected 57-25 · playoffs 100% · title 3.9%"><span class="bk-sd">2</span><span class="bk-ab">LAL</span><span class="bk-rc">57-25</span><span class="bk-p">55%</span></div><div class="bk-t" title="Denver Nuggets · now 6-5 · projected 52-30 · playoffs 96% · title 2.2%"><span class="bk-sd">6</span><span class="bk-ab">DEN</span><span class="bk-rc">52-30</span><span class="bk-p"></span></div><div class="bk-m">LAL in 7</div></div></div></div><div class="bk-c-round"><div class="bk-col-label">Conf. finals</div><div class="bk-c-cards"><div class="bk-s"><div class="bk-t is-fav" title="San Antonio Spurs · now 12-2 · projected 64-18 · playoffs 100% · title 49.4%"><span class="bk-sd">1</span><span class="bk-ab">SAS</span><span class="bk-rc">64-18</span><span class="bk-p">82%</span></div><div class="bk-t" title="Los Angeles Lakers · now 12-2 · projected 57-25 · playoffs 100% · title 3.9%"><span class="bk-sd">2</span><span class="bk-ab">LAL</span><span class="bk-rc">57-25</span><span class="bk-p"></span></div><div class="bk-m">SAS in 5</div></div></div></div></div><div class="bk-c-conf"><div class="bk-pi-head">East</div><div class="bk-c-round"><div class="bk-col-label">First round</div><div class="bk-c-cards"><div class="bk-s"><div class="bk-t is-fav" title="Boston Celtics · now 11-3 · projected 58-24 · playoffs 100% · title 15.4%"><span class="bk-sd">1</span><span class="bk-ab">BOS</span><span class="bk-rc">58-24</span><span class="bk-p">91%</span></div><div class="bk-t" title="Atlanta Hawks · now 8-6 · projected 41-41 · playoffs 56% · title 0.0%"><span class="bk-sd">8</span><span class="bk-ab">ATL</span><span class="bk-rc">41-41</span><span class="bk-p"></span></div><div class="bk-m">BOS in 5</div></div><div class="bk-s"><div class="bk-t is-fav" title="Miami Heat · now 8-6 · projected 48-34 · playoffs 95% · title 0.8%"><span class="bk-sd">4</span><span class="bk-ab">MIA</span><span class="bk-rc">48-34</span><span class="bk-p">68%</span></div><div class="bk-t" title="Philadelphia 76ers · now 12-3 · projected 47-35 · playoffs 94% · title 0.1%"><span class="bk-sd">5</span><span class="bk-ab">PHI</span><span class="bk-rc">47-35</span><span class="bk-p"></span></div><div class="bk-m">MIA in 5</div></div><div class="bk-s"><div class="bk-t is-fav" title="Detroit Pistons · now 8-4 · projected 54-28 · playoffs 100% · title 4.5%"><span class="bk-sd">3</span><span class="bk-ab">DET</span><span class="bk-rc">54-28</span><span class="bk-p">74%</span></div><div class="bk-t" title="Cleveland Cavaliers · now 8-7 · projected 46-36 · playoffs 93% · title 0.4%"><span class="bk-sd">6</span><span class="bk-ab">CLE</span><span class="bk-rc">46-36</span><span class="bk-p"></span></div><div class="bk-m">DET in 5</div></div><div class="bk-s"><div class="bk-t is-fav" title="New York Knicks · now 7-6 · projected 56-26 · playoffs 100% · title 16.0%"><span class="bk-sd">2</span><span class="bk-ab">NYK</span><span class="bk-rc">56-26</span><span class="bk-p">89%</span></div><div class="bk-t" title="Orlando Magic · now 6-7 · projected 42-40 · playoffs 68% · title 0.1%"><span class="bk-sd">7</span><span class="bk-ab">ORL</span><span class="bk-rc">42-40</span><span class="bk-p"></span></div><div class="bk-m">NYK in 5</div></div></div></div><div class="bk-c-round"><div class="bk-col-label">Conf. semis</div><div class="bk-c-cards"><div class="bk-s"><div class="bk-t is-fav" title="Boston Celtics · now 11-3 · projected 58-24 · playoffs 100% · title 15.4%"><span class="bk-sd">1</span><span class="bk-ab">BOS</span><span class="bk-rc">58-24</span><span class="bk-p">76%</span></div><div class="bk-t" title="Miami Heat · now 8-6 · projected 48-34 · playoffs 95% · title 0.8%"><span class="bk-sd">4</span><span class="bk-ab">MIA</span><span class="bk-rc">48-34</span><span class="bk-p"></span></div><div class="bk-m">BOS in 5</div></div><div class="bk-s"><div class="bk-t is-fav" title="New York Knicks · now 7-6 · projected 56-26 · playoffs 100% · title 16.0%"><span class="bk-sd">2</span><span class="bk-ab">NYK</span><span class="bk-rc">56-26</span><span class="bk-p">65%</span></div><div class="bk-t" title="Detroit Pistons · now 8-4 · projected 54-28 · playoffs 100% · title 4.5%"><span class="bk-sd">3</span><span class="bk-ab">DET</span><span class="bk-rc">54-28</span><span class="bk-p"></span></div><div class="bk-m">NYK in 6</div></div></div></div><div class="bk-c-round"><div class="bk-col-label">Conf. finals</div><div class="bk-c-cards"><div class="bk-s"><div class="bk-t is-fav" title="Boston Celtics · now 11-3 · projected 58-24 · playoffs 100% · title 15.4%"><span class="bk-sd">1</span><span class="bk-ab">BOS</span><span class="bk-rc">58-24</span><span class="bk-p">50%</span></div><div class="bk-t" title="New York Knicks · now 7-6 · projected 56-26 · playoffs 100% · title 16.0%"><span class="bk-sd">2</span><span class="bk-ab">NYK</span><span class="bk-rc">56-26</span><span class="bk-p"></span></div><div class="bk-m">BOS in 7</div></div></div></div></div>
+    <div class="bk-c-conf"><div class="bk-pi-head">Finals</div><div class="bk-col bk-center"><div class="bk-col-label">Finals</div><div class="bk-col-body"><div class="bk-champ"><div class="bk-champ-label">Model&#x27;s champion</div><div class="bk-champ-team">SAS</div><div class="bk-champ-name">San Antonio Spurs</div><div class="bk-champ-odds"><b>49%</b> title odds</div></div><div class="bk-s bk-finals"><div class="bk-t is-fav" title="San Antonio Spurs · now 12-2 · projected 64-18 · playoffs 100% · title 49.4%"><span class="bk-sd">1</span><span class="bk-ab">SAS</span><span class="bk-rc"></span><span class="bk-p">70%</span></div><div class="bk-t" title="Boston Celtics · now 11-3 · projected 58-24 · playoffs 100% · title 15.4%"><span class="bk-sd">1</span><span class="bk-ab">BOS</span><span class="bk-rc"></span><span class="bk-p"></span></div><div class="bk-m">SAS in 5</div></div><div class="bk-odds"><div class="bk-odds-label">Title odds · all sims</div><div class="bk-odd"><span class="bk-odd-t">SAS</span><span class="bk-odd-bar"><span style="width:100%"></span></span><span class="bk-odd-p">49%</span></div><div class="bk-odd"><span class="bk-odd-t">NYK</span><span class="bk-odd-bar"><span style="width:32%"></span></span><span class="bk-odd-p">16%</span></div><div class="bk-odd"><span class="bk-odd-t">BOS</span><span class="bk-odd-bar"><span style="width:31%"></span></span><span class="bk-odd-p">15%</span></div><div class="bk-odd"><span class="bk-odd-t">DET</span><span class="bk-odd-bar"><span style="width:9%"></span></span><span class="bk-odd-p">4%</span></div><div class="bk-odd"><span class="bk-odd-t">LAL</span><span class="bk-odd-bar"><span style="width:8%"></span></span><span class="bk-odd-p">4%</span></div></div></div></div></div></div>
+  <div class="bk-playins"><div class="bk-playin"><div class="bk-pi-head">West play-in</div><div class="bk-pi-row"><div class="bk-pi"><div class="bk-pi-label">7 vs 8 · winner is the 7 seed</div><div class="bk-t is-fav" title="Portland Trail Blazers · now 9-4 · projected 49-33 · playoffs 88% · title 0.2%"><span class="bk-sd">7</span><span class="bk-ab">POR</span><span class="bk-rc">49-33</span><span class="bk-p">62%</span></div><div class="bk-t" title="Golden State Warriors · now 8-6 · projected 44-38 · playoffs 49% · title 0.0%"><span class="bk-sd">8</span><span class="bk-ab">GSW</span><span class="bk-rc">44-38</span><span class="bk-p"></span></div></div><div class="bk-pi"><div class="bk-pi-label">9 vs 10</div><div class="bk-t is-fav" title="Memphis Grizzlies · now 10-4 · projected 43-39 · playoffs 41% · title 0.0%"><span class="bk-sd">9</span><span class="bk-ab">MEM</span><span class="bk-rc">43-39</span><span class="bk-p">51%</span></div><div class="bk-t" title="Phoenix Suns · now 6-7 · projected 41-41 · playoffs 30% · title 0.0%"><span class="bk-sd">10</span><span class="bk-ab">PHX</span><span class="bk-rc">41-41</span><span class="bk-p"></span></div></div><div class="bk-pi"><div class="bk-pi-label">Loser 7/8 vs winner 9/10 · for the 8 seed</div><div class="bk-t is-fav" title="Golden State Warriors · now 8-6 · projected 44-38 · playoffs 49% · title 0.0%"><span class="bk-sd">8</span><span class="bk-ab">GSW</span><span class="bk-rc">44-38</span><span class="bk-p">56%</span></div><div class="bk-t" title="Memphis Grizzlies · now 10-4 · projected 43-39 · playoffs 41% · title 0.0%"><span class="bk-sd">9</span><span class="bk-ab">MEM</span><span class="bk-rc">43-39</span><span class="bk-p"></span></div></div></div></div><div class="bk-playin"><div class="bk-pi-head">East play-in</div><div class="bk-pi-row"><div class="bk-pi"><div class="bk-pi-label">7 vs 8 · winner is the 7 seed</div><div class="bk-t is-fav" title="Orlando Magic · now 6-7 · projected 42-40 · playoffs 68% · title 0.1%"><span class="bk-sd">7</span><span class="bk-ab">ORL</span><span class="bk-rc">42-40</span><span class="bk-p">59%</span></div><div class="bk-t" title="Atlanta Hawks · now 8-6 · projected 41-41 · playoffs 56% · title 0.0%"><span class="bk-sd">8</span><span class="bk-ab">ATL</span><span class="bk-rc">41-41</span><span class="bk-p"></span></div></div><div class="bk-pi"><div class="bk-pi-label">9 vs 10</div><div class="bk-t is-fav" title="Toronto Raptors · now 5-8 · projected 40-42 · playoffs 50% · title 0.0%"><span class="bk-sd">9</span><span class="bk-ab">TOR</span><span class="bk-rc">40-42</span><span class="bk-p">57%</span></div><div class="bk-t" title="Charlotte Hornets · now 4-9 · projected 38-44 · playoffs 33% · title 0.0%"><span class="bk-sd">10</span><span class="bk-ab">CHA</span><span class="bk-rc">38-44</span><span class="bk-p"></span></div></div><div class="bk-pi"><div class="bk-pi-label">Loser 7/8 vs winner 9/10 · for the 8 seed</div><div class="bk-t is-fav" title="Atlanta Hawks · now 8-6 · projected 41-41 · playoffs 56% · title 0.0%"><span class="bk-sd">8</span><span class="bk-ab">ATL</span><span class="bk-rc">41-41</span><span class="bk-p">54%</span></div><div class="bk-t" title="Toronto Raptors · now 5-8 · projected 40-42 · playoffs 50% · title 0.0%"><span class="bk-sd">9</span><span class="bk-ab">TOR</span><span class="bk-rc">40-42</span><span class="bk-p"></span></div></div></div></div></div>
+  <p class="bk-note">Records are projected final records. Hover a team for its current record and odds. Higher seed has home court
+  (2-2-1-1-1); in the Finals the better projected record does. The model trails the betting market on single games this season,
+  so read this as the model&#x27;s view, not a forecast to bet on.</p>
+</div>
 </div>
 
 <footer>
@@ -1592,5 +1693,16 @@
   <p><strong>Disclaimer.</strong> Personal research project. Predictions are not financial advice.</p>
 </footer>
 
+<script>
+(function () {
+  function show() {
+    var v = location.hash === "#/bracket" ? "bracket" : "picks";
+    document.querySelectorAll(".view").forEach(function (el) { el.hidden = el.dataset.view !== v; });
+    document.querySelectorAll(".tab").forEach(function (a) { a.classList.toggle("on", a.dataset.v === v); });
+  }
+  window.addEventListener("hashchange", function () { show(); window.scrollTo(0, 0); });
+  show();
+})();
+</script>
 </body>
 </html>
